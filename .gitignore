@@ -1,0 +1,5 @@
+# python virtual environment
+cotw-env/
+
+# KATE editor 
+*.kate-swp
