@@ -9,7 +9,7 @@
 - Resources
 
 ---
-## Introduction to the Python-Flask Container
+## Introduction to the Python-Flask Container :wave:
 
 Today, we are going to be slimming a simple app housed in a container we built from the base Python 3.X image and leverageing Flask, one of the most common web microframeworks available. We build a basic sample app that merely takes a request url and returns a basic JSON response. This is a common pattern for building RESTful APIs and putting them in a container for repeatability and scalability. 
 
@@ -18,7 +18,7 @@ Like REST APIs, Flask is starting to lose some favor to more recent API approach
 ### TL;DR: 
 In this example, our basic Flask REST API application using the Python official image weighs in at **895 MB** and contains **323 vulnerabilities** (according to security scan experts at [Snyk.io](https://www.snyk.io)), including 27 high-severity issues. Our slimmed container provides the same REST app, but is just **48 MB** and has **ZERO** vulnerabilities .
 
-#### Results Summary 
+#### Results Summary :chart_with_upwards_trend:
 | Test | Original Image | Slim Image | Improvement | 
 |----- | ----- | ---- | ---- | 
 | Size | 895 MB | 48 MB | 18.7X |
@@ -29,16 +29,13 @@ In this example, our basic Flask REST API application using the Python official 
 
 
 
-## About the Container: 
+## About the Container 🤔
 
 - **Base Image:** Python 3.8 Official
 - **Key Frameworks and Libraries:** Flask 
 - **Base Image Size:** 885 MB
 - ['Slim.AI Profile'](https://portal.slim.dev/home/xray/dockerhub%3A%2F%2Fdockerhub.public%2Flibrary%2Fpython%3Alatest)
-- **Common Use Cases:**
--- RESTful APIs
--- Lightweight web apps
--- Web prototypes
+- **Common Use Cases:** RESTful APIs, lightweight web apps, web prototypes
 
 ## Our Sample App 
 We want a basic Dockerized "request and response" API that servers a simple JSON message when it is working correctly. 
@@ -158,7 +155,7 @@ CONTAINER ID   IMAGE               COMMAND                CREATED          STATU
 
 As expected, visiting `http://0.0.0.0:1300/` returns the success message as it did locally, only now it's coming from the running container, not a local application! 
 
-# Slimming The Image 
+# Slimming The Image :mechanical_arm:
 To begin slimming the image, we want to keep in mind the following considerations for a web application--style of container. 
 
 - The container should still run as expected when slimmed. This may be obvious, but proper testing of the final container is critical. 
@@ -208,7 +205,7 @@ docker-slim build --target cotw-python-flask
 
 The image builds after a brief pause for the HTTP probe. Since our image is a web app, DockerSlim's default behavior is to scan ports to stimulate the container during the build and understand what parts of the image are being activated and which are never used. 
 
-## Results
+## Results :raised_hands:
 First, the image builds successfully, so that's good news. We can use `docker images` to see the new slim image, denoted by the `.slim` suffix. 
 
 ```bash
@@ -308,7 +305,7 @@ The slimmed container has **zero vulnerabilties**. Zero. :mic drop:
 
 
 --- 
-Slim Block
+Join our [Slim.AI Community](https://community.slim.ai).
 
 
 
