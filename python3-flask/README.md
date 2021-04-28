@@ -1,5 +1,5 @@
 
-# Container of the Week: Python-Flask-Nginx
+# Container of the Week: Python-Flask
 
 - Intro
 - About the container
