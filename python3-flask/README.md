@@ -6,11 +6,7 @@ title: Container of the Week: Python-Flask-Nginx
 - Intro
 - About the container
 - Our Sample App 
-- Building the Dockerfile
-- Slimming Process
--- Inspect the container (using XRay or Slim Portal) 
--- Run Profile see simulate the build process
--- Run Build with key flags 
+- Slimming the Image
 - Results
 - Resources
 
@@ -23,16 +19,16 @@ Like REST APIs, Flask is starting to lose some favor to more recent API approach
 In our research, a basic Flask application can weight in at close to 1 GB container if just "taken off the shelf". Given the basic nature of most Flask apps, this might not be a big deal if you have ordered your Docker build well, but is still unnecessarily large. In our trial, we were able to slim the image to a mere 33 MB :eyes:. Let's look at what we did. 
 
 # About the Container: 
-## Metadata
-> **Base Image:** Python 3.8 Official
-> **Key Frameworks and Libraries:** Flask 
-> **Base Image Size:** 885 MB
-> ['Slim.AI Profile'](https://portal.slim.dev/home/xray/dockerhub%3A%2F%2Fdockerhub.public%2Flibrary%2Fpython%3Alatest)
 
-Common Use Cases:
-- RESTful APIs
-- Lightweight web apps
-- Web prototypes
+- Metadata
+- **Base Image:** Python 3.8 Official
+- **Key Frameworks and Libraries:** Flask 
+- **Base Image Size:** 885 MB
+- ['Slim.AI Profile'](https://portal.slim.dev/home/xray/dockerhub%3A%2F%2Fdockerhub.public%2Flibrary%2Fpython%3Alatest)
+- **Common Use Cases:**
+-- RESTful APIs
+-- Lightweight web apps
+-- Web prototypes
 
 # Our Sample App 
 We want a basic Dockerized "request and response" API that servers a simple JSON message when it is working correctly. 
