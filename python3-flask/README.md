@@ -16,9 +16,9 @@ Today, we are going to be slimming a simple app housed in a container we built f
 Like REST APIs, Flask is starting to lose some favor to more recent API approaches leveraging GraphQL, but make no mistake, REST and Flask aren't going anywhere so long as JSON data remains a valuable interchange. Flask is also so quick and easy to set up, it makes for a great prototyping tool, or can even be used for lightweight web applications. Other frameworks -- notably Django (for Python enthusiasts) or Node.JS (for Javascripters) -- are considered more robust for full-scale development, though Flask proponents will hotly debate this.  
 
 ### TL;DR: 
-In this example, our basic Flask REST API application using the Python official image weighs in at **895 MB** and containers **323 vulnerabilities**, including 27 high-severity issues. Our slimmed container provides the same REST app, but is just **48 MB** and has **ZERO** vulnerabilities (according to security scan experts Snyk.io).
+In this example, our basic Flask REST API application using the Python official image weighs in at **895 MB** and contains **323 vulnerabilities** (according to security scan experts at [Snyk.io](https://www.snyk.io)), including 27 high-severity issues. Our slimmed container provides the same REST app, but is just **48 MB** and has **ZERO** vulnerabilities .
 
-## Results Summary 
+#### Results Summary 
 | Test | Original Image | Slim Image | Improvement | 
 |----- | ----- | ---- | ---- | 
 | Size | 895 MB | 48 MB | 18.7X |
