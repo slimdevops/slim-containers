@@ -13,9 +13,21 @@
 
 Today, we are going to be slimming a simple app housed in a container we built from the base Python 3.X image and leverageing Flask, one of the most common web microframeworks available. We build a basic sample app that merely takes a request url and returns a basic JSON response. This is a common pattern for building RESTful APIs and putting them in a container for repeatability and scalability. 
 
-Like REST APIs, Flask is starting to lose some favor to more recent API approaches leveraging GraphQL, but make no mistake, REST and Flask aren't going anywhere so long as JSON data remains a valuable interchange. Flask is also so quick and easy to set up, it makes for a great prototyping tool or even can be used for lightweight web applications. While other frameworks -- notably Django (for Python enthusiasts) or Node.JS (for Javascripters) -- are considered more robust for full-scale development. (Flask proponents, like myself, will hotly debate this!) 
+Like REST APIs, Flask is starting to lose some favor to more recent API approaches leveraging GraphQL, but make no mistake, REST and Flask aren't going anywhere so long as JSON data remains a valuable interchange. Flask is also so quick and easy to set up, it makes for a great prototyping tool, or can even be used for lightweight web applications. Other frameworks -- notably Django (for Python enthusiasts) or Node.JS (for Javascripters) -- are considered more robust for full-scale development, though Flask proponents will hotly debate this.  
 
-In our research, a basic Flask application can weight in at close to 1 GB container if just "taken off the shelf". Given the basic nature of most Flask apps, this might not be a big deal if you have ordered your Docker build well, but is still unnecessarily large. In our trial, we were able to slim the image to a mere 33 MB :eyes:. Let's look at what we did. 
+### TL;DR: 
+In this example, our basic Flask REST API application using the Python official image weighs in at **895 MB** and containers **323 vulnerabilities**, including 27 high-severity issues. Our slimmed container provides the same REST app, but is just **48 MB** and has **ZERO** vulnerabilities (according to security scan experts Snyk.io).
+
+## Results Summary 
+| Test | Original Image | Slim Image | Improvement | 
+|----- | ----- | ---- | ---- | 
+| Size | 895 MB | 48 MB | 18.7X |
+| Total vulernabilities (using Snyk.io) | 323 | 0 | inf | 
+| High-severity vulernabilities (using Snyk.io) | 27 | 0 | inf | 
+| Time to Push to Docker Hub | 8m18s | 0m45s | 11X | 
+| Time to Scan with Snyk | 1m38s | 0m56s | 1.75X | 
+
+
 
 ## About the Container: 
 
@@ -61,9 +73,7 @@ if __name__ == "__main__":
     
 ```
 
-We cheat a little and use Flask's built-in `jsonify` function to return clean JSON, and we turn on the `DEBUG` flag so that Flask will be noisy as it runs and automatically restart when new changes appear. This is more useful for local development, but 
-
-**Specific to Docker**, we want to make sure that `host` is set to `0.0.0.0`. **This is a common failure mode in Dockerizing Python-Flask applications.** We'll get more into **IP addresses** and **port forwarding** in a later article, but basically you can think of this as use telling Flask to talk to the Docker container's protocols, rather than the traditional `127.0.0.1` that you see in local Flask development. Further, we use port `1300` merely for example purposes. It will help show how Docker handles HTTP ports and also how DockerSlim probes and reports on open ports. 
+We cheat a little and use Flask's built-in `jsonify` function to return clean JSON, and we turn on the `DEBUG` flag so that Flask will be noisy as it runs and automatically restart when new changes appear. This is more useful for local development. **Specific to Docker**, we want to make sure that `host` is set to `0.0.0.0`. **This is a common failure mode in Dockerizing Python-Flask applications.** We'll get more into **IP addresses** and **port forwarding** in a later article, but basically you can think of this as use telling Flask to talk to the Docker container's protocols, rather than the traditional `127.0.0.1` that you see in local Flask development. Further, we use port `1300` merely for example purposes. It will help show how Docker handles HTTP ports and also how DockerSlim probes and reports on open ports. 
 
 You can run the application locally with `python app.py` and visiting `0.0.0.0:1300` in your browser. It should return the response `msg: "Success!"` in JSON format. 
 
@@ -295,12 +305,7 @@ Platform:          linux/amd64
 The slimmed container has **zero vulnerabilties**. Zero. :mic drop: 
 
 
-## Results Summary 
-| Test | Original Image | Slim Image | Improvement | 
-|----- | ----- | ---- | ---- | 
-| Size | 895 MB | 48 MB | 18.7X |
-| Time to Push to Docker Hub | 8m18s | 0m45s | xx% | 
-| Time to Scan with Snyk | 1m38s | 0m56s | xx% | 
+
 
 --- 
 Slim Block
