@@ -19,7 +19,6 @@ In our research, a basic Flask application can weight in at close to 1 GB contai
 
 ## About the Container: 
 
-- Metadata
 - **Base Image:** Python 3.8 Official
 - **Key Frameworks and Libraries:** Flask 
 - **Base Image Size:** 885 MB
