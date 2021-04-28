@@ -1,7 +1,5 @@
---
-title: Container of the Week: Python-Flask-Nginx
 
---
+# Container of the Week: Python-Flask-Nginx
 
 - Intro
 - About the container
@@ -10,7 +8,8 @@ title: Container of the Week: Python-Flask-Nginx
 - Results
 - Resources
 
-# Introduction to the Python-Flask Container
+---
+## Introduction to the Python-Flask Container
 
 Today, we are going to be slimming a simple app housed in a container we built from the base Python 3.X image and leverageing Flask, one of the most common web microframeworks available. We build a basic sample app that merely takes a request url and returns a basic JSON response. This is a common pattern for building RESTful APIs and putting them in a container for repeatability and scalability. 
 
@@ -18,7 +17,7 @@ Like REST APIs, Flask is starting to lose some favor to more recent API approach
 
 In our research, a basic Flask application can weight in at close to 1 GB container if just "taken off the shelf". Given the basic nature of most Flask apps, this might not be a big deal if you have ordered your Docker build well, but is still unnecessarily large. In our trial, we were able to slim the image to a mere 33 MB :eyes:. Let's look at what we did. 
 
-# About the Container: 
+## About the Container: 
 
 - Metadata
 - **Base Image:** Python 3.8 Official
@@ -30,10 +29,10 @@ In our research, a basic Flask application can weight in at close to 1 GB contai
 -- Lightweight web apps
 -- Web prototypes
 
-# Our Sample App 
+## Our Sample App 
 We want a basic Dockerized "request and response" API that servers a simple JSON message when it is working correctly. 
 
-## Application
+### Application
 Project structure
 
 ```bash
@@ -69,7 +68,7 @@ We cheat a little and use Flask's built-in `jsonify` function to return clean JS
 
 You can run the application locally with `python app.py` and visiting `0.0.0.0:1300` in your browser. It should return the response `msg: "Success!"` in JSON format. 
 
-## Requirements.txt
+### Requirements.txt
 The Python package manager is going to want a `requirements.txt` file to know which libraries to install for our app. The easy thing to do is to run `pip freeze > requirements.txt` in your `/app` directory. However, this is going to dump any and all libraries from your virtual environment into the image. DockerSlim will do its best to eliminate unneeded dependencies, but we can also just explicitly state which packages we want and let pip figure out the dependencies on build. 
 
 ```python
@@ -77,7 +76,7 @@ The Python package manager is going to want a `requirements.txt` file to know wh
 Flask
 ```
 
-## Dockerfile
+### Dockerfile
 Now we Dockerize the app with a few basic commands. 
 
 We're going to use the base Python image in this application. With 1B+ downloads from Docker Hub, it is one of the world's most popular starting points for Docker development, and readily available on any Container Registry (Docker Hub, Amazon ECR, Quay, GCR, etc). 
@@ -191,7 +190,7 @@ This is more of an FYI, but as you work with images and containers more, you may
 cmd=xray info=image id='sha256:75a3a2837473f0a60cfbc4fa33e1216006845c1627b17f0c7cdfa5b1a9c0c7f6' size.bytes='895317823' size.human='895 MB' 
 ```
 
-## Using Docker Build to Slim the image
+### Using Docker Build to Slim the image
 Since this app is pretty simple, doesn't have a ton of dependencies or complex operating system functions, and is of a reasonable layer size (11 total layers) and construction, we can feel fairly confident just using the `docker-slim build` command to create the slim image. We'll get into more complex images, flags, and tweaks in later examples. For now, let's slim it! If you're unsure about your container, you can use the `profile` command instead, which simulates the build but doesn't actually create a `.slim` version. 
 
 ```bash
@@ -200,7 +199,7 @@ docker-slim build --target cotw-python-flask
 
 The image builds after a brief pause for the HTTP probe. Since our image is a web app, DockerSlim's default behavior is to scan ports to stimulate the container during the build and understand what parts of the image are being activated and which are never used. 
 
-# Results
+## Results
 First, the image builds successfully, so that's good news. We can use `docker images` to see the new slim image, denoted by the `.slim` suffix. 
 
 ```bash
