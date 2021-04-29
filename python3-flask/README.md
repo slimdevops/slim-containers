@@ -254,7 +254,7 @@ cmd=build info=results status='MINIFIED' by='18.71X' size.original='895 MB' size
 
 From an `895 MB` original image to a `48 MB` final image. This type of **18.71X** minification is a typical result for a web app using DockerSlim. 
 
-And is it more secure? Well, DockerSlim has output but [AppArmor](link) and [SecComp](link) profiles to a `tmp` directory (you can specify a directory in the build arugments). 
+And is it more secure? Well, DockerSlim has output but [AppArmor](https://apparmor.com/)) and [SecComp](https://docs.docker.com/engine/security/seccomp/) profiles to a `tmp` directory (you can specify a directory in the build arugments). 
 
 ```bash
 cmd=build info=results artifacts.location='/tmp/docker-slim-state/.docker-slim-state/images/75a3a2837473f0a60cfbc4fa33e1216006845c1627b17f0c7cdfa5b1a9c0c7f6/artifacts' 
@@ -299,10 +299,9 @@ Platform:          linux/amd64
 ```
 
 
-The slimmed container has **zero vulnerabilties**. Zero. :mic drop: 
+The slimmed container has **zero vulnerabilties**. Zero. 
 
-
-
+![eyebrows.gif]
 
 --- 
 Join our [Slim.AI Community](https://community.slim.ai).
