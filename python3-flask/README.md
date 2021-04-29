@@ -301,7 +301,7 @@ Platform:          linux/amd64
 
 The slimmed container has **zero vulnerabilties**. Zero. 
 
-![/images/eyebrows.gif]
+![](/images/eyebrows.gif)
 
 --- 
 Join our [Slim.AI Community](https://community.slim.ai).
