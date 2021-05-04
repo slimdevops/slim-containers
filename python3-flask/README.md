@@ -1,12 +1,11 @@
 
 # Container of the Week: Python-Flask
 
-- Intro
-- About the container
-- Our Sample App 
-- Slimming the Image
-- Results
-- Resources
+- [Intro](#introduction-to-the-python-flask-container-wave)
+- [About the container](#about-the-container-thinking)
+- [Our Sample App](#our-sample-app)
+- [Slimming the Image](#slimming-the-image-mechanical_arm)
+- [Results](#results-raised_hands)
 
 ---
 ## Introduction to the Python-Flask Container :wave:
@@ -29,7 +28,7 @@ In this example, our basic Flask REST API application using the Python official 
 
 
 
-## About the Container 🤔
+## About the Container :thinking:
 
 - **Base Image:** Python 3.8 Official
 - **Key Frameworks and Libraries:** Flask 
@@ -38,10 +37,10 @@ In this example, our basic Flask REST API application using the Python official 
 - **Common Use Cases:** RESTful APIs, lightweight web apps, web prototypes
 
 ## Our Sample App 
-We want a basic Dockerized "request and response" API that servers a simple JSON message when it is working correctly. 
+> When building the app, it's useful to have a **[virtual environment](https://docs.python.org/3/tutorial/venv.html)** set up in your local development space, and have that folder included in your `.gitignore` file if you are putting planning to use the project via version control. These elements are outside the scope of this article, but join us on [Discord](https://discord.gg/Ec9mSHFk) if you struggle to get this running locally. 
 
-### Application
-Project structure
+We want a basic Dockerized "request and response" API that servers a simple JSON message when it is working correctly. To start, we'll set up our project directory to look like the following: 
+
 
 ```bash
 Dockerfile
@@ -51,9 +50,7 @@ README.md
 |- requirements.txt
 ```
 
-> When building the app, it's useful to have a **virtual environment** set up in your local development space, and have that folder included in your `.gitignore` file if you are putting planning to use the project via version control. These elements are outside the scope of this article, but join us on Discord if you are struggling to get this running locally. 
-
-We build a very simple (and I mean, really simple) Flask API that merely returns a JSON message if successful. Otherwise, it fails horribly. 
+We build a very simple (and I mean, really simple) Flask API that merely returns a JSON message if successful. It doesn't do anything when it fails. 
 
 ```python
 from flask import Flask, jsonify
@@ -70,12 +67,16 @@ if __name__ == "__main__":
     
 ```
 
-We cheat a little and use Flask's built-in `jsonify` function to return clean JSON, and we turn on the `DEBUG` flag so that Flask will be noisy as it runs and automatically restart when new changes appear. This is more useful for local development. **Specific to Docker**, we want to make sure that `host` is set to `0.0.0.0`. **This is a common failure mode in Dockerizing Python-Flask applications.** We'll get more into **IP addresses** and **port forwarding** in a later article, but basically you can think of this as use telling Flask to talk to the Docker container's protocols, rather than the traditional `127.0.0.1` that you see in local Flask development. Further, we use port `1300` merely for example purposes. It will help show how Docker handles HTTP ports and also how DockerSlim probes and reports on open ports. 
+We cheat a little and use Flask's built-in `jsonify` function to return clean JSON, and we turn on the `debug=true` flag so that Flask will be noisy as it runs and automatically restart when new changes appear. This is more useful for local development. 
+
+**A common failure mode in Dockerized Flask apps is not setting the port.** We want to make sure that `host` is set to `0.0.0.0`. We'll get more into IP addresses and port forwarding in a later article, but for now you can think of this as telling Flask to talk to the Docker container's protocols, rather than the traditional `127.0.0.1` that youo might be accomosted to in local Flask development. 
+
+Further, we use port `1300` merely for example purposes. It will help show how Docker handles HTTP ports and also how DockerSlim probes and reports on open ports. There isn't anything magic about port 1300, just that it isn't commonly used by other stuff. 
 
 You can run the application locally with `python app.py` and visiting `0.0.0.0:1300` in your browser. It should return the response `msg: "Success!"` in JSON format. 
 
 ### Requirements.txt
-The Python package manager is going to want a `requirements.txt` file to know which libraries to install for our app. The easy thing to do is to run `pip freeze > requirements.txt` in your `/app` directory. However, this is going to dump any and all libraries from your virtual environment into the image. DockerSlim will do its best to eliminate unneeded dependencies, but we can also just explicitly state which packages we want and let pip figure out the dependencies on build. 
+The Python package manager is going to want a `requirements.txt` file to know which libraries to install for our app. The easy thing to do is to run `pip freeze > requirements.txt` in your `/app` directory. However, this is going to dump any and all libraries from your virtual environment into the image. **DockerSlim** will do its best to eliminate unneeded dependencies, but we can also just explicitly state which packages we want and let pip figure out the dependencies on build. 
 
 ```python
 # requirements.txt
@@ -87,21 +88,22 @@ Now we Dockerize the app with a few basic commands.
 
 We're going to use the base Python image in this application. With 1B+ downloads from Docker Hub, it is one of the world's most popular starting points for Docker development, and readily available on any Container Registry (Docker Hub, Amazon ECR, Quay, GCR, etc). 
 
-Before using the image, we can inspect it in the [Slim Web Portal](https://portal.slim.dev/home/xray/dockerhub%3A%2F%2Fdockerhub.public%2Flibrary%2Fpython%3Alatest) or by using the DockerSlim XRay command. Doing this shows us a few key things. 
+Before using the image, we can inspect it in the [Slim Web Portal](https://portal.slim.dev/home/xray/dockerhub%3A%2F%2Fdockerhub.public%2Flibrary%2Fpython%3Alatest) or by using the ```docker-slim xray``` command. Doing this shows us a few key things:
 
-1. PIP installed 
+##### Environment Variables
+![List of versions for container](../images/cotw-pythonflask-env.png)
 ``` PYTHON_PIP_VERSION	=	21.0.1 ```
 We can see that `pip`, the Python package manager, is included in the `latest` version. This will be the case with basically any image worth its salt, but it's also good practice to know what package managers and other tools are available in your container before starting. 
 
-2. Versions! 
-Being Marsha Brady-level popular among development languages, naturally there's about a million versions of this container under the flag of the Official Docker image. Some notable names include Alpine and Buster, but we'll use the plain vanilla `latest` for our exercise. 
+##### Versions
+![List of versions for container](../images/cotw-pythonflask-versions.png)
+Being Marsha Brady–popular among development languages, naturally there's about a million versions of this container under the flag of the Official Docker image. Some notable names include Alpine and Buster, but we'll use the plain vanilla `latest` for our exercise. 
 
 If you want to have the image locally, you can run `docker pull python` to have a local version, though we don't need it for this exercise. 
 
 Our basic Dockerfile looks like this: 
 
 ```
-# Dockerfile
 FROM python:latest
 
 COPY ./app /app
@@ -111,14 +113,15 @@ RUN pip install -r /app/requirements.txt
 EXPOSE 1300
 
 ENTRYPOINT ["python","/app/app.py"]
-
 ```
 
-Our `FROM` grabs the latest Python image and uses it as a base image. We are making a trade-off decision here using `latest` versus explicitly stating a version. Latest ensures any new build will use the most up-to-date image provided by the maintainer, but could lead to compatability issues in future builds if dependencies change. 
+The `FROM` command grabs the latest Python image and uses it as a base image. We are making a trade-off decision here using `latest` versus explicitly stating a version. 
+
+> Using the `latest` tag ensures any new build will use the most up-to-date image provided by the maintainer, but could lead to compatability issues in future builds if dependencies change. However, pinning your image to a specific version means you might miss critical security updates as they are patched into new versions.
 
 We then copy our current working directory into the conatiner's `/app` directory and run our `pip install` to install Flask and its dependencies. 
 
-We expose the `1300` port (see previous note) for the purpose of this example. And finally, we use the ENTRYPOINT command run the equivalent of `python /app/app.py`. A lot of people new to Docker struggle with using [ENTRYPOINT vs. CMD](https://stackoverflow.com/questions/21553353/what-is-the-difference-between-cmd-and-entrypoint-in-a-dockerfile). We use ENTRYPOINT here since we won't need to run commands from the container or shell into it. 
+We `EXPOSE` the `1300` port for the purpose of this example. And finally, we use the ENTRYPOINT command run the equivalent of `python /app/app.py`. A lot of people new to Docker struggle with using [ENTRYPOINT vs. CMD](https://stackoverflow.com/questions/21553353/what-is-the-difference-between-cmd-and-entrypoint-in-a-dockerfile). We use `ENTRYPOINT` here since we won't need to run commands from the container or shell into it. 
 
 We can build the image from our root project directory, using the `-t` flag to "tag" the image as our project name and the `.` arugment to let Docker know that the Dockerfile is in the current working directory. 
 
@@ -131,37 +134,34 @@ The output lists a bunch of package building steps and ends with a success messa
 ```bash
 Successfully built 75a3a2837473
 Successfully tagged cotw-python-flask:latest
-
 ```
 
-Fun fact: The `pip` error is referring to the version of pip installed in the container. 
-
-I can now `docker images` to see the built container: 
+We can now run `docker images` to see the built container: 
 
 ```bash
 REPOSITORY                TAG       IMAGE ID       CREATED              SIZE
 cotw-python-flask         latest    75a3a2837473   About a minute ago   895MB
 ```
 
-Note the image size is just slightly bigger than the base container, since we added Flask and it's dependencies. 
+The image size is just slightly bigger than the base container, since we added Flask and it's dependencies. 
 
-And I can use `docker run -dp 1300:1300 --name cotwcontainer cotw-python-flask` to spin up a **container** running the newly built image and run `docker ps` to see it. 
+Now, I can use `docker run` to spin up a **container** running the newly built image and run `docker ps` to see it. 
 
 ```bash
+$ docker run -dp 1300:1300 --name cotwcontainer cotw-python-flask
 CONTAINER ID   IMAGE               COMMAND                CREATED          STATUS          PORTS                                       NAMES
 4b3ddb7393d7   cotw-python-flask   "python /app/app.py"   19 seconds ago   Up 18 seconds   0.0.0.0:1300->1300/tcp, :::1300->1300/tcp   cotwcontainer
-
 ```
 
 As expected, visiting `http://0.0.0.0:1300/` returns the success message as it did locally, only now it's coming from the running container, not a local application! 
 
-# Slimming The Image :mechanical_arm:
-To begin slimming the image, we want to keep in mind the following considerations for a web application--style of container. 
+## Slimming The Image :mechanical_arm:
+To begin slimming the image, we want to keep in mind the following success criterier for a web application–style of container: 
 
 - The container should still run as expected when slimmed. This may be obvious, but proper testing of the final container is critical. 
 - The new slim container should **smaller** and **more secure** than the original. 
 
-Before we begin, we can use the DockerSlim XRay tool to examine our **image** (not, we XRay the image `cotw-python-flask`, not the running container `cotwcontainer`). 
+Before we begin, we can use the DockerSlim XRay tool to examine our **image** (note, we XRay the image `cotw-python-flask`, not the running container `cotwcontainer`). 
 
 ```bash
 docker-slim xray --target cotw-python-flask:latest
@@ -169,7 +169,7 @@ docker-slim xray --target cotw-python-flask:latest
 
 DockerSlim will output several rows of information, including a detailed breakdown of Layers, Instructions, and Files. While much of this information is more interesting for container authors and maintainers, there are a few things to highlight in the output:
 
-1. Layer Construction
+##### Layer Construction
 In our Layer readout, we can see that `app.py` and the pip dependencies are installed in Layers 9 and 10, the penultimate layers in the construction. This is expected, but also great news for the container's build time. We want items that are likely to change frequently -- like our app file -- to be added in the later stages to take advantage of Docker's [layer caching](https://www.slim.ai/blog/what-s-in-your-container) mechanisms. If we were making frequent updates to our `app.py` but not adding a lot of dependencies via `requirements.txt`, we might consider decoupling the `COPY` and `RUN pip...` commands to make the `app.py` layer come last. Doing so may create _more_ layers, however, which isn't good for build time, so we will leave as is for now. 
 
 ```bash
@@ -182,22 +182,22 @@ cmd=xray info=change.instruction snippet='RUN pip install -r /app/requirements.t
 # installation of Flask dependencies such as Werkzeug, etc
 ```
 
-2. Exposed Ports
+##### Exposed Ports
 From a security perspective, we knew -- or at least hoped! -- that port `1300` would be exposed, since we explicitly asked Docker to do that. But in this XRay scan, we can see that no additional ports are exposed in the image, which is a good sign and largely expected from images based on massively popular, official images. More specialized community or hand-tooled images can carry more risk, so this is always good to verify. 
 
 ```bash
 cmd=xray info=image.exposed_ports list='1300' 
 ```
 
-3. Image Metadata
+##### Image Metadata
 This is more of an FYI, but as you work with images and containers more, you may key in on image data more often. Here, DockerSlim XRay prints out the sha256 (each image has their own signature), along with the image size. 
 
 ```bash
 cmd=xray info=image id='sha256:75a3a2837473f0a60cfbc4fa33e1216006845c1627b17f0c7cdfa5b1a9c0c7f6' size.bytes='895317823' size.human='895 MB' 
 ```
 
-### Using Docker Build to Slim the image
-Since this app is pretty simple, doesn't have a ton of dependencies or complex operating system functions, and is of a reasonable layer size (11 total layers) and construction, we can feel fairly confident just using the `docker-slim build` command to create the slim image. We'll get into more complex images, flags, and tweaks in later examples. For now, let's slim it! If you're unsure about your container, you can use the `profile` command instead, which simulates the build but doesn't actually create a `.slim` version. 
+#### Using Docker Build to Slim the image
+Since this app is pretty simple, doesn't have a ton of dependencies or complex operating system functions, and is of a reasonable layer size (11 total layers) and construction, we can feel fairly confident just using the `docker-slim build` command to create the slim image. We'll get into more complex images, flags, and tweaks in later examples. For now, let's slim it! If you're unsure about your container, you can use the `profile` command instead, which simulates the build but doesn't actually create a new image. 
 
 ```bash
 docker-slim build --target cotw-python-flask
@@ -216,15 +216,13 @@ cotw-python-flask         latest    75a3a2837473   23 hours ago    895MB
 
 Now let's walk through our "success criteria" set out of above. 
 
-### Does the container run? 
-We need to be a little careful here. Note that we've created a new _image_ not a new _container_ (yet). We need to `docker run` the new slim image to make a new container. And, unless you are meticulous about cleaning up running containers, the original container may still be running. So simply testing `0.0.0.0:1300` in your browser gives a false negative. You see the success message, but **that's from the old container!** And if we try running a similar command to what we did last time, we'll get an error. 
-W00t! 
+#### Does the container run? 
+We need to be a little careful here. Note that we've created a new _image_ not a new _container_ (yet). We need to `docker run` the new slim image to make a new container. And, unless you are meticulous about cleaning up running containers, the original container may still be running. So simply testing `0.0.0.0:1300` in your browser gives a false negative. You see the success message, **but that's from the old container!** And if we try running a similar command to what we did last time, we'll get an error:
 
 ```bash
 $ docker run -dp 1300:1300 --name cotw-container-slim cotw-python-flask.slim
 2e0906e0656a167a827997dc6f7f17fc81c3cf9af170f9c235bc006c663a5312
 docker: Error response from daemon: driver failed programming external connectivity on endpoint cotw-container-slim (592538bce275b2dad732d3420c982ab70b8f34cf5e719ce1f2005b4be8a4f366): Bind for 0.0.0.0:1300 failed: port is already allocated.
-
 ```
 
 You can use `docker ps -a` and `docker rm` to clean up your containers. Note that even on failed runs, docker will create a container of the name specified even if it is not running. 
@@ -243,9 +241,11 @@ CONTAINER ID   IMAGE                    COMMAND                CREATED         S
 4787ad6d9f1e   cotw-python-flask.slim   "python /app/app.py"   6 seconds ago   Up 5 seconds   0.0.0.0:1300->1300/tcp, :::1300->1300/tcp   cotw-container-slim
 ```
 
-Hitting `0.0.0.0:1300` in our browser confirms the `Success!` message. :party: 
+Hitting `0.0.0.0:1300` in our browser confirms the `Success!` message. :party:
 
-### Is the container _smaller_ and _more secure_
+![It's Alive](../images/itsalive.gif)
+
+#### Is the container _smaller_ and _more secure_?
 With our basic example here, the first part of this is easy to see, and was helpfully output by DockerSlim during the build process. 
 
 ```bash
@@ -301,7 +301,9 @@ Platform:          linux/amd64
 
 The slimmed container has **zero vulnerabilties**. Zero. 
 
-![](/images/eyebrows.gif)
+![Eyebrows Raised](/images/eyebrows.gif)
+
+And that is slimming a very, _very_ basic Flask app. We'll extend this example to more complex use cases soon. Check out the Twitch readout of this article on [Twitch.tv/SlimDevops](https://twitch.tv/slimdevops). 
 
 --- 
 Join our [Slim.AI Community](https://community.slim.ai).
