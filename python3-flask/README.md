@@ -92,6 +92,7 @@ Before using the image, we can inspect it in the [Slim Web Portal](https://porta
 
 ##### Environment Variables
 ![List of versions for container](../images/cotw-pythonflask-env.png)
+
 ``` PYTHON_PIP_VERSION	=	21.0.1 ```
 We can see that `pip`, the Python package manager, is included in the `latest` version. This will be the case with basically any image worth its salt, but it's also good practice to know what package managers and other tools are available in your container before starting. 
 
