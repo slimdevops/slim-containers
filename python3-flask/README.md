@@ -97,6 +97,7 @@ We can see that `pip`, the Python package manager, is included in the `latest` v
 
 ##### Versions
 ![List of versions for container](../images/cotw-pythonflask-versions.png)
+
 Being Marsha Brady–popular among development languages, naturally there's about a million versions of this container under the flag of the Official Docker image. Some notable names include Alpine and Buster, but we'll use the plain vanilla `latest` for our exercise. 
 
 If you want to have the image locally, you can run `docker pull python` to have a local version, though we don't need it for this exercise. 
@@ -301,25 +302,9 @@ Platform:          linux/amd64
 
 The slimmed container has **zero vulnerabilties**. Zero. 
 
-![Eyebrows Raised](/images/eyebrows.gif)
+![Eyebrows Raised](/images/micdrop.gif)
 
 And that is slimming a very, _very_ basic Flask app. We'll extend this example to more complex use cases soon. Check out the Twitch readout of this article on [Twitch.tv/SlimDevops](https://twitch.tv/slimdevops). 
 
 --- 
 Join our [Slim.AI Community](https://community.slim.ai).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
