@@ -4,3 +4,6 @@ cotw-env/
 # KATE editor 
 *.kate-swp
 template.md
+
+.DS_Store
+.gitignore
