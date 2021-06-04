@@ -1,5 +1,5 @@
 ![slim.ai logo](/images/cover_2.jpg)
-# Conatiner of the Week from Slim.AI
+# Container of the Week from Slim.AI
 This repository collects code samples, articles, and more information about the Slim.AI weekly series. 
 
 Each week, we optimize a new flavor of container — from popular web frameworks like Node, Django, and Flask to data science-y applications in R and Python to specialized home game servers like Minecraft. 
