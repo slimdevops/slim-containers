@@ -1,0 +1,15 @@
+^renv$
+^renv\.lock$
+^.*\.Rproj$
+^\.Rproj\.user$
+^data-raw$
+dev_history.R
+^dev$
+$run_dev.*
+^README\.Rmd$
+^CODE_OF_CONDUCT\.md$
+^\.devcontainer$
+^prototyping$
+^app\.R$
+^rsconnect$
+^Dockerfile$

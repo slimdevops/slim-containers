@@ -1,0 +1,10 @@
+data
+data-raw
+inst
+man
+R
+app.R
+DESCRIPTION
+NAMESPACE
+NEWS.md
+README.md

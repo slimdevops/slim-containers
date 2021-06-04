@@ -1,0 +1,7 @@
+.Rprofile
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+renv.lock
+prototyping/

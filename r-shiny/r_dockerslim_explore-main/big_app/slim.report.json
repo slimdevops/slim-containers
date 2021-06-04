@@ -1,0 +1,716 @@
+{
+  "version": "1.0",
+  "engine": "linux|Transformer|1.35.0|6eca3ad331720c31a7e398ffaf002a896dc9a70a|2021-04-15_02:48:03AM",
+  "containerized": false,
+  "host_distro": {
+    "name": "Ubuntu",
+    "version": "20.04",
+    "display_name": "Ubuntu 20.04.2 LTS"
+  },
+  "type": "build",
+  "state": "done",
+  "target_reference": "my/sample-shiny-app",
+  "system": {
+    "type": "Linux",
+    "release": "5.8.0-50-generic",
+    "distro": {
+      "name": "Ubuntu",
+      "version": "20.04",
+      "display_name": "Ubuntu 20.04.1 LTS"
+    }
+  },
+  "source_image": {
+    "identity": {
+      "id": "sha256:3274609d489b299ce91336882813bf85677a34b49bcd632fe7545508867a49ad",
+      "tags": [
+        "latest"
+      ],
+      "names": [
+        "my/sample-shiny-app:latest"
+      ]
+    },
+    "size": 1571474845,
+    "size_human": "1.6 GB",
+    "create_time": "2021-04-22T00:49:35Z",
+    "docker_version": "20.10.2",
+    "architecture": "amd64",
+    "exposed_ports": [
+      "80/tcp"
+    ],
+    "os": "linux",
+    "labels": {
+      "maintainer": "Carl Boettiger <cboettig@ropensci.org>",
+      "org.label-schema.license": "GPL-2.0",
+      "org.label-schema.vcs-url": "https://github.com/rocker-org/rocker-versioned",
+      "org.label-schema.vendor": "Rocker Project"
+    },
+    "env_vars": [
+      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "R_VERSION=4.0.3",
+      "TERM=xterm",
+      "LC_ALL=en_US.UTF-8",
+      "LANG=en_US.UTF-8",
+      "R_HOME=/usr/local/lib/R",
+      "CRAN=https://packagemanager.rstudio.com/all/__linux__/focal/latest",
+      "TZ=Etc/UTC"
+    ]
+  },
+  "minified_image_size": 197878274,
+  "minified_image_size_human": "198 MB",
+  "minified_image": "my/sample-shiny-app.slim",
+  "minified_image_has_data": true,
+  "minified_by": 7.941623975353656,
+  "artifact_location": "/home/eric/bin/.docker-slim-state/images/3274609d489b299ce91336882813bf85677a34b49bcd632fe7545508867a49ad/artifacts",
+  "container_report_name": "creport.json",
+  "seccomp_profile_name": "my-sample-shiny-app-seccomp.json",
+  "apparmor_profile_name": "my-sample-shiny-app-apparmor-profile",
+  "image_stack": [
+    {
+      "is_top_image": false,
+      "id": "sha256:d41c9c91818926810ffbf2d49cea5661f95d2adff6a720b26169cac9bb61a36b",
+      "full_name": "rocker/r-ver:4.0.3",
+      "repo_name": "rocker/r-ver",
+      "version_tag": "4.0.3",
+      "raw_tags": [
+        "rocker/r-ver:4.0.3"
+      ],
+      "create_time": "2020-12-07T19:02:04Z",
+      "new_size": 811862022,
+      "new_size_human": "812 MB",
+      "instructions": [
+        {
+          "type": "ADD",
+          "time": "2020-11-25T22:25:26Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 72894511,
+          "size_human": "73 MB",
+          "params": "file:4f15c4475fbafb3fe335e415e3ea1ac416c34af911fcdfe273c5759438aa8eb4 in /",
+          "command_snippet": "ADD file:4f15c4475fbafb3fe335e415e3ea1ac416c...",
+          "command_all": "ADD file:4f15c4475fbafb3fe335e415e3ea1ac416c34af911fcdfe273c5759438aa8eb4 /",
+          "target": "/",
+          "source_type": "file"
+        },
+        {
+          "type": "RUN",
+          "time": "2020-11-25T22:25:27Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 811,
+          "size_human": "811 B",
+          "command_snippet": "RUN set -xe && \\\n\techo '#!/bin/sh' > /usr/sb...",
+          "command_all": "RUN set -xe && \\\n\techo '#!/bin/sh' > /usr/sbin/policy-rc.d && \\\n\techo 'exit 101' >> /usr/sbin/policy-rc.d && \\\n\tchmod +x /usr/sbin/policy-rc.d && \\\n\tdpkg-divert --local --rename --add /sbin/initctl && \\\n\tcp -a /usr/sbin/policy-rc.d /sbin/initctl && \\\n\tsed -i 's/^exit.*/exit 0/' /sbin/initctl && \\\n\techo 'force-unsafe-io' > /etc/dpkg/dpkg.cfg.d/docker-apt-speedup && \\\n\techo 'DPkg::Post-Invoke { \"rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin || true\"; };' > /etc/apt/apt.conf.d/docker-clean && \\\n\techo 'APT::Update::Post-Invoke { \"rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin || true\"; };' >> /etc/apt/apt.conf.d/docker-clean && \\\n\techo 'Dir::Cache::pkgcache \"\"; Dir::Cache::srcpkgcache \"\";' >> /etc/apt/apt.conf.d/docker-clean && \\\n\techo 'Acquire::Languages \"none\";' > /etc/apt/apt.conf.d/docker-no-languages && \\\n\techo 'Acquire::GzipIndexes \"true\"; Acquire::CompressionTypes::Order:: \"gz\";' > /etc/apt/apt.conf.d/docker-gzip-indexes && \\\n\techo 'Apt::AutoRemove::SuggestsImportant \"false\";' > /etc/apt/apt.conf.d/docker-autoremove-suggests",
+          "system_commands": [
+            "set -xe",
+            "echo '#!/bin/sh' > /usr/sbin/policy-rc.d",
+            "echo 'exit 101' >> /usr/sbin/policy-rc.d",
+            "chmod +x /usr/sbin/policy-rc.d",
+            "dpkg-divert --local --rename --add /sbin/initctl",
+            "cp -a /usr/sbin/policy-rc.d /sbin/initctl",
+            "sed -i 's/^exit.*/exit 0/' /sbin/initctl",
+            "echo 'force-unsafe-io' > /etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+            "echo 'DPkg::Post-Invoke { \"rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin || true\"; };' > /etc/apt/apt.conf.d/docker-clean",
+            "echo 'APT::Update::Post-Invoke { \"rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin || true\"; };' >> /etc/apt/apt.conf.d/docker-clean",
+            "echo 'Dir::Cache::pkgcache \"\"; Dir::Cache::srcpkgcache \"\";' >> /etc/apt/apt.conf.d/docker-clean",
+            "echo 'Acquire::Languages \"none\";' > /etc/apt/apt.conf.d/docker-no-languages",
+            "echo 'Acquire::GzipIndexes \"true\"; Acquire::CompressionTypes::Order:: \"gz\";' > /etc/apt/apt.conf.d/docker-gzip-indexes",
+            "echo 'Apt::AutoRemove::SuggestsImportant \"false\";' > /etc/apt/apt.conf.d/docker-autoremove-suggests"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2020-11-25T22:25:28Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [ -z \"$(apt-get indextargets)\" ]",
+          "command_all": "RUN [ -z \"$(apt-get indextargets)\" ]",
+          "system_commands": [
+            "[ -z \"$(apt-get indextargets)\" ]"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2020-11-25T22:25:29Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 7,
+          "size_human": "7 B",
+          "command_snippet": "RUN mkdir -p /run/systemd && \\\n\techo 'docker...",
+          "command_all": "RUN mkdir -p /run/systemd && \\\n\techo 'docker' > /run/systemd/container",
+          "system_commands": [
+            "mkdir -p /run/systemd",
+            "echo 'docker' > /run/systemd/container"
+          ]
+        },
+        {
+          "type": "CMD",
+          "time": "2020-11-25T22:25:29Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"/bin/bash\"]",
+          "command_snippet": "CMD [\"/bin/bash\"]",
+          "command_all": "CMD [\"/bin/bash\"]"
+        },
+        {
+          "type": "LABEL",
+          "time": "2020-12-07T18:47:21Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "org.label-schema.license=GPL-2.0 org.label-schema.vcs-url=https://github.com/rocker-org/rocker-versioned org.label-schema.vendor=Rocker Project maintainer=Carl Boettiger <cboettig@ropensci.org>",
+          "command_snippet": "LABEL org.label-schema.license=GPL-2.0 org.l...",
+          "command_all": "LABEL org.label-schema.license=GPL-2.0 org.label-schema.vcs-url=https://github.com/rocker-org/rocker-versioned org.label-schema.vendor=Rocker Project maintainer=Carl Boettiger <cboettig@ropensci.org>"
+        },
+        {
+          "type": "ENV",
+          "time": "2020-12-07T18:47:21Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "R_VERSION=4.0.3",
+          "command_snippet": "ENV R_VERSION=4.0.3",
+          "command_all": "ENV R_VERSION=4.0.3"
+        },
+        {
+          "type": "ENV",
+          "time": "2020-12-07T18:47:22Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "TERM=xterm",
+          "command_snippet": "ENV TERM=xterm",
+          "command_all": "ENV TERM=xterm"
+        },
+        {
+          "type": "ENV",
+          "time": "2020-12-07T18:47:23Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "LC_ALL=en_US.UTF-8",
+          "command_snippet": "ENV LC_ALL=en_US.UTF-8",
+          "command_all": "ENV LC_ALL=en_US.UTF-8"
+        },
+        {
+          "type": "ENV",
+          "time": "2020-12-07T18:47:24Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "LANG=en_US.UTF-8",
+          "command_snippet": "ENV LANG=en_US.UTF-8",
+          "command_all": "ENV LANG=en_US.UTF-8"
+        },
+        {
+          "type": "ENV",
+          "time": "2020-12-07T18:47:25Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "R_HOME=/usr/local/lib/R",
+          "command_snippet": "ENV R_HOME=/usr/local/lib/R",
+          "command_all": "ENV R_HOME=/usr/local/lib/R"
+        },
+        {
+          "type": "ENV",
+          "time": "2020-12-07T18:47:26Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "CRAN=https://packagemanager.rstudio.com/all/__linux__/focal/latest",
+          "command_snippet": "ENV CRAN=https://packagemanager.rstudio.com/...",
+          "command_all": "ENV CRAN=https://packagemanager.rstudio.com/all/__linux__/focal/latest"
+        },
+        {
+          "type": "ENV",
+          "time": "2020-12-07T18:47:27Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "TZ=Etc/UTC",
+          "command_snippet": "ENV TZ=Etc/UTC",
+          "command_all": "ENV TZ=Etc/UTC"
+        },
+        {
+          "type": "COPY",
+          "time": "2020-12-07T18:47:29Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 58881,
+          "size_human": "59 kB",
+          "params": "dir:750fae98343ff7f8cf6fea06e81310f8ccfd6bd4dc4e45f63a51e2b62c5617bb in /rocker_scripts",
+          "command_snippet": "COPY dir:750fae98343ff7f8cf6fea06e81310f8ccf...",
+          "command_all": "COPY dir:750fae98343ff7f8cf6fea06e81310f8ccfd6bd4dc4e45f63a51e2b62c5617bb /rocker_scripts",
+          "target": "/rocker_scripts",
+          "source_type": "dir"
+        },
+        {
+          "type": "RUN",
+          "time": "2020-12-07T19:01:54Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 738907812,
+          "size_human": "739 MB",
+          "command_snippet": "RUN /rocker_scripts/install_R.sh",
+          "command_all": "RUN /rocker_scripts/install_R.sh",
+          "system_commands": [
+            "/rocker_scripts/install_R.sh"
+          ]
+        },
+        {
+          "type": "CMD",
+          "time": "2020-12-07T19:02:04Z",
+          "is_last_instruction": true,
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"R\"]",
+          "command_snippet": "CMD [\"R\"]",
+          "command_all": "CMD [\"R\"]",
+          "raw_tags": [
+            "rocker/r-ver:4.0.3"
+          ]
+        }
+      ]
+    },
+    {
+      "is_top_image": true,
+      "id": "sha256:3274609d489b299ce91336882813bf85677a34b49bcd632fe7545508867a49ad",
+      "full_name": "my/sample-shiny-app:latest",
+      "repo_name": "my/sample-shiny-app",
+      "version_tag": "latest",
+      "raw_tags": [
+        "my/sample-shiny-app:latest"
+      ],
+      "create_time": "2021-04-22T00:49:35Z",
+      "new_size": 759612823,
+      "new_size_human": "760 MB",
+      "base_image_id": "sha256:d41c9c91818926810ffbf2d49cea5661f95d2adff6a720b26169cac9bb61a36b",
+      "instructions": [
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:17:09Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:c723a10e125b57b8cc29074eb72df2c3258c81343ecbe686618250b3717f4c68",
+          "layer_index": 0,
+          "size": 390759120,
+          "size_human": "391 MB",
+          "command_snippet": "RUN apt-get update && \\\n\tapt-get install -y ...",
+          "command_all": "RUN apt-get update && \\\n\tapt-get install -y  git-core libcurl4-openssl-dev libgit2-dev libicu-dev libssl-dev libxml2-dev make pandoc pandoc-citeproc && \\\n\trm -rf /var/lib/apt/lists/*",
+          "system_commands": [
+            "apt-get update",
+            "apt-get install -y  git-core libcurl4-openssl-dev libgit2-dev libicu-dev libssl-dev libxml2-dev make pandoc pandoc-citeproc",
+            "rm -rf /var/lib/apt/lists/*"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:17:12Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:7a92778b4b863728abf2815c5d9a6c459796518acde43c51ddc9b8870bbcb9a5",
+          "layer_index": 0,
+          "size": 391,
+          "size_human": "391 B",
+          "command_snippet": "RUN echo \"options(repos = c(CRAN = 'https://...",
+          "command_all": "RUN echo \"options(repos = c(CRAN = 'https://cran.rstudio.com/'), download.file.method = 'libcurl')\" >> /usr/local/lib/R/etc/Rprofile.site",
+          "system_commands": [
+            "echo \"options(repos = c(CRAN = 'https://cran.rstudio.com/'), download.file.method = 'libcurl')\" >> /usr/local/lib/R/etc/Rprofile.site"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:17:23Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:df10bf1155ab799c9b7b4508ddf1195703ad4875c7202f063e1cc2367e59015d",
+          "layer_index": 0,
+          "size": 563241,
+          "size_human": "563 kB",
+          "command_snippet": "RUN R -e 'install.packages(\"remotes\")'",
+          "command_all": "RUN R -e 'install.packages(\"remotes\")'",
+          "system_commands": [
+            "R -e 'install.packages(\"remotes\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:17:33Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:ecd9e80fb5d412c7ed1a6380e45215a1d5b736c94ed61a693b1a1b62262f6472",
+          "layer_index": 0,
+          "size": 289748,
+          "size_human": "290 kB",
+          "command_snippet": "RUN R -e 'remotes::install_github(\"r-lib/rem...",
+          "command_all": "RUN R -e 'remotes::install_github(\"r-lib/remotes\", ref = \"97bbf81\")'",
+          "system_commands": [
+            "R -e 'remotes::install_github(\"r-lib/remotes\", ref = \"97bbf81\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:18:07Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:5d1637eaebb0ec77982b9afd0bee8ca1290de406973fc26e98636b17b0c58e05",
+          "layer_index": 0,
+          "size": 3799095,
+          "size_human": "3.8 MB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_version(\"ht...",
+          "command_all": "RUN Rscript -e 'remotes::install_version(\"htmltools\",upgrade=\"never\", version = \"0.5.1.1\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_version(\"htmltools\",upgrade=\"never\", version = \"0.5.1.1\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:18:17Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:e9ec0aa004d1a4584c029af1c9974ab209c4843e7d08d4785edcd9cb9fa0cace",
+          "layer_index": 0,
+          "size": 401826,
+          "size_human": "402 kB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_version(\"ma...",
+          "command_all": "RUN Rscript -e 'remotes::install_version(\"magrittr\",upgrade=\"never\", version = \"2.0.1\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_version(\"magrittr\",upgrade=\"never\", version = \"2.0.1\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:18:30Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:8d2bac5197199a78c6abb6e4c5669564a308a89a2d605b579075f228ef621e7d",
+          "layer_index": 0,
+          "size": 623094,
+          "size_human": "623 kB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_version(\"pu...",
+          "command_all": "RUN Rscript -e 'remotes::install_version(\"purrr\",upgrade=\"never\", version = \"0.3.4\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_version(\"purrr\",upgrade=\"never\", version = \"0.3.4\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:18:44Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:557fc1a7bfb19b589e238bb0fe76355311e8eed1460612e39608caea98eee992",
+          "layer_index": 0,
+          "size": 233878,
+          "size_human": "234 kB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_version(\"gl...",
+          "command_all": "RUN Rscript -e 'remotes::install_version(\"glue\",upgrade=\"never\", version = \"1.4.2\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_version(\"glue\",upgrade=\"never\", version = \"1.4.2\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:19:38Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:7114f9481a71fc8b69d00ac44f92e9a59d53cd600c7b15aa03fce1b6babc06e2",
+          "layer_index": 0,
+          "size": 1849203,
+          "size_human": "1.8 MB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_version(\"fs...",
+          "command_all": "RUN Rscript -e 'remotes::install_version(\"fs\",upgrade=\"never\", version = \"1.5.0\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_version(\"fs\",upgrade=\"never\", version = \"1.5.0\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:20:51Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:cc81230d92c744a92b4808e05712579a8fd1c6675f807ad2a526533e2352fa6a",
+          "layer_index": 0,
+          "size": 4752467,
+          "size_human": "4.8 MB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_version(\"pk...",
+          "command_all": "RUN Rscript -e 'remotes::install_version(\"pkgload\",upgrade=\"never\", version = \"1.1.0\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_version(\"pkgload\",upgrade=\"never\", version = \"1.1.0\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:22:11Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:9ebb98beffb3d4265d2ab4577e3aa71a88b1ec8d2846804b4dbc6cce47bcb060",
+          "layer_index": 0,
+          "size": 11593522,
+          "size_human": "12 MB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_version(\"dp...",
+          "command_all": "RUN Rscript -e 'remotes::install_version(\"dplyr\",upgrade=\"never\", version = \"1.0.3\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_version(\"dplyr\",upgrade=\"never\", version = \"1.0.3\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:30:00Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:8e0124fd1bdf5565fab9c0b11e901d644929b1abd340e9d3b91f335466b9386a",
+          "layer_index": 0,
+          "size": 196241944,
+          "size_human": "196 MB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_version(\"sh...",
+          "command_all": "RUN Rscript -e 'remotes::install_version(\"shiny\",upgrade=\"never\", version = \"1.6.0\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_version(\"shiny\",upgrade=\"never\", version = \"1.6.0\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:30:16Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:05ecfb7f5c0d663ed92de56fb69ee98f8590df0219e0efa3ce8f011eeb6269c1",
+          "layer_index": 0,
+          "size": 902769,
+          "size_human": "903 kB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_version(\"co...",
+          "command_all": "RUN Rscript -e 'remotes::install_version(\"config\",upgrade=\"never\", version = \"0.3.1\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_version(\"config\",upgrade=\"never\", version = \"0.3.1\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:30:34Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:cd0942be61d0fc690c9fca856432f2f3633e245374866aca7f3f2ba7b8659bb1",
+          "layer_index": 0,
+          "size": 3075787,
+          "size_human": "3.1 MB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_version(\"re...",
+          "command_all": "RUN Rscript -e 'remotes::install_version(\"reactable\",upgrade=\"never\", version = \"0.2.3\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_version(\"reactable\",upgrade=\"never\", version = \"0.2.3\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:30:58Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:6e0dbf1534e483f0fa6658754e7de81aa4daf07d383a54cd38978c8c09dc384d",
+          "layer_index": 0,
+          "size": 2863795,
+          "size_human": "2.9 MB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_version(\"ti...",
+          "command_all": "RUN Rscript -e 'remotes::install_version(\"tidyr\",upgrade=\"never\", version = \"1.1.2\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_version(\"tidyr\",upgrade=\"never\", version = \"1.1.2\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:31:10Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:22a2685109dd1b516aa07b2dd07e4e646629bc802015b900dff7236922047a78",
+          "layer_index": 0,
+          "size": 1524651,
+          "size_human": "1.5 MB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_version(\"sh...",
+          "command_all": "RUN Rscript -e 'remotes::install_version(\"shinyjs\",upgrade=\"never\", version = \"2.0.0\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_version(\"shinyjs\",upgrade=\"never\", version = \"2.0.0\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:31:24Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:4c90711fffadb33ab01d05aba6b67396cbdc11347a8c17df3056d651cd038f0d",
+          "layer_index": 0,
+          "size": 3304074,
+          "size_human": "3.3 MB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_version(\"sh...",
+          "command_all": "RUN Rscript -e 'remotes::install_version(\"shinyWidgets\",upgrade=\"never\", version = \"0.5.4\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_version(\"shinyWidgets\",upgrade=\"never\", version = \"0.5.4\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:31:58Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:2457c7bc398c4a767c04f1460f248fe3fc98f6121d3cd6a22f7a7042aa6f050f",
+          "layer_index": 0,
+          "size": 5119593,
+          "size_human": "5.1 MB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_version(\"lu...",
+          "command_all": "RUN Rscript -e 'remotes::install_version(\"lubridate\",upgrade=\"never\", version = \"1.7.9.2\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_version(\"lubridate\",upgrade=\"never\", version = \"1.7.9.2\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:32:24Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:21d561e16a0c4ec380015d015648345803d77072439b0e1219d62d81493e89bf",
+          "layer_index": 0,
+          "size": 5841000,
+          "size_human": "5.8 MB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_version(\"sl...",
+          "command_all": "RUN Rscript -e 'remotes::install_version(\"slickR\",upgrade=\"never\", version = \"0.5.0\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_version(\"slickR\",upgrade=\"never\", version = \"0.5.0\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:36:52Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:30270e5683c16e3491e7c74eb0fccce25080415e3d60d861741c86c3788641a6",
+          "layer_index": 0,
+          "size": 45497087,
+          "size_human": "46 MB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_version(\"go...",
+          "command_all": "RUN Rscript -e 'remotes::install_version(\"golem\",upgrade=\"never\", version = \"0.2.1\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_version(\"golem\",upgrade=\"never\", version = \"0.2.1\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:37:09Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:019a6d350e3ceebc09f605e6d7eb4e58460b8157b1b616631c62032d5b258e0d",
+          "layer_index": 0,
+          "size": 59765,
+          "size_human": "60 kB",
+          "command_snippet": "RUN Rscript -e 'remotes::install_github(\"Col...",
+          "command_all": "RUN Rscript -e 'remotes::install_github(\"ColinFay/glouton@1c49d32466816fa12f5052f49090cea6bb56c990\")'",
+          "system_commands": [
+            "Rscript -e 'remotes::install_github(\"ColinFay/glouton@1c49d32466816fa12f5052f49090cea6bb56c990\")'"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:37:14Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:e8f2bb6f02f80430b363838dabc4afaacbf88fab955bf6f096e5eebc5503afea",
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN mkdir /build_zone",
+          "command_all": "RUN mkdir /build_zone",
+          "system_commands": [
+            "mkdir /build_zone"
+          ]
+        },
+        {
+          "type": "ADD",
+          "time": "2021-04-22T00:49:05Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:9a72da763e0dc5ea54d24b3f375d9c3f117bd1dead4e9a98f9e30a7644df4dfa",
+          "layer_index": 0,
+          "size": 54318390,
+          "size_human": "54 MB",
+          "params": "dir:a82923a45e028ef686c491a482d6a6296eafd449ed3c7b2b5b83eb2fe25b3fd7 in /build_zone",
+          "command_snippet": "ADD dir:a82923a45e028ef686c491a482d6a6296eaf...",
+          "command_all": "ADD dir:a82923a45e028ef686c491a482d6a6296eafd449ed3c7b2b5b83eb2fe25b3fd7 /build_zone",
+          "target": "/build_zone",
+          "source_type": "dir"
+        },
+        {
+          "type": "WORKDIR",
+          "time": "2021-04-22T00:49:08Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:9d8c943d6fe1682e72eeb5dbbe6be2c4a29135908244b85703ac3c99eef85319",
+          "layer_index": 0,
+          "size": 0,
+          "params": "/build_zone",
+          "command_snippet": "WORKDIR /build_zone",
+          "command_all": "WORKDIR /build_zone",
+          "system_commands": [
+            "mkdir -p /build_zone"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-22T00:49:28Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:7cbeaa0840a721c628b2a22840f00202a4acff8733c344afd33951dfac12bfa9",
+          "layer_index": 0,
+          "size": 25998383,
+          "size_human": "26 MB",
+          "command_snippet": "RUN R -e 'remotes::install_local(upgrade=\"ne...",
+          "command_all": "RUN R -e 'remotes::install_local(upgrade=\"never\")'",
+          "system_commands": [
+            "R -e 'remotes::install_local(upgrade=\"never\")'"
+          ]
+        },
+        {
+          "type": "EXPOSE",
+          "time": "2021-04-22T00:49:31Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:bfa9b3652bea8aa6c19ab2c6e1e9479c6d0b2b39cac5c463e56758d6cedf41cd",
+          "layer_index": 0,
+          "size": 0,
+          "params": "80",
+          "command_snippet": "EXPOSE 80",
+          "command_all": "EXPOSE 80"
+        },
+        {
+          "type": "CMD",
+          "time": "2021-04-22T00:49:35Z",
+          "is_last_instruction": true,
+          "is_nop": true,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 0,
+          "params": "R -e \\\"options('shiny.port'=80,shiny.host='0.0.0.0');hotshots.random::run_app()\\\"",
+          "command_snippet": "CMD R -e \\\"options('shiny.port'=80,shiny.hos...",
+          "command_all": "CMD R -e \\\"options('shiny.port'=80,shiny.host='0.0.0.0');hotshots.random::run_app()\\\"",
+          "raw_tags": [
+            "my/sample-shiny-app:latest"
+          ]
+        }
+      ]
+    }
+  ]
+}

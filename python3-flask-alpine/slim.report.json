@@ -1,0 +1,430 @@
+{
+  "version": "1.0",
+  "engine": "linux|Transformer|1.35.1|89ddd87f009dd1e7cbd66a5494e5956c3c093edc|2021-04-27_07:10:07PM",
+  "containerized": false,
+  "host_distro": {
+    "name": "Ubuntu",
+    "version": "18.04",
+    "display_name": "Ubuntu 18.04.5 LTS"
+  },
+  "type": "build",
+  "state": "done",
+  "target_reference": "slimpsv/cotw-python-flask",
+  "system": {
+    "type": "Linux",
+    "release": "5.4.0-72-generic",
+    "distro": {
+      "name": "Debian GNU/Linux",
+      "version": "10",
+      "display_name": "Debian GNU/Linux 10 (buster)"
+    }
+  },
+  "source_image": {
+    "identity": {
+      "id": "sha256:059d858fdfee65c083938dff367d7a7673f23a09b93b9f4d34dac3280973e29b",
+      "tags": [
+        "latest"
+      ],
+      "names": [
+        "slimpsv/cotw-python-flask:latest"
+      ]
+    },
+    "size": 895317823,
+    "size_human": "895 MB",
+    "create_time": "2021-04-27T14:07:46Z",
+    "docker_version": "20.10.6",
+    "architecture": "amd64",
+    "exposed_ports": [
+      "1300/tcp"
+    ],
+    "os": "linux",
+    "env_vars": [
+      "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "LANG=C.UTF-8",
+      "GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568",
+      "PYTHON_VERSION=3.9.4",
+      "PYTHON_PIP_VERSION=21.0.1",
+      "PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/29f37dbe6b3842ccd52d61816a3044173962ebeb/public/get-pip.py",
+      "PYTHON_GET_PIP_SHA256=e03eb8a33d3b441ff484c56a436ff10680479d4bd14e59268e67977ed40904de"
+    ]
+  },
+  "minified_image_size": 47841889,
+  "minified_image_size_human": "48 MB",
+  "minified_image": "slimpsv/cotw-python-flask.slim",
+  "minified_image_has_data": true,
+  "minified_by": 18.714098496403434,
+  "artifact_location": "/tmp/docker-slim-state/.docker-slim-state/images/059d858fdfee65c083938dff367d7a7673f23a09b93b9f4d34dac3280973e29b/artifacts",
+  "container_report_name": "creport.json",
+  "seccomp_profile_name": "slimpsv-cotw-python-flask-seccomp.json",
+  "apparmor_profile_name": "slimpsv-cotw-python-flask-apparmor-profile",
+  "image_stack": [
+    {
+      "is_top_image": false,
+      "id": "sha256:49e3c70d884f2640959e0392c03f5352d852e673a28dca3b16d2d9c400149906",
+      "full_name": "python:latest",
+      "repo_name": "python",
+      "version_tag": "latest",
+      "raw_tags": [
+        "python:latest"
+      ],
+      "create_time": "2021-04-10T15:32:17Z",
+      "new_size": 885481539,
+      "new_size_human": "886 MB",
+      "instructions": [
+        {
+          "type": "ADD",
+          "time": "2021-04-10T01:20:08Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 114112682,
+          "size_human": "114 MB",
+          "params": "file:e18bc3e10e7c743f18bb8be65ec94a62c03764af7dbdb4957f9a600237730212 in /",
+          "command_snippet": "ADD file:e18bc3e10e7c743f18bb8be65ec94a62c03...",
+          "command_all": "ADD file:e18bc3e10e7c743f18bb8be65ec94a62c03764af7dbdb4957f9a600237730212 /",
+          "target": "/",
+          "source_type": "file"
+        },
+        {
+          "type": "CMD",
+          "time": "2021-04-10T01:20:09Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"bash\"]",
+          "command_snippet": "CMD [\"bash\"]",
+          "command_all": "CMD [\"bash\"]"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-10T01:54:22Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 16512585,
+          "size_human": "16 MB",
+          "command_snippet": "RUN set -eux; \tapt-get update; \tapt-get inst...",
+          "command_all": "RUN set -eux; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tca-certificates \t\tcurl \t\tnetbase \t\twget \t; \trm -rf /var/lib/apt/lists/*",
+          "system_commands": [
+            "set -eux",
+            "apt-get update",
+            "apt-get install -y --no-install-recommends ca-certificates curl netbase wget",
+            "rm -rf /var/lib/apt/lists/*"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-10T01:54:27Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 17537042,
+          "size_human": "18 MB",
+          "command_snippet": "RUN set -ex; \tif ! command -v gpg > /dev/nul...",
+          "command_all": "RUN set -ex; \tif ! command -v gpg > /dev/null; then \t\tapt-get update; \t\tapt-get install -y --no-install-recommends \t\t\tgnupg \t\t\tdirmngr \t\t; \t\trm -rf /var/lib/apt/lists/*; \tfi",
+          "system_commands": [
+            "set -ex",
+            "if ! command -v gpg > /dev/null",
+            "then apt-get update",
+            "apt-get install -y --no-install-recommends gnupg dirmngr",
+            "rm -rf /var/lib/apt/lists/*",
+            "fi"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-10T01:54:45Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 145541246,
+          "size_human": "146 MB",
+          "command_snippet": "RUN apt-get update && \\\n\tapt-get install -y ...",
+          "command_all": "RUN apt-get update && \\\n\tapt-get install -y --no-install-recommends \t\tgit \t\tmercurial \t\topenssh-client \t\tsubversion \t\t\t\tprocps && \\\n\trm -rf /var/lib/apt/lists/*",
+          "system_commands": [
+            "apt-get update",
+            "apt-get install -y --no-install-recommends git mercurial openssh-client subversion procps",
+            "rm -rf /var/lib/apt/lists/*"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-10T01:55:31Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 510044700,
+          "size_human": "510 MB",
+          "command_snippet": "RUN set -ex; \tapt-get update; \tapt-get insta...",
+          "command_all": "RUN set -ex; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tautoconf \t\tautomake \t\tbzip2 \t\tdpkg-dev \t\tfile \t\tg++ \t\tgcc \t\timagemagick \t\tlibbz2-dev \t\tlibc6-dev \t\tlibcurl4-openssl-dev \t\tlibdb-dev \t\tlibevent-dev \t\tlibffi-dev \t\tlibgdbm-dev \t\tlibglib2.0-dev \t\tlibgmp-dev \t\tlibjpeg-dev \t\tlibkrb5-dev \t\tliblzma-dev \t\tlibmagickcore-dev \t\tlibmagickwand-dev \t\tlibmaxminddb-dev \t\tlibncurses5-dev \t\tlibncursesw5-dev \t\tlibpng-dev \t\tlibpq-dev \t\tlibreadline-dev \t\tlibsqlite3-dev \t\tlibssl-dev \t\tlibtool \t\tlibwebp-dev \t\tlibxml2-dev \t\tlibxslt-dev \t\tlibyaml-dev \t\tmake \t\tpatch \t\tunzip \t\txz-utils \t\tzlib1g-dev \t\t\t\t$( \t\t\tif apt-cache show 'default-libmysqlclient-dev' 2>/dev/null | grep -q '^Version:'; then \t\t\t\techo 'default-libmysqlclient-dev'; \t\t\telse \t\t\t\techo 'libmysqlclient-dev'; \t\t\tfi \t\t) \t; \trm -rf /var/lib/apt/lists/*",
+          "system_commands": [
+            "set -ex",
+            "apt-get update",
+            "apt-get install -y --no-install-recommends autoconf automake bzip2 dpkg-dev file g++ gcc imagemagick libbz2-dev libc6-dev libcurl4-openssl-dev libdb-dev libevent-dev libffi-dev libgdbm-dev libglib2.0-dev libgmp-dev libjpeg-dev libkrb5-dev liblzma-dev libmagickcore-dev libmagickwand-dev libmaxminddb-dev libncurses5-dev libncursesw5-dev libpng-dev libpq-dev libreadline-dev libsqlite3-dev libssl-dev libtool libwebp-dev libxml2-dev libxslt-dev libyaml-dev make patch unzip xz-utils zlib1g-dev $( if apt-cache show 'default-libmysqlclient-dev' 2>/dev/null | grep -q '^Version:'",
+            "then echo 'default-libmysqlclient-dev'",
+            "else echo 'libmysqlclient-dev'",
+            "fi )",
+            "rm -rf /var/lib/apt/lists/*"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2021-04-10T15:07:34Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "command_snippet": "ENV PATH=/usr/local/bin:/usr/local/sbin:/usr...",
+          "command_all": "ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+        },
+        {
+          "type": "ENV",
+          "time": "2021-04-10T15:07:34Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "LANG=C.UTF-8",
+          "command_snippet": "ENV LANG=C.UTF-8",
+          "command_all": "ENV LANG=C.UTF-8"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-10T15:07:40Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 17953036,
+          "size_human": "18 MB",
+          "command_snippet": "RUN apt-get update && \\\n\tapt-get install -y ...",
+          "command_all": "RUN apt-get update && \\\n\tapt-get install -y --no-install-recommends \t\tlibbluetooth-dev \t\ttk-dev \t\tuuid-dev && \\\n\trm -rf /var/lib/apt/lists/*",
+          "system_commands": [
+            "apt-get update",
+            "apt-get install -y --no-install-recommends libbluetooth-dev tk-dev uuid-dev",
+            "rm -rf /var/lib/apt/lists/*"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2021-04-10T15:24:22Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568",
+          "command_snippet": "ENV GPG_KEY=E3FF2839C048B25C084DEBE9B26995E3...",
+          "command_all": "ENV GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568"
+        },
+        {
+          "type": "ENV",
+          "time": "2021-04-10T15:24:22Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "PYTHON_VERSION=3.9.4",
+          "command_snippet": "ENV PYTHON_VERSION=3.9.4",
+          "command_all": "ENV PYTHON_VERSION=3.9.4"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-10T15:32:08Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 55767075,
+          "size_human": "56 MB",
+          "command_snippet": "RUN set -ex && \\\n\twget -O python.tar.xz \"htt...",
+          "command_all": "RUN set -ex && \\\n\twget -O python.tar.xz \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz\" && \\\n\twget -O python.tar.xz.asc \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz.asc\" && \\\n\texport GNUPGHOME=\"$(mktemp -d)\" && \\\n\tgpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$GPG_KEY\" && \\\n\tgpg --batch --verify python.tar.xz.asc python.tar.xz && \\\n\t{ command -v gpgconf > /dev/null && \\\n\tgpgconf --kill all || :; } && \\\n\trm -rf \"$GNUPGHOME\" python.tar.xz.asc && \\\n\tmkdir -p /usr/src/python && \\\n\ttar -xJC /usr/src/python --strip-components=1 -f python.tar.xz && \\\n\trm python.tar.xz && \\\n\tcd /usr/src/python && \\\n\tgnuArch=\"$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)\" && \\\n\t./configure \t\t--build=\"$gnuArch\" \t\t--enable-loadable-sqlite-extensions \t\t--enable-optimizations \t\t--enable-option-checking=fatal \t\t--enable-shared \t\t--with-system-expat \t\t--with-system-ffi \t\t--without-ensurepip && \\\n\tmake -j \"$(nproc)\" && \\\n\tmake install && \\\n\trm -rf /usr/src/python && \\\n\tfind /usr/local -depth \t\t\\( \t\t\t\\( -type d -a \\( -name test -o -name tests -o -name idle_test \\) \\) \t\t\t-o \\( -type f -a \\( -name '*.pyc' -o -name '*.pyo' -o -name '*.a' \\) \\) \t\t\\) -exec rm -rf '{}' + && \\\n\tldconfig && \\\n\tpython3 --version",
+          "system_commands": [
+            "set -ex",
+            "wget -O python.tar.xz \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz\"",
+            "wget -O python.tar.xz.asc \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz.asc\"",
+            "export GNUPGHOME=\"$(mktemp -d)\"",
+            "gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$GPG_KEY\"",
+            "gpg --batch --verify python.tar.xz.asc python.tar.xz",
+            "{ command -v gpgconf > /dev/null",
+            "gpgconf --kill all || :; }",
+            "rm -rf \"$GNUPGHOME\" python.tar.xz.asc",
+            "mkdir -p /usr/src/python",
+            "tar -xJC /usr/src/python --strip-components=1 -f python.tar.xz",
+            "rm python.tar.xz",
+            "cd /usr/src/python",
+            "gnuArch=\"$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)\"",
+            "./configure --build=\"$gnuArch\" --enable-loadable-sqlite-extensions --enable-optimizations --enable-option-checking=fatal --enable-shared --with-system-expat --with-system-ffi --without-ensurepip",
+            "make -j \"$(nproc)\"",
+            "make install",
+            "rm -rf /usr/src/python",
+            "find /usr/local -depth ( ( -type d -a ( -name test -o -name tests -o -name idle_test ) ) -o ( -type f -a ( -name '*.pyc' -o -name '*.pyo' -o -name '*.a' ) ) ) -exec rm -rf '{}' +",
+            "ldconfig",
+            "python3 --version"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-10T15:32:09Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 32,
+          "size_human": "32 B",
+          "command_snippet": "RUN cd /usr/local/bin && \\\n\tln -s idle3 idle...",
+          "command_all": "RUN cd /usr/local/bin && \\\n\tln -s idle3 idle && \\\n\tln -s pydoc3 pydoc && \\\n\tln -s python3 python && \\\n\tln -s python3-config python-config",
+          "system_commands": [
+            "cd /usr/local/bin",
+            "ln -s idle3 idle",
+            "ln -s pydoc3 pydoc",
+            "ln -s python3 python",
+            "ln -s python3-config python-config"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2021-04-10T15:32:10Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "PYTHON_PIP_VERSION=21.0.1",
+          "command_snippet": "ENV PYTHON_PIP_VERSION=21.0.1",
+          "command_all": "ENV PYTHON_PIP_VERSION=21.0.1"
+        },
+        {
+          "type": "ENV",
+          "time": "2021-04-10T15:32:10Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/29f37dbe6b3842ccd52d61816a3044173962ebeb/public/get-pip.py",
+          "command_snippet": "ENV PYTHON_GET_PIP_URL=https://github.com/py...",
+          "command_all": "ENV PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/29f37dbe6b3842ccd52d61816a3044173962ebeb/public/get-pip.py"
+        },
+        {
+          "type": "ENV",
+          "time": "2021-04-10T15:32:10Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "PYTHON_GET_PIP_SHA256=e03eb8a33d3b441ff484c56a436ff10680479d4bd14e59268e67977ed40904de",
+          "command_snippet": "ENV PYTHON_GET_PIP_SHA256=e03eb8a33d3b441ff4...",
+          "command_all": "ENV PYTHON_GET_PIP_SHA256=e03eb8a33d3b441ff484c56a436ff10680479d4bd14e59268e67977ed40904de"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-10T15:32:16Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 8013141,
+          "size_human": "8.0 MB",
+          "command_snippet": "RUN set -ex; \t\twget -O get-pip.py \"$PYTHON_G...",
+          "command_all": "RUN set -ex; \t\twget -O get-pip.py \"$PYTHON_GET_PIP_URL\"; \techo \"$PYTHON_GET_PIP_SHA256 *get-pip.py\" | sha256sum --check --strict -; \t\tpython get-pip.py \t\t--disable-pip-version-check \t\t--no-cache-dir \t\t\"pip==$PYTHON_PIP_VERSION\" \t; \tpip --version; \t\tfind /usr/local -depth \t\t\\( \t\t\t\\( -type d -a \\( -name test -o -name tests -o -name idle_test \\) \\) \t\t\t-o \t\t\t\\( -type f -a \\( -name '*.pyc' -o -name '*.pyo' \\) \\) \t\t\\) -exec rm -rf '{}' +; \trm -f get-pip.py",
+          "system_commands": [
+            "set -ex",
+            "wget -O get-pip.py \"$PYTHON_GET_PIP_URL\"",
+            "echo \"$PYTHON_GET_PIP_SHA256 *get-pip.py\" | sha256sum --check --strict -",
+            "python get-pip.py --disable-pip-version-check --no-cache-dir \"pip==$PYTHON_PIP_VERSION\"",
+            "pip --version",
+            "find /usr/local -depth ( ( -type d -a ( -name test -o -name tests -o -name idle_test ) ) -o ( -type f -a ( -name '*.pyc' -o -name '*.pyo' ) ) ) -exec rm -rf '{}' +",
+            "rm -f get-pip.py"
+          ]
+        },
+        {
+          "type": "CMD",
+          "time": "2021-04-10T15:32:17Z",
+          "is_last_instruction": true,
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"python3\"]",
+          "command_snippet": "CMD [\"python3\"]",
+          "command_all": "CMD [\"python3\"]",
+          "raw_tags": [
+            "python:latest"
+          ]
+        }
+      ]
+    },
+    {
+      "is_top_image": true,
+      "id": "sha256:059d858fdfee65c083938dff367d7a7673f23a09b93b9f4d34dac3280973e29b",
+      "full_name": "slimpsv/cotw-python-flask:latest",
+      "repo_name": "slimpsv/cotw-python-flask",
+      "version_tag": "latest",
+      "raw_tags": [
+        "slimpsv/cotw-python-flask:latest"
+      ],
+      "create_time": "2021-04-27T14:07:46Z",
+      "new_size": 9836284,
+      "new_size_human": "9.8 MB",
+      "base_image_id": "sha256:49e3c70d884f2640959e0392c03f5352d852e673a28dca3b16d2d9c400149906",
+      "instructions": [
+        {
+          "type": "COPY",
+          "time": "2021-04-27T14:07:41Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:4b8426a23832f9e6583d94766285a7fa694dd45a1d2943d4c9f37b2ad93e6b60",
+          "layer_index": 0,
+          "size": 356,
+          "size_human": "356 B",
+          "params": "dir:e464b50ca4c9a55a278f93b96f65d590ab72675e98b2c6abcf0b7cd4dd9815ec in /app",
+          "command_snippet": "COPY dir:e464b50ca4c9a55a278f93b96f65d590ab7...",
+          "command_all": "COPY dir:e464b50ca4c9a55a278f93b96f65d590ab72675e98b2c6abcf0b7cd4dd9815ec /app",
+          "target": "/app",
+          "source_type": "dir"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-04-27T14:07:45Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:c7792be7905127ac50360ec38f168680784f4db3cfaf48e55b41a22c2ea6c15c",
+          "layer_index": 0,
+          "size": 9835928,
+          "size_human": "9.8 MB",
+          "command_snippet": "RUN pip install -r /app/requirements.txt",
+          "command_all": "RUN pip install -r /app/requirements.txt",
+          "system_commands": [
+            "pip install -r /app/requirements.txt"
+          ]
+        },
+        {
+          "type": "EXPOSE",
+          "time": "2021-04-27T14:07:46Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:7f8993b25f24a6af4544db424bceeda1d486f9bd915460462a6266ab48877e80",
+          "layer_index": 0,
+          "size": 0,
+          "params": "1300",
+          "command_snippet": "EXPOSE 1300",
+          "command_all": "EXPOSE 1300"
+        },
+        {
+          "type": "ENTRYPOINT",
+          "time": "2021-04-27T14:07:46Z",
+          "is_last_instruction": true,
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"python\",\"/app/app.py\"]",
+          "command_snippet": "ENTRYPOINT [\"python\",\"/app/app.py\"]",
+          "command_all": "ENTRYPOINT [\"python\",\"/app/app.py\"]",
+          "raw_tags": [
+            "slimpsv/cotw-python-flask:latest"
+          ]
+        }
+      ]
+    }
+  ]
+}
