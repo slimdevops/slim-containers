@@ -7,14 +7,25 @@
   - [About the Container :thinking:](#about-the-container-thinking)
   - [Our Sample App](#our-sample-app)
     - [Dockerfile](#dockerfile)
+    - [Testing Original Container](#testing-original-container)
   - [Slimming The Image :mechanical_arm:](#slimming-the-image-mechanical_arm)
+      - [Using an include file](#using-an-include-file)
   - [Results :raised_hands:](#results-raised_hands)
     - [Success Criteria](#success-criteria)
+    - [Test Run](#test-run)
     - [Image Size](#image-size)
     - [Security Scan](#security-scan)
 
 ---
 ## Introduction :wave:
+The R progamming language grew out of statistical programming languages in the 1970s and saw it's first official release in 1995. However, the langauge spiked in popular in the early 2010s as Big Data and Machine Learning use cases became de facto business needs and AI/ML became more common in computer programming, statistics, and business courses in universities. 
+
+Today, R ranks as the 14th most popular programming language in the world, and is used by hundreds of thousands of developers and data scientsits worldwide. Modern machine learning models are fed to production via Docker containers in most cases, and those containers are notoriously large and tricky to handle. Common ML containers in R or Python will tip the scales at 2GB! The [Rocker Project](https://www.rocker-project.org/) was created by Carl Boettiger and Dirk Eddelbuettel (and is now maintained by them and Noam Ross) to give R users an easy and stable way to Dockerize their R projects. It remains the most popular R-based Docker container. Shiny is a web framework for statistical outputs based on R (for Python users, think of it as a combination of Jupyter notebook and Flask). It's great for graphs, maps, and any kind of data visualization, though can do any flavor of web development. 
+
+This example uses the Rocker base image and the Shiny framework to create a web-based GUI app that can display basic graphs. 
+
+Special thanks to Eric Nantz of the R Podcast for championing this example. 
+
 
 ### TL;DR:
 ### Results Summary :chart_with_upwards_trend:
@@ -25,6 +36,7 @@
 | Critical vulernabilities| TK | TK | TK | 
 | Time to Push | TKmTKs | TKmTKs | TK X | 
 | Time to Scan | TKmTKs | TKmTKs | TK X | 
+| Time to Build | TKmTKs | TKmTKs | TK X |
 
 ## About the Container :thinking:
 - **Base Image:** Rocker R-Ver
@@ -34,14 +46,43 @@
 - **Common Use Cases:** Data visualization, statistics, statistical programming 
 
 ## Our Sample App 
-
-
-
-
-### Dockerfile
-This Dockerfile was produced for this example by Eric Nantz of [R-podcast](https://r-podcast.org/) (thanks Eric!) and can be found at his [GitHub repo](https://github.com/rpodcast/). The build script starts with the popular Rocker R-Ver variety, makes some apt-get updates and then installs R Studio and Shiny before copying the `/service` app directory and relevant files like `app.R` into the image. It then exposes the port `7123` (common usage in Shiny applications) and runs the app using the `R` command via a Docker `ENTRYPOINT`. 
+We're using a standard `Hello World` example from the R Shiny library. Our project folder will look like this for a standard Shiny app: 
 
 ```
+hello-world
+Dockerfile
+| service
+| | app.R
+```
+The `app.R` file has a basic app built by Eric Nantz. Eric and Slim.AI Head of Community Martin Wimpress have used a version of this app in their Hot Rod Racing Twitch stream to choose a car at random. This version displays a graph with a normal distribution. 
+
+``` R 
+## app.R ##
+library(shiny)
+server <- function(input, output) {
+  output$distPlot <- renderPlot({
+    hist(rnorm(input$obs), col = 'darkgray', border = 'white')
+  })
+}
+
+ui <- fluidPage(
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("obs", "Number of observations:", min = 10, max = 500, value = 100)
+    ),
+    mainPanel(plotOutput("distPlot"))
+  )
+)
+
+obj <- shinyApp(ui = ui, server = server, options = list(host='0.0.0.0', port = 7123))
+shiny::runApp(appDir = obj, launch.browser = FALSE)
+```
+### Dockerfile
+Our Dockerfile uses the Rocker project's `r-ver` version as a base image. It installs several security updates and dependencies in the first line, then runs a command in the container to download various required libraries like R Studio, CURL, and Shiny.
+
+Finally it copies the app.R file and directory (Shiny apps need to be run out of their own directories), exposes a typical R port (7123), and runs the app via `ENTRYPOINT`. 
+
+``` Dockerfile
 FROM rocker/r-ver:4.0.3
 RUN apt-get update && apt-get install -y  git-core libcurl4-openssl-dev libgit2-dev libicu-dev libssl-dev libxml2-dev make pandoc pandoc-citeproc && rm -rf /var/lib/apt/lists/*
 
@@ -55,15 +96,40 @@ EXPOSE 7123
 ENTRYPOINT ["R","-e source('/opt/my/service/app.R')"]
 ```
 
+
 ### Testing Original Container
-``` bash
-$ docker run -dp 7123:7123 --name shiny_container johnnyslim/slimtest:r_shiny
-CONTAINER ID   IMAGE                         COMMAND                  CREATED              STATUS              PORTS                    NAMES
-6eb18cdb23f8   johnnyslim/slimtest:r_shiny   "R '-e source('/opt/…"   About a minute ago   Up About a minute   0.0.0.0:7123->7123/tcp   shiny_container
+We build the container from the `hello-world` directory (you can rename this to whatever you want) with the following command. We'll name it, per our conventions, as `cotw-rshiny-hello`. 
+
 ```
+$ docker build -t cotw-rshiny-hello .
+``` 
+
+Now, go make some coffee, find a good book, perhaps start that kitchen renovation you've been putting off, because this takes a long time. On our Threadripper-based, 64MB Linux machine, the build took 8 minutes and 13 seconds, and the base image is 1.3 GB. Pretty hefty for a "Hello World!" example. 
+
+```
+$ docker images
+REPOSITORY                       TAG       IMAGE ID       CREATED         SIZE
+cotw-rshiny-hello                latest    1b65cee157d3   2 minutes ago   1.3GB
+```
+
+On the plus side, we can test the image by running it and trying it in a browser window by visitin `localhost:7123`
+
+```
+$ docker run -dp 7123:7123 --name cotw-rshiny-hello-fat cotw-rshiny-hello 
+```
+
+And we see something that looks like... 
+
+![R Hello World app](/images/appRscreenshot.png)
+
 
 
 ## Slimming The Image :mechanical_arm:
+TK Stuff here about include paths 
+
+TK Stuff here about debugging 
+
+TK Stuff here about using the image manually 
 
 ```
 docker-slim  build --target johnnyslim/slimtest:r_shiny --show-clogs  --include-path-file 'build_recipe/r_path_includes' --publish-port 7123 --http-probe=false
