@@ -132,7 +132,7 @@ TK Stuff here about debugging
 TK Stuff here about using the image manually 
 
 ```
-docker-slim  build --target johnnyslim/slimtest:r_shiny --show-clogs  --include-path-file 'build_recipe/r_path_includes' --publish-port 7123 --http-probe=false
+docker-slim  build --target cotw-rshiny-hello --show-clogs  --include-path-file 'build_recipe/r_path_includes' --publish-port 7123 --http-probe=false
 ```
 
 #### Using an include file
