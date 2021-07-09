@@ -1,171 +1,28 @@
-# Container of the Week: R-Shiny
+# Exploring Docker Slim with R Docker containers
 
-- [Container of the Week: R-Shiny](#container-of-the-week-r-shiny)
-  - [Introduction :wave:](#introduction-wave)
-    - [TL;DR:](#tldr)
-    - [Results Summary :chart_with_upwards_trend:](#results-summary-chart_with_upwards_trend)
-  - [About the Container :thinking:](#about-the-container-thinking)
-  - [Our Sample App](#our-sample-app)
-    - [Dockerfile](#dockerfile)
-    - [Testing Original Container](#testing-original-container)
-  - [Slimming The Image :mechanical_arm:](#slimming-the-image-mechanical_arm)
-      - [Using an include file](#using-an-include-file)
-  - [Results :raised_hands:](#results-raised_hands)
-    - [Success Criteria](#success-criteria)
-    - [Test Run](#test-run)
-    - [Image Size](#image-size)
-    - [Security Scan](#security-scan)
+This repository contains explorations of using the [Docker Slim](https://github.com/docker-slim/docker-slim) project to minify Docker containers wrapping the R language for statistical computing. In the R community, containerized workflows are now becoming an important part of computing environment reproducibility, and a step forward to leveraging better software development best practices.  The [Rocker](https://www.rocker-project.org/) project is considered the standard bearer for hosting robust Docker containers enabling many workflows and capabilities of R in data science. The examples in this repository are Shiny web application,s which operates in a similar fashioin as a Python Flask or Dash application within the following subdirectories:
 
----
-## Introduction :wave:
-The R progamming language grew out of statistical programming languages in the 1970s and saw it's first official release in 1995. However, the langauge spiked in popular in the early 2010s as Big Data and Machine Learning use cases became de facto business needs and AI/ML became more common in computer programming, statistics, and business courses in universities. 
+* `small_app`: This is a very minimal Shiny application. It has been constructed to mirror as close as possible the structure of the [python2_flash_ubuntu14](https://github.com/docker-slim/examples/tree/master/python2_flask_ubuntu14) example from the Docker-Slim example repository.
+* `big_app`: This is a much bigger Shiny app that mimics real-world usage. The `Dockerfile` of the app was actually generated automatically from another R package called [`golem`](https://github.com/ThinkR-open/golem) that helps bundle the application as an actual R package.  Fun fact: This application has been used in Martin's [Linux gaming streams](https://youtu.be/ow8A68ElPp0?t=525) to help select a car at random for HotShot Racing competitions!
 
-Today, R ranks as the 14th most popular programming language in the world, and is used by hundreds of thousands of developers and data scientsits worldwide. Modern machine learning models are fed to production via Docker containers in most cases, and those containers are notoriously large and tricky to handle. Common ML containers in R or Python will tip the scales at 2GB! The [Rocker Project](https://www.rocker-project.org/) was created by Carl Boettiger and Dirk Eddelbuettel (and is now maintained by them and Noam Ross) to give R users an easy and stable way to Dockerize their R projects. It remains the most popular R-based Docker container. Shiny is a web framework for statistical outputs based on R (for Python users, think of it as a combination of Jupyter notebook and Flask). It's great for graphs, maps, and any kind of data visualization, though can do any flavor of web development. 
+## Development Notes
 
-This example uses the Rocker base image and the Shiny framework to create a web-based GUI app that can display basic graphs. 
+Here are the steps I followed to at least attempt minifying the Docker container built from the `small_app`:
 
-Special thanks to Eric Nantz of the R Podcast for championing this example. 
+1. Clone the repository and navigate to the `small_app` directory
+1. (If necessary) Install Docker on a standard Ubuntu 20.04 distribution from the standard Ubuntu repositories
+1. (If necessary) [Install Docker Slim](https://github.com/docker-slim/docker-slim#installation) on host system
+1. Build the R container in the app directory: `docker build -t my/simple-shiny-app .`
+1. Verify that the Shiny application renders correctly by visiting `localhost:7123` in your browser after running the container: `docker run -it --rm -p 7123:7123 my/simple-shiny-app` 
+1. Run Docker Slim to minify the container: `docker-slim build --copy-meta-artifacts . my/simple-shiny-app`
+1. Verify that the Shiny application renders correctly in the slimmed container by visiting `localhost:7123` in your browser after running the container: `docker run -it --rm -p 7123:7123 my/simple-shiny-app.slim` 
 
+## Current status
 
-### TL;DR:
-### Results Summary :chart_with_upwards_trend:
-| Test | Original Image | Slim Image | Improvement | 
-|----- | ----- | ---- | ---- | 
-| Size | 1.29 GB | 225 MB | 5.8X |
-| Total vulernabilities| TK | TK | TK | 
-| Critical vulernabilities| TK | TK | TK | 
-| Time to Push | TKmTKs | TKmTKs | TK X | 
-| Time to Scan | TKmTKs | TKmTKs | TK X | 
-| Time to Build | TKmTKs | TKmTKs | TK X |
-
-## About the Container :thinking:
-- **Base Image:** Rocker R-Ver
-- **Key Frameworks and Libraries:** [R](https://www.r-project.org/) / [#Rstats])https://twitter.com/hashtag/rstats), [Shiny]/(https://shiny.rstudio.com/)  
-- **Base Image Size:** 825 MB
-- **Slim.AI Profile:** ['rocker/r-ver'](https://portal.slim.dev/home/xray/dockerhub%3A%2F%2Fdockerhub.public%2Frocker%2Fr-ver%3A4.0.4)
-- **Common Use Cases:** Data visualization, statistics, statistical programming 
-
-## Our Sample App 
-We're using a standard `Hello World` example from the R Shiny library. Our project folder will look like this for a standard Shiny app: 
+The `docker-slim build` command above is able to complete a build. However, the container cannot be run correctly. The error I receive is below:
 
 ```
-hello-world
-Dockerfile
-| service
-| | app.R
-```
-The `app.R` file has a basic app built by Eric Nantz. Eric and Slim.AI Head of Community Martin Wimpress have used a version of this app in their Hot Rod Racing Twitch stream to choose a car at random. This version displays a graph with a normal distribution. 
-
-``` R 
-## app.R ##
-library(shiny)
-server <- function(input, output) {
-  output$distPlot <- renderPlot({
-    hist(rnorm(input$obs), col = 'darkgray', border = 'white')
-  })
-}
-
-ui <- fluidPage(
-  sidebarLayout(
-    sidebarPanel(
-      sliderInput("obs", "Number of observations:", min = 10, max = 500, value = 100)
-    ),
-    mainPanel(plotOutput("distPlot"))
-  )
-)
-
-obj <- shinyApp(ui = ui, server = server, options = list(host='0.0.0.0', port = 7123))
-shiny::runApp(appDir = obj, launch.browser = FALSE)
-```
-### Dockerfile
-Our Dockerfile uses the Rocker project's `r-ver` version as a base image. It installs several security updates and dependencies in the first line, then runs a command in the container to download various required libraries like R Studio, CURL, and Shiny.
-
-Finally it copies the app.R file and directory (Shiny apps need to be run out of their own directories), exposes a typical R port (7123), and runs the app via `ENTRYPOINT`. 
-
-``` Dockerfile
-FROM rocker/r-ver:4.0.3
-RUN apt-get update && apt-get install -y  git-core libcurl4-openssl-dev libgit2-dev libicu-dev libssl-dev libxml2-dev make pandoc pandoc-citeproc && rm -rf /var/lib/apt/lists/*
-
-RUN echo "options(repos = c(CRAN = 'https://cran.rstudio.com/'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site
-RUN R -e 'install.packages("shiny")'
-
-COPY service /opt/my/service
-WORKDIR /opt/my/service
-
-EXPOSE 7123
-ENTRYPOINT ["R","-e source('/opt/my/service/app.R')"]
+eric@xps9300 ~/s/hotshots.random (main)> docker run -it --rm -p 7123:80 my/sample-shiny-app.slim
+standard_init_linux.go:219: exec user process caused: no such file or directory
 ```
 
-
-### Testing Original Container
-We build the container from the `hello-world` directory (you can rename this to whatever you want) with the following command. We'll name it, per our conventions, as `cotw-rshiny-hello`. 
-
-```
-$ docker build -t cotw-rshiny-hello .
-``` 
-
-Now, go make some coffee, find a good book, perhaps start that kitchen renovation you've been putting off, because this takes a long time. On our Threadripper-based, 64MB Linux machine, the build took 8 minutes and 13 seconds, and the base image is 1.3 GB. Pretty hefty for a "Hello World!" example. 
-
-```
-$ docker images
-REPOSITORY                       TAG       IMAGE ID       CREATED         SIZE
-cotw-rshiny-hello                latest    1b65cee157d3   2 minutes ago   1.3GB
-```
-
-On the plus side, we can test the image by running it and trying it in a browser window by visitin `localhost:7123`
-
-```
-$ docker run -dp 7123:7123 --name cotw-rshiny-hello-fat cotw-rshiny-hello 
-```
-
-And we see something that looks like... 
-
-![R Hello World app](/images/appRscreenshot.png)
-
-
-
-## Slimming The Image :mechanical_arm:
-TK Stuff here about include paths 
-
-TK Stuff here about debugging 
-
-TK Stuff here about using the image manually 
-
-```
-docker-slim  build --target cotw-rshiny-hello --show-clogs  --include-path-file 'build_recipe/r_path_includes' --publish-port 7123 --http-probe=false
-```
-
-#### Using an include file
-DockerSlim has several methods for flagging parts of the container that should be included no matter what. Multiple files, directories, or user:group designations can be flagged in the command line such as `--include-path /etc` or `--include-path /somedir/somelibrary`. Since R and Shiny have a fairly robust number of libraries that we're using in this example, we use the `--include-path-file build_recipe/r_path_includes` to load all of our "Don't Touch!" files to DockerSlim in a convenient format. 
-
-For this example, we used the error logs produced by R and the Explorer tab in the [Slim Developer Portal](https://www.slim.ai/blog/slim-developer-platform-web-portal.html) to search for libraries, files, and directories required for our sample app to work. Future iterations of Slim.AI will further simplify this discovery process. 
-```
-/.dockerenv
-/libx32
-/lib64
-/lib32
-/sbin
-/usr/include/c++
-/usr/local/lib/R/library/graphics
-/usr/local/lib/R/library/man
-/usr/local/lib/R/library/compiler
-/usr/local/lib/R/library/methods
-/usr/local/lib/R/library/stats
-/usr/local/lib/R/library/datasets
-/usr/local/lib/R/library/grDevices
-/usr/local/lib/R/library/utils
-/usr/local/lib/R/library/compiler
-/usr/local/lib/R/library/tools
-/usr/local/lib/R/site-library
-/usr/local/lib/R/modules
-```
-
-## Results :raised_hands:
-### Success Criteria
-- Application should still run
-- Container should be smaller than the original
-- Container should be safer than the original 
-  
-### Test Run 
-### Image Size
-### Security Scan 
