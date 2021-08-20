@@ -1,0 +1,6 @@
+FROM baseimage:version
+
+WORKDIR /app 
+
+# INSTALL UPDATES 
+# COPY YOUR APP FILES
