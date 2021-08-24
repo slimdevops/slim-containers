@@ -16,11 +16,12 @@ Out of scope for this tutorial, but potentially coming soon:
 - Slimming your container 
 - Multi-container applications with Docker Compose
 - Mounting local volumes from a container 
-- Shipping containers through CI
+- Shipping and testing containers via CI/CD
 - Anything to do with Kubernetes 😉
 - Advanced container techniques (buildpacks, multistage builds, etc.)
 
 ## Set-up 
+- Be on the internet (for pulling and pushing images)
 - [Install Docker Desktop](https://docs.docker.com/get-docker/)
 - Option 1: [Open a GitPod instance](LINK TO OUR REPO ON GITPOD)
 - Option 2: [Clone this repo into your local IDE](LINK TO REPO)
@@ -53,6 +54,21 @@ While the adoption of containers is growing steadily in organizations -- alongsi
 - **Knowledge of best practices:** 
 - **Staying current with updates and security patches:** Managing containers across even a modest size team can turn into a job itself. Many large organizations now have dedicated DevX teams who are at least partially responsible for curating and maintaining container images. Updating images can be either labor intensive (when done manually) or opaque (when done automatically), leading to break-fix cycles that frustrate devs.  
 
+# Basic Terminology
+- **Docker daemon**: The Docker program running on the local host that makes Docker possible
+- **Container Image**: This is a set of files and instructions that allow you to `docker run` a container, creating a single instance of a Container instance
+- **Container**: This is a single unit created from a Container image. It is ephemeral and will be completely destroyed when removed
+
+## Common Docker Commands
+| command | use | example | flags | 
+| ------- | --- | ------- | ---- | 
+| docker pull | pull public image to local machine (from Docker Hub, unless otherwise specified) | docker pull ubuntu:latest | |
+| docker build | build image from the Dockerfile localed in current dir | `docker build --name me/myimage .`| |
+| docker images | get list of local images | `docker images \| grep ubuntu` | | 
+| docker run | create single container from container image | `docker run --name mycontainer -it ubuntu:latest` /bin/bash | -d (run as daemon) -it (interactive mode) -p (specify port) --name (name container, otherwise randomly generated) |   
+| docker ps | list current running images | `docker ps` | | 
+| docker rm | remove container | `docker rm mycontainer` | |  
+| docker rmi | remove container image (see also `prune`) | `docker rmi myimage` | -f (force) | 
 
 # Your application 
 *Martin* 
@@ -67,7 +83,9 @@ Shell into the image to take a look around.
 
 `docker run -it ubuntu:latest /bin/bash`
 
+You can play around. Note: Anything you do in this shell is adding information to that ONE container, NOT the image and NOT your local system. 
 
+`apt-get update && apt-get install 
 
 ## 1. Getting Started 
 Directory setup 
@@ -100,6 +118,7 @@ Exploration: Build and run base image
 ## 5. Push to Docker Hub 
 
 # Resources 
+- [Docker and DevOps - Bret Fisher](https://www.youtube.com/BretFisherDockerandDevOps)
 - [Docker for Web Developers - Coding with Dan]([https://www.pluralsight.com/courses/docker-web-development)
 - [How to Get Started with Docker - Docker's Peter McKee](https://docs.docker.com/get-started/)
 - [Docker for Developers - Andy Dennis & Richard Bullington McGuire](https://www.packtpub.com/product/docker-for-developers/9781789536058)
