@@ -3,7 +3,7 @@
 # Introduction 
 Here by popular request! This tutorial is meant for viewers of the [SlimDevOps Twitch Stream](https://www.twitch.tv/slimdevops). Several of our community members expressed an interest in this "Square One" overview of all things containers, along with a hands-on "bring your own app" live coding workshop. 
 
-This tutorial seeks to help developers understand container technology, know the major tools required to create and manage containers, and () 
+This tutorial seeks to help developers understand container technology, know the major tools required to create and manage containers, and get them ready to ship to production.  
 
 In this tutorial, we will cover:
 - What is a container and why would I use one? 
