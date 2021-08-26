@@ -98,8 +98,6 @@ Let's limber up.
 
 **This is *not* the way!**
 
-## 1. The base image
-
 Pull the latest Ubuntu image.
 
 `docker pull ubuntu:latest`
