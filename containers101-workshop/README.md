@@ -39,7 +39,6 @@ sudo usermod -aG docker $USER
 
 ```
 git clone https://github.com/slimdevops/slim-containers
-git checkout tutorial-dev
 ```
 
 # What is a container?
