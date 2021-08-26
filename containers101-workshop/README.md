@@ -35,16 +35,15 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 ```
 
-- Option 1: [Open a GitPod instance](https://gitpod.io/#https://github.com/slimdevops/slim-containers)
-- Option 2: [Clone this repo into your local IDE](https://github.com/slimdevops/slim-containers)
+- [Clone this repo into your local IDE](https://github.com/slimdevops/slim-containers)
 
 ```
 git clone https://github.com/slimdevops/slim-containers
 git checkout tutorial-dev
 ```
 
-# What is a conatiner?
-A container is a piece of software that
+# What is a container?
+A container is a unit of software that packages libraries and dependencies, emulating an independent server but still running on your local host. The goal of a container is to create a reproducible, immutable, and ephemeral environment that can run an application reliably on any hardware.
 
 | A container is like a... | Kind of | Not quite |
 | ---------- | --------- | ------- |
@@ -54,13 +53,13 @@ A container is a piece of software that
 
 
 ## When we say 'container' do we mean 'Docker'?
-Docker is the most popular container daemon, management software, and container repositroy (Docker Hub) among developers today. Docker's ease of use and great tooling paved the way for the wide adoption of containers and it remains the way most developers interact with containers in the modern eco-system.
+Docker is the most popular container daemon, management software, and container repository (Docker Hub) among developers today. Docker's ease of use and great tooling paved the way for the wide adoption of containers and it remains the way most developers interact with containers in the modern eco-system.
 
 However, Docker isn't the ONLY option for working with containers. Projects such as the CNCF's [ContainerD](https://containerd.io/) and the [Open Container Initiative](https://opencontainers.org/) are starting to gain wider adoption, there has been a large proliferation in [container registry options](https://www.slim.ai/blog/understanding-container-registries-public-vs.private-container-images.html) in recent years.
 
 
 # Why use containers?
-The primary benefits of using containers is to reduce the overhead and unpredictability that comes from developing software at scale, that is to say solving the classic: "It worked on my machine" conundrum. Containers allow you to explicitly
+The primary benefits of using containers is to reduce the overhead and unpredictability that comes from developing software at scale, that is to say solving the classic: "It worked on my machine" conundrum. Containers allow you to explicitly declare specific versions of libraries, operating systems, and other depedencies to ensure your app works the way it is supposed to no matter where it is hosted.
 
 ![That's how docker was born meme](../images/docker_born_meme.jpg)
 
@@ -95,16 +94,11 @@ Martin has a simple Python application we can use as an example:
 
 Let's limber up.
 
-# Tutorial: Docker the hard (wrong) way
-
-## 1. Warm-up: Making an Ubuntu app container
+# Tutorial: The wrong way!
 
 **This is *not* the way!**
 
-![mandolarian not the way](https://c.tenor.com/2BKNUekYGAEAAAAd/baby-yoda.gif)
-
-
-Pull latest Ubuntu image.
+Pull the latest Ubuntu image.
 
 `docker pull ubuntu:latest`
 
@@ -128,7 +122,10 @@ root@48738792332d:/#
 
 What is in the Ubuntu container:
 
-`apt list`
+```
+apt list
+apt list | grep linux
+```
 
 Let's update our container.
 
@@ -149,9 +146,9 @@ Let's run it.
 `cd redirect-livechat`
 `./redirect-livechat.py UCQvWX73GQygcwXOTSf_VDVg`
 
-Erk, no `python`. Let's install Python.
+Erk, no `python3`. Let's install Python 3.
 
-`apt install python3-minimal`
+`apt -y install python3-minimal`
 
 Does it work now?
 
@@ -165,21 +162,28 @@ We need to bind ports.
 
 ## 3. Make a container from our changes
 
-First, let's save what we done.
+Find out container instance.
 
-`docker commit <CONTAINER_ID> redirect-livechat:wrong-way`
+`docker ps -a`
+
+Let's save what we done.
+
+`docker commit <CONTAINER_ID> redirect-livechat:the-wrong-way`
 `docker images`
 
 Let's run the container and bind the port. We'll also run the app directly,
 rather than shelling into the container.
 
-`docker run -p 8008:8008 -it my-redirect-livechat /redirect-livechat/redirect-livechat.py -a 0.0.0.0 UCQvWX73GQygcwXOTSf_VDVg`
+`docker run -p 8008:8008 -it redirect-livechat:the-wrong-way /redirect-livechat/redirect-livechat.py -a 0.0.0.0 UCQvWX73GQygcwXOTSf_VDVg`
 
 Connect to http://localhost:8008/ from your web browser.
 
-Success! You have made an container in absolutely the wrong way!
+Success! You have made a container in absolutely the wrong way!
 
 # Tutorial: The Ubuntu way
+
+`Dockerfile` is used to automate to creation of a Docker container. Let's
+recreate the same container image using a `Dockerfile`.
 
 ## 1. Creating a Dockerfile
 
@@ -198,7 +202,10 @@ But, just like Blue Peter, *"here's one we prepared earlier"*.
 
 ## 2. Build your image
 
-`docker build -t redirect-livechat:the-ubuntu-way .`
+```
+docker build -t redirect-livechat:the-ubuntu-way .
+docker images
+```
 
 ### And test it
 
@@ -220,13 +227,16 @@ COPY redirect-livechat.py .
 ENTRYPOINT [ "python3", "redirect-livechat.py" ]
 ```
 
-But, just like Blue Peter, *"here's one we prepared earlier"*.
+Again, *"here's one we prepared earlier"*.
 
 `git checkout the-python-way`
 
 ## 2. Build your image
 
-`docker build -t redirect-livechat:the-python-way .`
+```
+docker build -t redirect-livechat:the-python-way .
+docker images
+```
 
 ### And test it
 
@@ -234,11 +244,11 @@ But, just like Blue Peter, *"here's one we prepared earlier"*.
 
 # Container Best Practices - Dockerfile improvements
 
-- Don't use latest
+- Don't use `latest`
 - Install security updates
 - Don't run as root
 - Optimize build dependencies
-- Pick the best ENTRYPOINT or CMD
+- Pick the best `ENTRYPOINT` or `CMD`
 
 We published an article discussing the above on dev.to.
 
@@ -247,6 +257,12 @@ We published an article discussing the above on dev.to.
 # Tutorial: Publishing your Docker container
 
 ## 1. Push to Docker Hub
+
+```
+docker login -u YOUR_DOCKERHUB_NAME
+docker tag redirect-livechat:the-python-way YOUR_DOCKERHUB_NAME/redirect-livechat:the-python-way
+docker push YOUR_DOCKERHUB_NAME/redirect-livechat:the-python-way
+```
 
 # Resources
 - [Docker and DevOps - Bret Fisher](https://www.youtube.com/BretFisherDockerandDevOps)
