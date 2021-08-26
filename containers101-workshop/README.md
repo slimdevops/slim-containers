@@ -100,6 +100,7 @@ Let's limber up.
 ## 1. Warm-up: Making an Ubuntu app container
 
 **This is *not* the way!**
+!([mandolarian not the way]https://c.tenor.com/2BKNUekYGAEAAAAd/baby-yoda.gif)
 
 
 Pull latest Ubuntu image.
