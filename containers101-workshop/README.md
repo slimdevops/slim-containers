@@ -124,6 +124,12 @@ root@48738792332d:/#
         +----- The container id
 ```
 
+What is in the Ubuntu container:
+
+`apt list`
+
+Let's update our container.
+
 `apt update && apt -y upgrade`
 
 Let's install the best editor and `git`.
@@ -159,7 +165,7 @@ We need to bind ports.
 
 First, let's save what we done.
 
-`docker commit <CONTAINER_ID> my-redirect-livechat`
+`docker commit <CONTAINER_ID> redirect-livechat:wrong-way`
 `docker images`
 
 Let's run the container and bind the port. We'll also run the app directly,
@@ -171,20 +177,60 @@ Connect to http://localhost:8008/ from your web browser.
 
 Success! You have made an container in absolutely the wrong way!
 
-# Tutorial: Docker the right way
+# Tutorial: The Ubuntu way
 
 ## 1. Creating a Dockerfile
-- FROM ubuntu:latest
-- RUN apt update
-- COPY / ADD dependencies and app files
-- ENTRYPOINT
 
-## 4. Build your image
+```
+FROM ubuntu:latest
+RUN apt -y update && apt -y upgrade
+RUN apt -y install nano git
+RUN apt -y install python3-minimal
+COPY redirect-livechat.py .
+ENTRYPOINT [ "python3", "redirect-livechat.py" ]
+```
+
+But, just like Blue Peter, *"here's one we prepared earlier"*.
+
+`git checkout the-ubuntu-way`
+
+## 2. Build your image
+
+`docker build -t redirect-livechat:the-ubuntu-way .`
+
 ### And test it
 
-## 5. Container Best Practices - Dockerfile improvements
+`docker run -p 8008:8008 -it redirect-livechat:the-ubuntu-way -a 0.0.0.0 UCQvWX73GQygcwXOTSf_VDVg`
 
-Link to dev.to article here:
+# Tutorial: The Python way
+
+Let use a ready-made Python enable container, which is based on Debian
+
+  * https://hub.docker.com/_/python
+
+## 1. Creating a Dockerfile
+
+```
+FROM python:3-slim
+RUN apt -y update && apt -y upgrade
+RUN apt -y install nano git
+COPY redirect-livechat.py .
+ENTRYPOINT [ "python3", "redirect-livechat.py" ]
+```
+
+But, just like Blue Peter, *"here's one we prepared earlier"*.
+
+`git checkout the-python-way`
+
+## 2. Build your image
+
+`docker build -t redirect-livechat:the-python-way .`
+
+### And test it
+
+`docker run -p 8008:8008 -it redirect-livechat:the-python-way -a 0.0.0.0 UCQvWX73GQygcwXOTSf_VDVg`
+
+# Container Best Practices - Dockerfile improvements
 
 - Don't use latest
 - Install security updates
@@ -192,7 +238,9 @@ Link to dev.to article here:
 - Optimize build dependencies
 - Pick the best ENTRYPOINT or CMD
 
-# Tutorial: Docker the right way using language base images
+We published an article discussing the above on dev.to.
+
+  * [Creating Production-Ready Containers - The Basics](https://dev.to/wimpress/creating-production-ready-containers-the-basics-3k6f)
 
 # Tutorial: Publishing your Docker container
 
@@ -203,4 +251,3 @@ Link to dev.to article here:
 - [Docker for Web Developers - Coding with Dan]([https://www.pluralsight.com/courses/docker-web-development)
 - [How to Get Started with Docker - Docker's Peter McKee](https://docs.docker.com/get-started/)
 - [Docker for Developers - Andy Dennis & Richard Bullington McGuire](https://www.packtpub.com/product/docker-for-developers/9781789536058)
--
