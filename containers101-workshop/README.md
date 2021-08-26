@@ -98,6 +98,10 @@ Let's limber up.
 
 **This is *not* the way!**
 
+## 1. The base image
+=======
+![mandolarian not the way](https://c.tenor.com/2BKNUekYGAEAAAAd/baby-yoda.gif)
+
 Pull the latest Ubuntu image.
 
 `docker pull ubuntu:latest`
