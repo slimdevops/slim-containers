@@ -356,7 +356,7 @@ Let looks at the diff
 git diff
 ```
 
-ANd here is the diff:
+And here is the diff:
 
 ```diff
 diff --git a/Dockerfile b/Dockerfile
