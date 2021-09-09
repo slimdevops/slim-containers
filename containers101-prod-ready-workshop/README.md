@@ -7,7 +7,7 @@ and builds on the [Containers 101 Beginners Workshop](../containers101-beginners
 by introducing some best practices to get your containers images ready to ship
 to production.
 
-The work shop is a practical example basied on an article we published an on dev.to.
+The workshop is a practical example based on an article we published an on dev.to.
 
   * [Creating Production-Ready Containers - The Basics](https://dev.to/wimpress/creating-production-ready-containers-the-basics-3k6f)
 
@@ -71,7 +71,7 @@ RUN apt -y update && apt -y upgrade
 RUN apt -y install nano git
 RUN apt -y install python3-minimal
 COPY redirect-livechat.py .
-ENTRYPOINT ["python3", "redirect-livechat.py"]
+ENTRYPOINT [ "python3", "redirect-livechat.py" ]
 ```
 
 # Non-root user
@@ -81,7 +81,10 @@ runs the build and all commands as the root user. While not an issue for local d
 issues that come with running applications as root on a server in production.
 And with Docker, a new set of attack methods can arise.
 
-Thankfully, most distro container images and major languages and frameworks have a predefined user for running applications. For example in Node.js, the user is just `node`. In the Ubuntu container image you have a couple of options `nobody` and `www-data`. We'll use `www-data` as our app is a web app.
+Thankfully, most distro container images and major languages and frameworks have
+a predefined user for running applications. For example in Node.js, the user is
+just `node`. In the Ubuntu container image you have a couple of options `nobody`
+and `www-data`. We'll use `www-data` as our app is a web app.
 
 Add these lines to the `Dockerfile`
 
@@ -100,7 +103,7 @@ RUN apt -y install python3-minimal
 COPY redirect-livechat.py .
 RUN chown www-data:www-data redirect-livechat.py
 USER www-data
-ENTRYPOINT ["python3", "redirect-livechat.py"]
+ENTRYPOINT [ "python3", "redirect-livechat.py" ]
 ```
 
 Build a new Docker image:
@@ -214,7 +217,7 @@ sizes, but can be advantageous when iterating during local development or as we
 cycle through the QA process, since we aren't reinstalling dependencies if we
 don't have to.
 
-But, we targeting production, so let's squash some of these steps and remove
+But, we are targeting production, so let's squash some of these steps and remove
 packages we simply don't need for production deployments.
 
 ```Dockerfile
@@ -225,7 +228,6 @@ RUN chown www-data:www-data redirect-livechat.py && \
     apt -y install ca-certificates python3-minimal
 USER www-data
 ENTRYPOINT [ "python3", "redirect-livechat.py" ]
-
 ```
 
 Build a new Docker image:
@@ -301,7 +303,8 @@ there, proper signal handling - such as graceful shutdowns - are important.
 `CMD` provides some flexibility for calling executables with flags or overriding
 them by providing the executable and its parameters in the `docker ​run` command.
 
-Many developers confuse `CMD` with `ENTRYPOINT`. However, ​`ENTRYPOINT` cannot be overridden by `docker run`. Instead, whatever is specified in `docker run` will
+Many developers confuse `CMD` with `ENTRYPOINT`. However, ​`ENTRYPOINT` cannot be
+overridden by `docker run`. Instead, whatever is specified in `docker run` will
 be appended to `ENTRYPOINT` – this is not the case with `CMD`.
 
 Using `CMD` in development can be useful, but that generally won't be relevant
