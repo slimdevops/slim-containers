@@ -8,6 +8,8 @@ If you remember, containers are *ephemeral*, which is a fancy way of sayin "when
 In this tutorial, we'll do both of those things, creating a containerized "Photo Server" app in ~~NodeJS and Vue~~ Python. 
 
 # The App
+![Aura Frame](https://static.pushd.com/assets/marketing/home/image/hp-hero@2000w-1bc55c6673ae0884881a0b1a2a94158fa4a6d9b5847d505583381bc87f10b197.jpg)
+
 The most popular gift in my family right now is the [Aura Frame](https://auraframes.com). My parents love getting photos sent to their device, and Wimpy and I thought it would be fun to create a makeshift, home-server version of a photo app to show off how mounting volumes works in containers. 
 
 For our tutorial, the app isn't super important. We wanted to do just a few basic operations:
@@ -18,7 +20,7 @@ For our tutorial, the app isn't super important. We wanted to do just a few basi
 
 You don't need to actually build the app. I've included a link to the app code and provided in the repo in case you're curious (or want to help with the CSS! PRs welcome). It is useful to grab or update this repository so you can follow along with the files. 
 
-``` git clone slimdevops/slim-containers ``` 
+``` git clone slimdevops/slim-containers.git ``` 
 
 Or just `git pull` if you already have the repo. 
 
@@ -89,7 +91,7 @@ Then let's spin up a new container with this command:
 $ docker run -dp 5000:5000 -v <your_local_path>/containers101-volumes/pyphotoapp/static/images:/app/static/images slimpsv/pyphotoapp:start 
 ```
 
-Replace `<your_local_path>` with, well, your local path. :hmm: 
+Replace `<your_local_path>` with your local (absolute) path.  (To make the demo go easier, I added an env variable for this.)
 
 The same test should run. We can go to `localhost:5000`. Before you do anything, be sure you can see the `static/images` folder that's created in the git repo. 
 
@@ -102,7 +104,7 @@ If we spin up another container on another port, say `5005`, we can see that the
 ```
 $ docker run \
   -dp 5005:5000 \
-  -v <your_local_path>/containers101-volumes/pyphotoapp/static/images:/app/static/images slimpsv/pyphotoapp:start 
+  -v $SLIM_JAM_PATH/pyphotoapp/static/images:/app/static/images slimpsv/pyphotoapp:start 
 ```
 
 # Let's do more! 
@@ -117,7 +119,7 @@ But like our images, that database file is also now getting nuked each time we s
 It's easy enough for us to add another volume, this time for the db file. 
 
 ```
-$ docker run -dp 5000:5000 -v $SLIM_JAM_PATH/pyphotoapp/static/images:/app/static/images -v $SLIM_JAM_PATH/pyphotoapp/image.db:/app/image.db slimpsv/pyphotoapp:start 
+$ docker run -dp 5000:5000 -v $SLIM_JAM_PATH/pyphotoapp/static/images:/app/static/images -v $SLIM_JAM_PATH/pyphotoapp/data/image.db:/app/data/image.db slimpsv/pyphotoapp:start 
 ```
 
 # Volumes Created Via Docker
