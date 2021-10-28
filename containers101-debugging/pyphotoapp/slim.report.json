@@ -1,0 +1,3373 @@
+{
+  "version": "1.2",
+  "engine": "darwin|Transformer|1.36.1-10-gc32a539|c32a5396dfb7240fb92f885987666bfdec9bbc9e|2021-07-12_05:40:12AM",
+  "containerized": false,
+  "host_distro": {
+    "name": "",
+    "version": "",
+    "display_name": "Big Sur (11.6)"
+  },
+  "type": "xray",
+  "state": "done",
+  "target_reference": "slimdevops/pyphotoapp:cursed",
+  "source_image": {
+    "identity": {
+      "id": "sha256:a3cad194c995837e28f8e67249e6e1910ccf241f534ea91f73bb48146ef97424",
+      "tags": [
+        "cursed"
+      ],
+      "names": [
+        "slimdevops/pyphotoapp:cursed"
+      ]
+    },
+    "size": 139689275,
+    "size_human": "140 MB",
+    "create_time": "2021-10-28T16:50:54Z",
+    "docker_version": "",
+    "architecture": "arm64",
+    "exposed_ports": [
+      "5000/tcp"
+    ],
+    "distro": {
+      "name": "Debian GNU/Linux",
+      "version": "11",
+      "display_name": "Debian GNU/Linux 11 (bullseye)"
+    },
+    "os": "linux",
+    "env_vars": [
+      "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "LANG=C.UTF-8",
+      "GPG_KEY=A035C8C19219BA821ECEA86B64E628F8D684696D",
+      "PYTHON_VERSION=3.10.0",
+      "PYTHON_PIP_VERSION=21.2.4",
+      "PYTHON_SETUPTOOLS_VERSION=57.5.0",
+      "PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/3cb8888cc2869620f57d5d2da64da38f516078c7/public/get-pip.py",
+      "PYTHON_GET_PIP_SHA256=c518250e91a70d7b20cceb15272209a4ded2a0c263ae5776f129e0d9b5674309"
+    ],
+    "workdir": "/app",
+    "container_entry": {
+      "entrypoint": [
+        "python"
+      ],
+      "cmd": [
+        "app.py"
+      ],
+      "exe_path": "python",
+      "full_exe_path": {
+        "name": "/usr/local/bin/python",
+        "layer": 3
+      },
+      "exe_args": [
+        "app.py"
+      ],
+      "arg_files": [
+        {
+          "name": "/app/app.py",
+          "layer": 6
+        }
+      ]
+    }
+  },
+  "artifact_location": "/Users/psvann/dslim/.docker-slim-state/images/a3cad194c995837e28f8e67249e6e1910ccf241f534ea91f73bb48146ef97424/artifacts",
+  "image_report": {
+    "stats": {
+      "duplicate_file_count": 0,
+      "duplicate_file_total_count": 0,
+      "duplicate_file_size": 0,
+      "duplicate_file_total_size": 0,
+      "duplicate_file_wasted_size": 0,
+      "deleted_count": 0,
+      "deleted_dir_content_count": 18,
+      "deleted_dir_count": 0,
+      "deleted_file_count": 18,
+      "deleted_link_count": 0,
+      "deleted_file_size": 0,
+      "setuid_count": 8,
+      "setgid_count": 4,
+      "sticky_count": 5
+    },
+    "special_perms": {
+      "setuid": [
+        "/bin/umount",
+        "/usr/bin/chfn",
+        "/usr/bin/chsh",
+        "/usr/bin/gpasswd",
+        "/usr/bin/newgrp",
+        "/usr/bin/passwd",
+        "/bin/mount",
+        "/bin/su"
+      ],
+      "setgid": [
+        "/usr/bin/wall",
+        "/sbin/unix_chkpwd",
+        "/usr/bin/chage",
+        "/usr/bin/expiry"
+      ],
+      "sticky": [
+        "/var/tmp",
+        "/tmp",
+        "/run/lock"
+      ]
+    },
+    "shells": [
+      {
+        "full_name": "Bash shell",
+        "short_name": "bash",
+        "exe_path": "/bin/bash",
+        "reference": "/bin/rbash",
+        "verified": true
+      },
+      {
+        "full_name": "Dash shell",
+        "short_name": "dash",
+        "exe_path": "/bin/dash",
+        "verified": true
+      },
+      {
+        "full_name": "Bourne shell",
+        "short_name": "sh",
+        "exe_path": "/bin/sh",
+        "link_path": "dash",
+        "verified": true
+      },
+      {
+        "full_name": "Bash shell",
+        "short_name": "bash",
+        "exe_path": "/bin/bash",
+        "verified": true
+      }
+    ]
+  },
+  "image_stack": [
+    {
+      "is_top_image": true,
+      "id": "sha256:a3cad194c995837e28f8e67249e6e1910ccf241f534ea91f73bb48146ef97424",
+      "full_name": "slimdevops/pyphotoapp:cursed",
+      "repo_name": "slimdevops/pyphotoapp",
+      "version_tag": "cursed",
+      "raw_tags": [
+        "slimdevops/pyphotoapp:cursed"
+      ],
+      "create_time": "2021-10-28T16:50:54Z",
+      "new_size": 139689275,
+      "new_size_human": "140 MB",
+      "instructions": [
+        {
+          "type": "ADD",
+          "time": "2021-10-12T01:41:18Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "layer_id": "d03c2847942824fead19c0541c5d265b317a0f46ee9cc05871286e00200e6b41",
+          "layer_fsdiff_id": "sha256:18acdb3e3c0dea8b20494b048b10ae7ab1f455ab91ce3d1e77745b5fff77d5fd",
+          "size": 74320942,
+          "size_human": "74 MB",
+          "params": "file:d84144ad575672cd6cc8a00c8e5a88ab0545348f040fc249ea5fcf8193b2bce6 in /",
+          "command_snippet": "ADD file:d84144ad575672cd6cc8a00c8e5a88ab054...",
+          "command_all": "ADD file:d84144ad575672cd6cc8a00c8e5a88ab0545348f040fc249ea5fcf8193b2bce6 /",
+          "target": "/",
+          "source_type": "file"
+        },
+        {
+          "type": "CMD",
+          "time": "2021-10-12T01:41:18Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "layer_id": "d03c2847942824fead19c0541c5d265b317a0f46ee9cc05871286e00200e6b41",
+          "layer_fsdiff_id": "sha256:18acdb3e3c0dea8b20494b048b10ae7ab1f455ab91ce3d1e77745b5fff77d5fd",
+          "size": 0,
+          "params": "[\"bash\"]",
+          "command_snippet": "CMD [\"bash\"]",
+          "command_all": "CMD [\"bash\"]",
+          "empty_layer": true
+        },
+        {
+          "type": "ENV",
+          "time": "2021-10-13T18:23:31Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "layer_id": "d03c2847942824fead19c0541c5d265b317a0f46ee9cc05871286e00200e6b41",
+          "layer_fsdiff_id": "sha256:18acdb3e3c0dea8b20494b048b10ae7ab1f455ab91ce3d1e77745b5fff77d5fd",
+          "size": 0,
+          "params": "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "command_snippet": "ENV PATH=/usr/local/bin:/usr/local/sbin:/usr...",
+          "command_all": "ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "empty_layer": true
+        },
+        {
+          "type": "ENV",
+          "time": "2021-10-13T18:23:32Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "layer_id": "d03c2847942824fead19c0541c5d265b317a0f46ee9cc05871286e00200e6b41",
+          "layer_fsdiff_id": "sha256:18acdb3e3c0dea8b20494b048b10ae7ab1f455ab91ce3d1e77745b5fff77d5fd",
+          "size": 0,
+          "params": "LANG=C.UTF-8",
+          "command_snippet": "ENV LANG=C.UTF-8",
+          "command_all": "ENV LANG=C.UTF-8",
+          "empty_layer": true
+        },
+        {
+          "type": "RUN",
+          "time": "2021-10-13T18:23:38Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 1,
+          "layer_id": "0dcc1610cfce984ae13f17ee0e90d9832d92ad1c2ce94248ae2eca51dcec80e9",
+          "layer_fsdiff_id": "sha256:1a4a4c11cff801db903d8a7155f811fdc221ce59b0712ad88f263af768bc5534",
+          "size": 3096436,
+          "size_human": "3.1 MB",
+          "command_snippet": "RUN set -eux; \tapt-get update; \tapt-get inst...",
+          "command_all": "RUN set -eux; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tca-certificates \t\tnetbase \t\ttzdata \t; \trm -rf /var/lib/apt/lists/*",
+          "system_commands": [
+            "set -eux",
+            "apt-get update",
+            "apt-get install -y --no-install-recommends ca-certificates netbase tzdata",
+            "rm -rf /var/lib/apt/lists/*"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2021-10-13T18:23:38Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 1,
+          "layer_id": "0dcc1610cfce984ae13f17ee0e90d9832d92ad1c2ce94248ae2eca51dcec80e9",
+          "layer_fsdiff_id": "sha256:1a4a4c11cff801db903d8a7155f811fdc221ce59b0712ad88f263af768bc5534",
+          "size": 0,
+          "params": "GPG_KEY=A035C8C19219BA821ECEA86B64E628F8D684696D",
+          "command_snippet": "ENV GPG_KEY=A035C8C19219BA821ECEA86B64E628F8...",
+          "command_all": "ENV GPG_KEY=A035C8C19219BA821ECEA86B64E628F8D684696D",
+          "empty_layer": true
+        },
+        {
+          "type": "ENV",
+          "time": "2021-10-13T18:39:11Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 1,
+          "layer_id": "0dcc1610cfce984ae13f17ee0e90d9832d92ad1c2ce94248ae2eca51dcec80e9",
+          "layer_fsdiff_id": "sha256:1a4a4c11cff801db903d8a7155f811fdc221ce59b0712ad88f263af768bc5534",
+          "size": 0,
+          "params": "PYTHON_VERSION=3.10.0",
+          "command_snippet": "ENV PYTHON_VERSION=3.10.0",
+          "command_all": "ENV PYTHON_VERSION=3.10.0",
+          "empty_layer": true
+        },
+        {
+          "type": "RUN",
+          "time": "2021-10-26T23:15:37Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 2,
+          "layer_id": "a8d5276e71e83481ef3bba55d8c2175b0cba0289595b9154adf579c84eec50c6",
+          "layer_fsdiff_id": "sha256:dfc6dde2fc3d9dd7b6f007cf1ea39fb92fd9af8cb9495d65c0cace43dca3a505",
+          "size": 28876143,
+          "size_human": "29 MB",
+          "command_snippet": "RUN set -ex && \\\n\tsavedAptMark=\"$(apt-mark s...",
+          "command_all": "RUN set -ex && \\\n\tsavedAptMark=\"$(apt-mark showmanual)\" && \\\n\tapt-get update && \\\n\tapt-get install -y --no-install-recommends \t\tdpkg-dev \t\tgcc \t\tlibbluetooth-dev \t\tlibbz2-dev \t\tlibc6-dev \t\tlibexpat1-dev \t\tlibffi-dev \t\tlibgdbm-dev \t\tliblzma-dev \t\tlibncursesw5-dev \t\tlibreadline-dev \t\tlibsqlite3-dev \t\tlibssl-dev \t\tmake \t\ttk-dev \t\tuuid-dev \t\twget \t\txz-utils \t\tzlib1g-dev \t\t$(command -v gpg > /dev/null || echo 'gnupg dirmngr') && \\\n\twget -O python.tar.xz \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz\" && \\\n\twget -O python.tar.xz.asc \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz.asc\" && \\\n\texport GNUPGHOME=\"$(mktemp -d)\" && \\\n\tgpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$GPG_KEY\" && \\\n\tgpg --batch --verify python.tar.xz.asc python.tar.xz && \\\n\t{ command -v gpgconf > /dev/null && \\\n\tgpgconf --kill all || :; } && \\\n\trm -rf \"$GNUPGHOME\" python.tar.xz.asc && \\\n\tmkdir -p /usr/src/python && \\\n\ttar -xJC /usr/src/python --strip-components=1 -f python.tar.xz && \\\n\trm python.tar.xz && \\\n\tcd /usr/src/python && \\\n\tgnuArch=\"$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)\" && \\\n\t./configure \t\t--build=\"$gnuArch\" \t\t--enable-loadable-sqlite-extensions \t\t--enable-optimizations \t\t--enable-option-checking=fatal \t\t--enable-shared \t\t--with-lto \t\t--with-system-expat \t\t--with-system-ffi \t\t--without-ensurepip && \\\n\tmake -j \"$(nproc)\" \t\tLDFLAGS=\"-Wl,--strip-all\" && \\\n\tmake install && \\\n\trm -rf /usr/src/python && \\\n\tfind /usr/local -depth \t\t\\( \t\t\t\\( -type d -a \\( -name test -o -name tests -o -name idle_test \\) \\) \t\t\t-o \\( -type f -a \\( -name '*.pyc' -o -name '*.pyo' -o -name '*.a' \\) \\) \t\t\\) -exec rm -rf '{}' + && \\\n\tldconfig && \\\n\tapt-mark auto '.*' > /dev/null && \\\n\tapt-mark manual $savedAptMark && \\\n\tfind /usr/local -type f -executable -not \\( -name '*tkinter*' \\) -exec ldd '{}' ';' \t\t| awk '/=>/ { print $(NF-1) }' \t\t| sort -u \t\t| xargs -r dpkg-query --search \t\t| cut -d: -f1 \t\t| sort -u \t\t| xargs -r apt-mark manual && \\\n\tapt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false && \\\n\trm -rf /var/lib/apt/lists/* && \\\n\tpython3 --version",
+          "system_commands": [
+            "set -ex",
+            "savedAptMark=\"$(apt-mark showmanual)\"",
+            "apt-get update",
+            "apt-get install -y --no-install-recommends dpkg-dev gcc libbluetooth-dev libbz2-dev libc6-dev libexpat1-dev libffi-dev libgdbm-dev liblzma-dev libncursesw5-dev libreadline-dev libsqlite3-dev libssl-dev make tk-dev uuid-dev wget xz-utils zlib1g-dev $(command -v gpg > /dev/null || echo 'gnupg dirmngr')",
+            "wget -O python.tar.xz \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz\"",
+            "wget -O python.tar.xz.asc \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz.asc\"",
+            "export GNUPGHOME=\"$(mktemp -d)\"",
+            "gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$GPG_KEY\"",
+            "gpg --batch --verify python.tar.xz.asc python.tar.xz",
+            "{ command -v gpgconf > /dev/null",
+            "gpgconf --kill all || :; }",
+            "rm -rf \"$GNUPGHOME\" python.tar.xz.asc",
+            "mkdir -p /usr/src/python",
+            "tar -xJC /usr/src/python --strip-components=1 -f python.tar.xz",
+            "rm python.tar.xz",
+            "cd /usr/src/python",
+            "gnuArch=\"$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)\"",
+            "./configure --build=\"$gnuArch\" --enable-loadable-sqlite-extensions --enable-optimizations --enable-option-checking=fatal --enable-shared --with-lto --with-system-expat --with-system-ffi --without-ensurepip",
+            "make -j \"$(nproc)\" LDFLAGS=\"-Wl,--strip-all\"",
+            "make install",
+            "rm -rf /usr/src/python",
+            "find /usr/local -depth ( ( -type d -a ( -name test -o -name tests -o -name idle_test ) ) -o ( -type f -a ( -name '*.pyc' -o -name '*.pyo' -o -name '*.a' ) ) ) -exec rm -rf '{}' +",
+            "ldconfig",
+            "apt-mark auto '.*' > /dev/null",
+            "apt-mark manual $savedAptMark",
+            "find /usr/local -type f -executable -not ( -name '*tkinter*' ) -exec ldd '{}' ';' | awk '/=>/ { print $(NF-1) }' | sort -u | xargs -r dpkg-query --search | cut -d: -f1 | sort -u | xargs -r apt-mark manual",
+            "apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false",
+            "rm -rf /var/lib/apt/lists/*",
+            "python3 --version"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-10-26T23:15:37Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 3,
+          "layer_id": "33af634f3843a7e986eefd5b788fda6bddd2f09e204ac851c2b75dcceafece8f",
+          "layer_fsdiff_id": "sha256:765c5adfc5910c698de4d557bbb9fbf5ade3073c562cf9f114fce55e981d72cf",
+          "size": 32,
+          "size_human": "32 B",
+          "command_snippet": "RUN cd /usr/local/bin && \\\n\tln -s idle3 idle...",
+          "command_all": "RUN cd /usr/local/bin && \\\n\tln -s idle3 idle && \\\n\tln -s pydoc3 pydoc && \\\n\tln -s python3 python && \\\n\tln -s python3-config python-config",
+          "system_commands": [
+            "cd /usr/local/bin",
+            "ln -s idle3 idle",
+            "ln -s pydoc3 pydoc",
+            "ln -s python3 python",
+            "ln -s python3-config python-config"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2021-10-26T23:15:38Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 3,
+          "layer_id": "33af634f3843a7e986eefd5b788fda6bddd2f09e204ac851c2b75dcceafece8f",
+          "layer_fsdiff_id": "sha256:765c5adfc5910c698de4d557bbb9fbf5ade3073c562cf9f114fce55e981d72cf",
+          "size": 0,
+          "params": "PYTHON_PIP_VERSION=21.2.4",
+          "command_snippet": "ENV PYTHON_PIP_VERSION=21.2.4",
+          "command_all": "ENV PYTHON_PIP_VERSION=21.2.4",
+          "empty_layer": true
+        },
+        {
+          "type": "ENV",
+          "time": "2021-10-26T23:15:39Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 3,
+          "layer_id": "33af634f3843a7e986eefd5b788fda6bddd2f09e204ac851c2b75dcceafece8f",
+          "layer_fsdiff_id": "sha256:765c5adfc5910c698de4d557bbb9fbf5ade3073c562cf9f114fce55e981d72cf",
+          "size": 0,
+          "params": "PYTHON_SETUPTOOLS_VERSION=57.5.0",
+          "command_snippet": "ENV PYTHON_SETUPTOOLS_VERSION=57.5.0",
+          "command_all": "ENV PYTHON_SETUPTOOLS_VERSION=57.5.0",
+          "empty_layer": true
+        },
+        {
+          "type": "ENV",
+          "time": "2021-10-26T23:15:40Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 3,
+          "layer_id": "33af634f3843a7e986eefd5b788fda6bddd2f09e204ac851c2b75dcceafece8f",
+          "layer_fsdiff_id": "sha256:765c5adfc5910c698de4d557bbb9fbf5ade3073c562cf9f114fce55e981d72cf",
+          "size": 0,
+          "params": "PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/3cb8888cc2869620f57d5d2da64da38f516078c7/public/get-pip.py",
+          "command_snippet": "ENV PYTHON_GET_PIP_URL=https://github.com/py...",
+          "command_all": "ENV PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/3cb8888cc2869620f57d5d2da64da38f516078c7/public/get-pip.py",
+          "empty_layer": true
+        },
+        {
+          "type": "ENV",
+          "time": "2021-10-26T23:15:41Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 3,
+          "layer_id": "33af634f3843a7e986eefd5b788fda6bddd2f09e204ac851c2b75dcceafece8f",
+          "layer_fsdiff_id": "sha256:765c5adfc5910c698de4d557bbb9fbf5ade3073c562cf9f114fce55e981d72cf",
+          "size": 0,
+          "params": "PYTHON_GET_PIP_SHA256=c518250e91a70d7b20cceb15272209a4ded2a0c263ae5776f129e0d9b5674309",
+          "command_snippet": "ENV PYTHON_GET_PIP_SHA256=c518250e91a70d7b20...",
+          "command_all": "ENV PYTHON_GET_PIP_SHA256=c518250e91a70d7b20cceb15272209a4ded2a0c263ae5776f129e0d9b5674309",
+          "empty_layer": true
+        },
+        {
+          "type": "RUN",
+          "time": "2021-10-26T23:15:53Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 4,
+          "layer_id": "05881b6c4656b38abb658ea85520e3b01088396412f3f28ea69b484e82f235d0",
+          "layer_fsdiff_id": "sha256:f7abad044e81b4b1dce021508c96b12f36ab20b0ac49c90044dc74784d370473",
+          "size": 8685777,
+          "size_human": "8.7 MB",
+          "command_snippet": "RUN set -ex; \t\tsavedAptMark=\"$(apt-mark show...",
+          "command_all": "RUN set -ex; \t\tsavedAptMark=\"$(apt-mark showmanual)\"; \tapt-get update; \tapt-get install -y --no-install-recommends wget; \t\twget -O get-pip.py \"$PYTHON_GET_PIP_URL\"; \techo \"$PYTHON_GET_PIP_SHA256 *get-pip.py\" | sha256sum --check --strict -; \t\tapt-mark auto '.*' > /dev/null; \t[ -z \"$savedAptMark\" ] || apt-mark manual $savedAptMark; \tapt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \trm -rf /var/lib/apt/lists/*; \t\tpython get-pip.py \t\t--disable-pip-version-check \t\t--no-cache-dir \t\t\"pip==$PYTHON_PIP_VERSION\" \t\t\"setuptools==$PYTHON_SETUPTOOLS_VERSION\" \t; \tpip --version; \t\tfind /usr/local -depth \t\t\\( \t\t\t\\( -type d -a \\( -name test -o -name tests -o -name idle_test \\) \\) \t\t\t-o \t\t\t\\( -type f -a \\( -name '*.pyc' -o -name '*.pyo' \\) \\) \t\t\\) -exec rm -rf '{}' +; \trm -f get-pip.py",
+          "system_commands": [
+            "set -ex",
+            "savedAptMark=\"$(apt-mark showmanual)\"",
+            "apt-get update",
+            "apt-get install -y --no-install-recommends wget",
+            "wget -O get-pip.py \"$PYTHON_GET_PIP_URL\"",
+            "echo \"$PYTHON_GET_PIP_SHA256 *get-pip.py\" | sha256sum --check --strict -",
+            "apt-mark auto '.*' > /dev/null",
+            "[ -z \"$savedAptMark\" ] || apt-mark manual $savedAptMark",
+            "apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false",
+            "rm -rf /var/lib/apt/lists/*",
+            "python get-pip.py --disable-pip-version-check --no-cache-dir \"pip==$PYTHON_PIP_VERSION\" \"setuptools==$PYTHON_SETUPTOOLS_VERSION\"",
+            "pip --version",
+            "find /usr/local -depth ( ( -type d -a ( -name test -o -name tests -o -name idle_test ) ) -o ( -type f -a ( -name '*.pyc' -o -name '*.pyo' ) ) ) -exec rm -rf '{}' +",
+            "rm -f get-pip.py"
+          ]
+        },
+        {
+          "type": "CMD",
+          "time": "2021-10-26T23:15:54Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 4,
+          "layer_id": "05881b6c4656b38abb658ea85520e3b01088396412f3f28ea69b484e82f235d0",
+          "layer_fsdiff_id": "sha256:f7abad044e81b4b1dce021508c96b12f36ab20b0ac49c90044dc74784d370473",
+          "size": 0,
+          "params": "[\"python3\"]",
+          "command_snippet": "CMD [\"python3\"]",
+          "command_all": "CMD [\"python3\"]",
+          "empty_layer": true
+        },
+        {
+          "type": "RUN",
+          "time": "2021-10-28T13:08:57Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 5,
+          "layer_id": "cb155dd861187bd57d786446b46e89d6176a419f77a23dd9e610103d150b83eb",
+          "layer_fsdiff_id": "sha256:8dc1d84a76bb8307dac0c0016d4036979926d485f8de80eab6ab468e8534b2cb",
+          "size": 0,
+          "command_snippet": "RUN [\"WORKDIR\",\"/app\"]",
+          "command_all": "RUN [\"WORKDIR\",\"/app\"]",
+          "system_commands": [
+            "[\"WORKDIR\",\"/app\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-10-28T16:50:52Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 6,
+          "layer_id": "d3808fcc3e1be410b6b6fd6431c3cd1a6c15c5ceeb5022d2e2c56b49c4f3cca2",
+          "layer_fsdiff_id": "sha256:099523e8a06d1259266945eb51f549f4fb696862e408904debb985be46c14e16",
+          "size": 13228049,
+          "size_human": "13 MB",
+          "command_snippet": "RUN [\"COPY\",\".\",\".\"]",
+          "command_all": "RUN [\"COPY\",\".\",\".\"]",
+          "system_commands": [
+            "[\"COPY\",\".\",\".\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-10-28T16:50:52Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 7,
+          "layer_id": "f026845858267ec300a44125cbd3258a6b9c1eb44c55c43a7d4e2d638d5cbf00",
+          "layer_fsdiff_id": "sha256:4608f427d50a4d534c6f530ba41f275f7c779f11fb9f5c8e6a2e0a95f3ec4179",
+          "size": 1847425,
+          "size_human": "1.8 MB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"python\",\"test.py\"...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"python\",\"test.py\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"python\",\"test.py\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-10-28T16:50:54Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 8,
+          "layer_id": "40e8617fc621e573e812565cf64b8f74b4a460e21f7a94cfb113047eea1984ed",
+          "layer_fsdiff_id": "sha256:48d5586a52c4beb2a4bfa6ed34c71a390aee6af85cc6d3725d5394dd73da58eb",
+          "size": 9634471,
+          "size_human": "9.6 MB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"pip\",\"install\",\"-...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"pip\",\"install\",\"-r\",\"requirements.txt\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"pip\",\"install\",\"-r\",\"requirements.txt\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-10-28T16:50:54Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 7,
+          "layer_id": "f026845858267ec300a44125cbd3258a6b9c1eb44c55c43a7d4e2d638d5cbf00",
+          "layer_fsdiff_id": "sha256:4608f427d50a4d534c6f530ba41f275f7c779f11fb9f5c8e6a2e0a95f3ec4179",
+          "size": 0,
+          "command_snippet": "RUN [\"EXPOSE\",\"map[5000/tcp:{}]\"]",
+          "command_all": "RUN [\"EXPOSE\",\"map[5000/tcp:{}]\"]",
+          "system_commands": [
+            "[\"EXPOSE\",\"map[5000/tcp:{}]\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "type": "RUN",
+          "time": "2021-10-28T16:50:54Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 7,
+          "layer_id": "f026845858267ec300a44125cbd3258a6b9c1eb44c55c43a7d4e2d638d5cbf00",
+          "layer_fsdiff_id": "sha256:4608f427d50a4d534c6f530ba41f275f7c779f11fb9f5c8e6a2e0a95f3ec4179",
+          "size": 0,
+          "command_snippet": "RUN [\"ENTRYPOINT\",\"[python]\"]",
+          "command_all": "RUN [\"ENTRYPOINT\",\"[python]\"]",
+          "system_commands": [
+            "[\"ENTRYPOINT\",\"[python]\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "type": "RUN",
+          "time": "2021-10-28T16:50:54Z",
+          "is_last_instruction": true,
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "layer_index": 7,
+          "layer_id": "f026845858267ec300a44125cbd3258a6b9c1eb44c55c43a7d4e2d638d5cbf00",
+          "layer_fsdiff_id": "sha256:4608f427d50a4d534c6f530ba41f275f7c779f11fb9f5c8e6a2e0a95f3ec4179",
+          "size": 0,
+          "command_snippet": "RUN [\"CMD\",\"[app.py]\"]",
+          "command_all": "RUN [\"CMD\",\"[app.py]\"]",
+          "system_commands": [
+            "[\"CMD\",\"[app.py]\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true,
+          "raw_tags": [
+            "slimdevops/pyphotoapp:cursed"
+          ]
+        }
+      ]
+    }
+  ],
+  "image_layers": [
+    {
+      "id": "d03c2847942824fead19c0541c5d265b317a0f46ee9cc05871286e00200e6b41",
+      "index": 0,
+      "path": "d03c2847942824fead19c0541c5d265b317a0f46ee9cc05871286e00200e6b41/layer.tar",
+      "fsdiff_id": "sha256:18acdb3e3c0dea8b20494b048b10ae7ab1f455ab91ce3d1e77745b5fff77d5fd",
+      "stats": {
+        "all_size": 74312131,
+        "object_count": 4824,
+        "dir_count": 485,
+        "file_count": 3568,
+        "link_count": 771,
+        "max_file_size": 3546448,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 0,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 0,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 74312131,
+        "modified_size": 0,
+        "setuid_count": 8,
+        "setgid_count": 4,
+        "sticky_count": 3
+      },
+      "changes": {
+        "deleted": 0,
+        "added": 4824,
+        "modified": 0
+      },
+      "top": [
+        {
+          "change": "A",
+          "name": "/usr/bin/perl",
+          "size": 3546448,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-24T12:10:58-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/aarch64-linux-gnu/libcrypto.so.1.1",
+          "size": 2731744,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-08-24T04:28:12-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/aarch64-linux-gnu/libgnutls.so.30.29.1",
+          "size": 2155904,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-05-29T06:14:30-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.28",
+          "size": 1854720,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-01-10T06:35:39-05:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/aarch64-linux-gnu/libapt-pkg.so.6.0.0",
+          "size": 1843032,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-06-10T04:53:34-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/aarch64-linux-gnu/libdb-5.3.so",
+          "size": 1688792,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-02-05T12:02:54-05:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/aarch64-linux-gnu/libunistring.so.2.1.0",
+          "size": 1554360,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2020-06-01T11:48:44-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/locale/C.UTF-8/LC_COLLATE",
+          "size": 1519554,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-02T08:47:40-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/lib/aarch64-linux-gnu/libc-2.31.so",
+          "size": 1458480,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-02T08:47:40-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/aarch64-linux-gnu/libp11-kit.so.0.3.0",
+          "size": 1306200,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2020-12-12T07:40:23-05:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/bin/bash",
+          "size": 1282512,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-08-04T16:25:53-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/aarch64-linux-gnu/libkrb5.so.3.3",
+          "size": 891912,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-08-29T18:38:12-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/aarch64-linux-gnu/libgcrypt.so.20.2.8",
+          "size": 785432,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-05-27T12:07:38-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/var/cache/debconf/templates.dat",
+          "size": 780466,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-10T20:00:00-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            },
+            "M": [
+              {
+                "layer": 1
+              },
+              {
+                "layer": 2
+              }
+            ]
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/aarch64-linux-gnu/libzstd.so.1.4.8",
+          "size": 767856,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-03-01T12:23:52-05:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/var/cache/debconf/templates.dat-old",
+          "size": 763036,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-10T20:00:00-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            },
+            "M": [
+              {
+                "layer": 1
+              },
+              {
+                "layer": 2
+              }
+            ]
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/aarch64-linux-gnu/libsystemd.so.0.30.0",
+          "size": 742816,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-07-13T13:29:24-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/lib/aarch64-linux-gnu/libsepol.so.1",
+          "size": 721888,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2020-07-14T09:44:40-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/sbin/ldconfig",
+          "size": 658344,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-02T08:47:40-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/aarch64-linux-gnu/perl-base/auto/re/re.so",
+          "size": 651624,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-24T12:10:58-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            }
+          }
+        }
+      ],
+      "change_instruction": {
+        "index": 0,
+        "image_index": 0,
+        "type": "ADD",
+        "all": "ADD file:d84144ad575672cd6cc8a00c8e5a88ab0545348f040fc249ea5fcf8193b2bce6 /",
+        "snippet": "ADD file:d84144ad575672cd6cc8a00c8e5a88ab054..."
+      },
+      "other_instructions": [
+        {
+          "index": 1,
+          "image_index": 0,
+          "type": "CMD",
+          "all": "CMD [\"bash\"]",
+          "snippet": "CMD [\"bash\"]"
+        },
+        {
+          "index": 2,
+          "image_index": 0,
+          "type": "ENV",
+          "all": "ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "snippet": "ENV PATH=/usr/local/bin:/usr/local/sbin:/usr..."
+        },
+        {
+          "index": 3,
+          "image_index": 0,
+          "type": "ENV",
+          "all": "ENV LANG=C.UTF-8",
+          "snippet": "ENV LANG=C.UTF-8"
+        }
+      ]
+    },
+    {
+      "id": "0dcc1610cfce984ae13f17ee0e90d9832d92ad1c2ce94248ae2eca51dcec80e9",
+      "index": 1,
+      "path": "0dcc1610cfce984ae13f17ee0e90d9832d92ad1c2ce94248ae2eca51dcec80e9/layer.tar",
+      "fsdiff_id": "sha256:1a4a4c11cff801db903d8a7155f811fdc221ce59b0712ad88f263af768bc5534",
+      "stats": {
+        "all_size": 3083817,
+        "object_count": 482,
+        "dir_count": 41,
+        "file_count": 179,
+        "link_count": 262,
+        "max_file_size": 807505,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 0,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 0,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 1298242,
+        "modified_size": 1785575
+      },
+      "changes": {
+        "deleted": 0,
+        "added": 452,
+        "modified": 30
+      },
+      "top": [
+        {
+          "change": "M",
+          "name": "/var/cache/debconf/templates.dat",
+          "size": 807505,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-13T14:23:37-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            },
+            "M": [
+              {
+                "layer": 1
+              },
+              {
+                "layer": 2
+              }
+            ]
+          }
+        },
+        {
+          "change": "M",
+          "name": "/var/cache/debconf/templates.dat-old",
+          "size": 780466,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-10T20:00:00-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            },
+            "M": [
+              {
+                "layer": 1
+              },
+              {
+                "layer": 2
+              }
+            ]
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/bin/openssl",
+          "size": 720008,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-08-24T04:28:12-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/etc/ssl/certs/ca-certificates.crt",
+          "size": 200313,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-13T14:23:37-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          }
+        },
+        {
+          "change": "M",
+          "name": "/var/lib/dpkg/status",
+          "size": 85695,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-13T14:23:37-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            },
+            "M": [
+              {
+                "layer": 1
+              },
+              {
+                "layer": 2
+              },
+              {
+                "layer": 4
+              }
+            ]
+          }
+        },
+        {
+          "change": "M",
+          "name": "/var/lib/dpkg/status-old",
+          "size": 85587,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-13T14:23:36-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            },
+            "M": [
+              {
+                "layer": 1
+              },
+              {
+                "layer": 2
+              },
+              {
+                "layer": 4
+              }
+            ]
+          }
+        },
+        {
+          "change": "A",
+          "name": "/var/lib/dpkg/info/ca-certificates.templates",
+          "size": 25009,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-01-19T05:11:04-05:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/doc/ca-certificates/copyright",
+          "size": 18940,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-01-19T05:11:04-05:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          }
+        },
+        {
+          "change": "M",
+          "name": "/var/cache/debconf/config.dat",
+          "size": 15885,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-13T14:23:37-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            },
+            "M": [
+              {
+                "layer": 1
+              },
+              {
+                "layer": 2
+              }
+            ]
+          }
+        },
+        {
+          "change": "A",
+          "name": "/var/lib/dpkg/info/ca-certificates.md5sums",
+          "size": 14644,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-01-19T05:11:04-05:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/etc/services",
+          "size": 12813,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-03-27T18:32:57-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/etc/ssl/openssl.cnf",
+          "size": 11118,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-08-24T04:28:12-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/var/lib/dpkg/info/ca-certificates.list",
+          "size": 10393,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-13T14:23:36-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/var/lib/dpkg/info/ca-certificates.config",
+          "size": 9412,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-01-19T05:11:04-05:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/ssl/misc/CA.pl",
+          "size": 7597,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-08-24T04:28:12-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/ssl/misc/tsget.pl",
+          "size": 6575,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-08-24T04:28:12-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/share/doc/openssl/copyright",
+          "size": 6548,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-08-21T09:08:47-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/bin/c_rehash",
+          "size": 6332,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-08-24T04:28:12-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/var/lib/dpkg/info/openssl.md5sums",
+          "size": 5965,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-08-24T04:28:12-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/var/lib/dpkg/info/ca-certificates.postinst",
+          "size": 5817,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-01-19T05:11:04-05:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            }
+          }
+        }
+      ],
+      "change_instruction": {
+        "index": 4,
+        "image_index": 0,
+        "type": "RUN",
+        "all": "RUN set -eux; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tca-certificates \t\tnetbase \t\ttzdata \t; \trm -rf /var/lib/apt/lists/*",
+        "snippet": "RUN set -eux; \tapt-get update; \tapt-get inst..."
+      },
+      "other_instructions": [
+        {
+          "index": 5,
+          "image_index": 0,
+          "type": "ENV",
+          "all": "ENV GPG_KEY=A035C8C19219BA821ECEA86B64E628F8D684696D",
+          "snippet": "ENV GPG_KEY=A035C8C19219BA821ECEA86B64E628F8..."
+        },
+        {
+          "index": 6,
+          "image_index": 0,
+          "type": "ENV",
+          "all": "ENV PYTHON_VERSION=3.10.0",
+          "snippet": "ENV PYTHON_VERSION=3.10.0"
+        }
+      ]
+    },
+    {
+      "id": "a8d5276e71e83481ef3bba55d8c2175b0cba0289595b9154adf579c84eec50c6",
+      "index": 2,
+      "path": "a8d5276e71e83481ef3bba55d8c2175b0cba0289595b9154adf579c84eec50c6/layer.tar",
+      "fsdiff_id": "sha256:dfc6dde2fc3d9dd7b6f007cf1ea39fb92fd9af8cb9495d65c0cace43dca3a505",
+      "stats": {
+        "all_size": 28875844,
+        "object_count": 1238,
+        "dir_count": 131,
+        "file_count": 1087,
+        "link_count": 20,
+        "max_file_size": 3676808,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 0,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 0,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 26793961,
+        "modified_size": 2081883
+      },
+      "changes": {
+        "deleted": 0,
+        "added": 1197,
+        "modified": 41
+      },
+      "top": [
+        {
+          "change": "A",
+          "name": "/usr/local/lib/libpython3.10.so.1.0",
+          "size": 3676808,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:19-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/ensurepip/_bundled/pip-21.2.3-py3-none-any.whl",
+          "size": 1563443,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:20-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/aarch64-linux-gnu/libsqlite3.so.0.8.6",
+          "size": 1290800,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-02-24T12:19:48-05:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/lib-dynload/unicodedata.cpython-310-aarch64-linux-gnu.so",
+          "size": 1115208,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:14:56-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "M",
+          "name": "/var/cache/debconf/templates.dat-old",
+          "size": 834631,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:35-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            },
+            "M": [
+              {
+                "layer": 1
+              },
+              {
+                "layer": 2
+              }
+            ]
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/ensurepip/_bundled/setuptools-57.4.0-py3-none-any.whl",
+          "size": 819017,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:20-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "M",
+          "name": "/var/cache/debconf/templates.dat",
+          "size": 807505,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:36-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            },
+            "M": [
+              {
+                "layer": 1
+              },
+              {
+                "layer": 2
+              }
+            ]
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/pydoc_data/topics.py",
+          "size": 735834,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:20-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/lib/aarch64-linux-gnu/libreadline.so.8.1",
+          "size": 358616,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2020-12-08T01:58:34-05:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/lib-dynload/_decimal.cpython-310-aarch64-linux-gnu.so",
+          "size": 290184,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:19-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/lib-dynload/_codecs_jp.cpython-310-aarch64-linux-gnu.so",
+          "size": 268536,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:03-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/lib/aarch64-linux-gnu/libncursesw.so.6.2",
+          "size": 231280,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-01-01T10:02:10-05:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/_pydecimal.py",
+          "size": 228676,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:19-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/lib-dynload/_ssl.cpython-310-aarch64-linux-gnu.so",
+          "size": 193592,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:00-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/tkinter/__init__.py",
+          "size": 170517,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:20-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/lib/aarch64-linux-gnu/libexpat.so.1.6.12",
+          "size": 161856,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-02-23T11:54:13-05:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/lib/aarch64-linux-gnu/libexpatw.so.1.6.12",
+          "size": 161856,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-02-23T11:54:13-05:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/lib-dynload/_codecs_hk.cpython-310-aarch64-linux-gnu.so",
+          "size": 157968,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:03-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/lib-dynload/_codecs_cn.cpython-310-aarch64-linux-gnu.so",
+          "size": 149744,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:02-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/lib-dynload/_testcapi.cpython-310-aarch64-linux-gnu.so",
+          "size": 149168,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:14:59-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 2
+            }
+          }
+        }
+      ],
+      "change_instruction": {
+        "index": 7,
+        "image_index": 0,
+        "type": "RUN",
+        "all": "RUN set -ex && \\\n\tsavedAptMark=\"$(apt-mark showmanual)\" && \\\n\tapt-get update && \\\n\tapt-get install -y --no-install-recommends \t\tdpkg-dev \t\tgcc \t\tlibbluetooth-dev \t\tlibbz2-dev \t\tlibc6-dev \t\tlibexpat1-dev \t\tlibffi-dev \t\tlibgdbm-dev \t\tliblzma-dev \t\tlibncursesw5-dev \t\tlibreadline-dev \t\tlibsqlite3-dev \t\tlibssl-dev \t\tmake \t\ttk-dev \t\tuuid-dev \t\twget \t\txz-utils \t\tzlib1g-dev \t\t$(command -v gpg > /dev/null || echo 'gnupg dirmngr') && \\\n\twget -O python.tar.xz \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz\" && \\\n\twget -O python.tar.xz.asc \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz.asc\" && \\\n\texport GNUPGHOME=\"$(mktemp -d)\" && \\\n\tgpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$GPG_KEY\" && \\\n\tgpg --batch --verify python.tar.xz.asc python.tar.xz && \\\n\t{ command -v gpgconf > /dev/null && \\\n\tgpgconf --kill all || :; } && \\\n\trm -rf \"$GNUPGHOME\" python.tar.xz.asc && \\\n\tmkdir -p /usr/src/python && \\\n\ttar -xJC /usr/src/python --strip-components=1 -f python.tar.xz && \\\n\trm python.tar.xz && \\\n\tcd /usr/src/python && \\\n\tgnuArch=\"$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)\" && \\\n\t./configure \t\t--build=\"$gnuArch\" \t\t--enable-loadable-sqlite-extensions \t\t--enable-optimizations \t\t--enable-option-checking=fatal \t\t--enable-shared \t\t--with-lto \t\t--with-system-expat \t\t--with-system-ffi \t\t--without-ensurepip && \\\n\tmake -j \"$(nproc)\" \t\tLDFLAGS=\"-Wl,--strip-all\" && \\\n\tmake install && \\\n\trm -rf /usr/src/python && \\\n\tfind /usr/local -depth \t\t\\( \t\t\t\\( -type d -a \\( -name test -o -name tests -o -name idle_test \\) \\) \t\t\t-o \\( -type f -a \\( -name '*.pyc' -o -name '*.pyo' -o -name '*.a' \\) \\) \t\t\\) -exec rm -rf '{}' + && \\\n\tldconfig && \\\n\tapt-mark auto '.*' > /dev/null && \\\n\tapt-mark manual $savedAptMark && \\\n\tfind /usr/local -type f -executable -not \\( -name '*tkinter*' \\) -exec ldd '{}' ';' \t\t| awk '/=>/ { print $(NF-1) }' \t\t| sort -u \t\t| xargs -r dpkg-query --search \t\t| cut -d: -f1 \t\t| sort -u \t\t| xargs -r apt-mark manual && \\\n\tapt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false && \\\n\trm -rf /var/lib/apt/lists/* && \\\n\tpython3 --version",
+        "snippet": "RUN set -ex && \\\n\tsavedAptMark=\"$(apt-mark s..."
+      }
+    },
+    {
+      "id": "33af634f3843a7e986eefd5b788fda6bddd2f09e204ac851c2b75dcceafece8f",
+      "index": 3,
+      "path": "33af634f3843a7e986eefd5b788fda6bddd2f09e204ac851c2b75dcceafece8f/layer.tar",
+      "fsdiff_id": "sha256:765c5adfc5910c698de4d557bbb9fbf5ade3073c562cf9f114fce55e981d72cf",
+      "stats": {
+        "all_size": 0,
+        "object_count": 7,
+        "dir_count": 3,
+        "file_count": 0,
+        "link_count": 4,
+        "max_file_size": 0,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 0,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 0,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 0,
+        "modified_size": 0
+      },
+      "changes": {
+        "deleted": 0,
+        "added": 4,
+        "modified": 3
+      },
+      "top": [
+        {
+          "change": "M",
+          "name": "/usr/local",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-10T20:00:00-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            },
+            "M": [
+              {
+                "layer": 1
+              },
+              {
+                "layer": 2
+              },
+              {
+                "layer": 3
+              },
+              {
+                "layer": 4
+              },
+              {
+                "layer": 7
+              },
+              {
+                "layer": 8
+              }
+            ]
+          }
+        },
+        {
+          "change": "M",
+          "name": "/usr/local/bin",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:37-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            },
+            "M": [
+              {
+                "layer": 2
+              },
+              {
+                "layer": 3
+              },
+              {
+                "layer": 4
+              },
+              {
+                "layer": 8
+              }
+            ]
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/bin/idle",
+          "mode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:37-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "link_target": "idle3",
+          "history": {
+            "A": {
+              "layer": 3
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/bin/pydoc",
+          "mode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:37-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "link_target": "pydoc3",
+          "history": {
+            "A": {
+              "layer": 3
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/bin/python",
+          "mode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:37-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "link_target": "python3",
+          "history": {
+            "A": {
+              "layer": 3
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/bin/python-config",
+          "mode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:37-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "link_target": "python3-config",
+          "history": {
+            "A": {
+              "layer": 3
+            }
+          }
+        },
+        {
+          "change": "M",
+          "name": "/usr",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-10T20:00:00-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 0
+            },
+            "M": [
+              {
+                "layer": 1
+              },
+              {
+                "layer": 2
+              },
+              {
+                "layer": 3
+              },
+              {
+                "layer": 4
+              },
+              {
+                "layer": 7
+              },
+              {
+                "layer": 8
+              }
+            ]
+          }
+        }
+      ],
+      "change_instruction": {
+        "index": 8,
+        "image_index": 0,
+        "type": "RUN",
+        "all": "RUN cd /usr/local/bin && \\\n\tln -s idle3 idle && \\\n\tln -s pydoc3 pydoc && \\\n\tln -s python3 python && \\\n\tln -s python3-config python-config",
+        "snippet": "RUN cd /usr/local/bin && \\\n\tln -s idle3 idle..."
+      },
+      "other_instructions": [
+        {
+          "index": 9,
+          "image_index": 0,
+          "type": "ENV",
+          "all": "ENV PYTHON_PIP_VERSION=21.2.4",
+          "snippet": "ENV PYTHON_PIP_VERSION=21.2.4"
+        },
+        {
+          "index": 10,
+          "image_index": 0,
+          "type": "ENV",
+          "all": "ENV PYTHON_SETUPTOOLS_VERSION=57.5.0",
+          "snippet": "ENV PYTHON_SETUPTOOLS_VERSION=57.5.0"
+        },
+        {
+          "index": 11,
+          "image_index": 0,
+          "type": "ENV",
+          "all": "ENV PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/3cb8888cc2869620f57d5d2da64da38f516078c7/public/get-pip.py",
+          "snippet": "ENV PYTHON_GET_PIP_URL=https://github.com/py..."
+        },
+        {
+          "index": 12,
+          "image_index": 0,
+          "type": "ENV",
+          "all": "ENV PYTHON_GET_PIP_SHA256=c518250e91a70d7b20cceb15272209a4ded2a0c263ae5776f129e0d9b5674309",
+          "snippet": "ENV PYTHON_GET_PIP_SHA256=c518250e91a70d7b20..."
+        }
+      ]
+    },
+    {
+      "id": "05881b6c4656b38abb658ea85520e3b01088396412f3f28ea69b484e82f235d0",
+      "index": 4,
+      "path": "05881b6c4656b38abb658ea85520e3b01088396412f3f28ea69b484e82f235d0/layer.tar",
+      "fsdiff_id": "sha256:f7abad044e81b4b1dce021508c96b12f36ab20b0ac49c90044dc74784d370473",
+      "stats": {
+        "all_size": 8685777,
+        "object_count": 767,
+        "dir_count": 165,
+        "file_count": 602,
+        "link_count": 0,
+        "max_file_size": 273394,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 0,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 0,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 8313774,
+        "modified_size": 372003,
+        "sticky_count": 1
+      },
+      "changes": {
+        "deleted": 0,
+        "added": 737,
+        "modified": 30
+      },
+      "top": [
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/pyparsing.py",
+          "size": 273394,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/tmp/tmp2q4qovh0cacert.pem",
+          "size": 259465,
+          "mode": 384,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:50-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/certifi/cacert.pem",
+          "size": 259465,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pkg_resources/_vendor/pyparsing.py",
+          "size": 232056,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/setuptools/_vendor/pyparsing.py",
+          "size": 232056,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/idna/uts46data.py",
+          "size": 201849,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/chardet/langrussianmodel.py",
+          "size": 131180,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/setuptools/_vendor/more_itertools/more.py",
+          "size": 117968,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/html5lib/html5parser.py",
+          "size": 117186,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "M",
+          "name": "/var/log/dpkg.log",
+          "size": 115880,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:48-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 1
+            },
+            "M": [
+              {
+                "layer": 2
+              },
+              {
+                "layer": 4
+              }
+            ]
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/pkg_resources/__init__.py",
+          "size": 108277,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pkg_resources/__init__.py",
+          "size": 108202,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/distlib/t64.exe",
+          "size": 105984,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/chardet/langbulgarianmodel.py",
+          "size": 105697,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/chardet/langthaimodel.py",
+          "size": 103312,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/chardet/langhungarianmodel.py",
+          "size": 102498,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/distlib/w64.exe",
+          "size": 99840,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/chardet/langgreekmodel.py",
+          "size": 99571,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/chardet/langhebrewmodel.py",
+          "size": 98776,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/distlib/t32.exe",
+          "size": 96768,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-26T19:15:51-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 4
+            }
+          }
+        }
+      ],
+      "change_instruction": {
+        "index": 13,
+        "image_index": 0,
+        "type": "RUN",
+        "all": "RUN set -ex; \t\tsavedAptMark=\"$(apt-mark showmanual)\"; \tapt-get update; \tapt-get install -y --no-install-recommends wget; \t\twget -O get-pip.py \"$PYTHON_GET_PIP_URL\"; \techo \"$PYTHON_GET_PIP_SHA256 *get-pip.py\" | sha256sum --check --strict -; \t\tapt-mark auto '.*' > /dev/null; \t[ -z \"$savedAptMark\" ] || apt-mark manual $savedAptMark; \tapt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \trm -rf /var/lib/apt/lists/*; \t\tpython get-pip.py \t\t--disable-pip-version-check \t\t--no-cache-dir \t\t\"pip==$PYTHON_PIP_VERSION\" \t\t\"setuptools==$PYTHON_SETUPTOOLS_VERSION\" \t; \tpip --version; \t\tfind /usr/local -depth \t\t\\( \t\t\t\\( -type d -a \\( -name test -o -name tests -o -name idle_test \\) \\) \t\t\t-o \t\t\t\\( -type f -a \\( -name '*.pyc' -o -name '*.pyo' \\) \\) \t\t\\) -exec rm -rf '{}' +; \trm -f get-pip.py",
+        "snippet": "RUN set -ex; \t\tsavedAptMark=\"$(apt-mark show..."
+      },
+      "other_instructions": [
+        {
+          "index": 14,
+          "image_index": 0,
+          "type": "CMD",
+          "all": "CMD [\"python3\"]",
+          "snippet": "CMD [\"python3\"]"
+        }
+      ]
+    },
+    {
+      "id": "cb155dd861187bd57d786446b46e89d6176a419f77a23dd9e610103d150b83eb",
+      "index": 5,
+      "path": "cb155dd861187bd57d786446b46e89d6176a419f77a23dd9e610103d150b83eb/layer.tar",
+      "fsdiff_id": "sha256:8dc1d84a76bb8307dac0c0016d4036979926d485f8de80eab6ab468e8534b2cb",
+      "stats": {
+        "all_size": 0,
+        "object_count": 2,
+        "dir_count": 1,
+        "file_count": 1,
+        "link_count": 0,
+        "max_file_size": 0,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 1,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 1,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 0,
+        "modified_size": 0
+      },
+      "changes": {
+        "deleted": 1,
+        "added": 1,
+        "modified": 0
+      },
+      "top": [
+        {
+          "change": "D",
+          "dir_content_delete": true,
+          "name": "/app/*",
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "1969-12-31T19:00:00-05:00",
+          "change_time": "0001-01-01T00:00:00Z"
+        },
+        {
+          "change": "A",
+          "name": "/app",
+          "mode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T09:08:57-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 5
+            },
+            "M": [
+              {
+                "layer": 6
+              },
+              {
+                "layer": 7
+              }
+            ]
+          }
+        }
+      ],
+      "change_instruction": {
+        "index": 15,
+        "image_index": 0,
+        "type": "RUN",
+        "all": "RUN [\"WORKDIR\",\"/app\"]",
+        "snippet": "RUN [\"WORKDIR\",\"/app\"]"
+      }
+    },
+    {
+      "id": "d3808fcc3e1be410b6b6fd6431c3cd1a6c15c5ceeb5022d2e2c56b49c4f3cca2",
+      "index": 6,
+      "path": "d3808fcc3e1be410b6b6fd6431c3cd1a6c15c5ceeb5022d2e2c56b49c4f3cca2/layer.tar",
+      "fsdiff_id": "sha256:099523e8a06d1259266945eb51f549f4fb696862e408904debb985be46c14e16",
+      "stats": {
+        "all_size": 13228049,
+        "object_count": 1193,
+        "dir_count": 136,
+        "file_count": 1055,
+        "link_count": 2,
+        "max_file_size": 319833,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 4,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 4,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 13228049,
+        "modified_size": 0
+      },
+      "changes": {
+        "deleted": 4,
+        "added": 1188,
+        "modified": 1
+      },
+      "top": [
+        {
+          "change": "A",
+          "name": "/app/static/images/peanuts.png",
+          "size": 319833,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:46:01-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/pip/_vendor/certifi/cacert.pem",
+          "size": 282085,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:39:39-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/pip/_vendor/pyparsing.py",
+          "size": 245385,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:39:39-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/setuptools/_vendor/pyparsing.py",
+          "size": 232055,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:39:39-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/pkg_resources/_vendor/pyparsing.py",
+          "size": 232055,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:39:39-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/pip/_vendor/__pycache__/pyparsing.cpython-38.pyc",
+          "size": 220254,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:39:40-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/pkg_resources/_vendor/__pycache__/pyparsing.cpython-38.pyc",
+          "size": 201690,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:39:39-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/setuptools/_vendor/__pycache__/pyparsing.cpython-38.pyc",
+          "size": 201687,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:39:39-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/pip/_vendor/idna/uts46data.py",
+          "size": 198292,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:39:39-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/pip/_vendor/idna/__pycache__/uts46data.cpython-38.pyc",
+          "size": 174197,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:39:39-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/static/evil.jpg",
+          "size": 144088,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T11:29:16-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/pip/_vendor/html5lib/html5parser.py",
+          "size": 118963,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:39:39-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/markupsafe/_speedups.cpython-38-darwin.so",
+          "size": 117784,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:40:55-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/click/core.py",
+          "size": 111335,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:40:54-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/pkg_resources/__init__.py",
+          "size": 108309,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:39:39-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/pip/_vendor/pkg_resources/__init__.py",
+          "size": 107910,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:39:39-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/slim.report.json",
+          "size": 106321,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T10:59:12-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/pip/_vendor/distlib/t64.exe",
+          "size": 102912,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:39:39-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/pkg_resources/__pycache__/__init__.cpython-38.pyc",
+          "size": 100394,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:39:39-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/app/.photoenv/lib/python3.8/site-packages/pip/_vendor/pkg_resources/__pycache__/__init__.cpython-38.pyc",
+          "size": 100197,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-09-16T12:39:39-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 6
+            }
+          }
+        }
+      ],
+      "change_instruction": {
+        "index": 16,
+        "image_index": 0,
+        "type": "RUN",
+        "all": "RUN [\"COPY\",\".\",\".\"]",
+        "snippet": "RUN [\"COPY\",\".\",\".\"]"
+      }
+    },
+    {
+      "id": "f026845858267ec300a44125cbd3258a6b9c1eb44c55c43a7d4e2d638d5cbf00",
+      "index": 7,
+      "path": "f026845858267ec300a44125cbd3258a6b9c1eb44c55c43a7d4e2d638d5cbf00/layer.tar",
+      "fsdiff_id": "sha256:4608f427d50a4d534c6f530ba41f275f7c779f11fb9f5c8e6a2e0a95f3ec4179",
+      "stats": {
+        "all_size": 1847425,
+        "object_count": 137,
+        "dir_count": 30,
+        "file_count": 107,
+        "link_count": 0,
+        "max_file_size": 198987,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 0,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 0,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 1847425,
+        "modified_size": 0
+      },
+      "changes": {
+        "deleted": 0,
+        "added": 107,
+        "modified": 30
+      },
+      "top": [
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pkg_resources/_vendor/__pycache__/pyparsing.cpython-310.pyc",
+          "size": 198987,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pkg_resources/__pycache__/__init__.cpython-310.pyc",
+          "size": 100060,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/inspect.cpython-310.pyc",
+          "size": 84703,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/zipfile.cpython-310.pyc",
+          "size": 60376,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/datetime.cpython-310.pyc",
+          "size": 56603,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/ast.cpython-310.pyc",
+          "size": 55627,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/collections/__pycache__/__init__.cpython-310.pyc",
+          "size": 48490,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/locale.cpython-310.pyc",
+          "size": 46182,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/threading.cpython-310.pyc",
+          "size": 44877,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/subprocess.cpython-310.pyc",
+          "size": 44453,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/pathlib.cpython-310.pyc",
+          "size": 42057,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/shutil.cpython-310.pyc",
+          "size": 37768,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/urllib/__pycache__/parse.cpython-310.pyc",
+          "size": 33815,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/codecs.cpython-310.pyc",
+          "size": 33199,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/_collections_abc.cpython-310.pyc",
+          "size": 32828,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/os.cpython-310.pyc",
+          "size": 31574,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/socket.cpython-310.pyc",
+          "size": 28973,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/functools.cpython-310.pyc",
+          "size": 28073,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/platform.cpython-310.pyc",
+          "size": 27398,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/dataclasses.cpython-310.pyc",
+          "size": 26490,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 7
+            }
+          }
+        }
+      ],
+      "change_instruction": {
+        "index": 17,
+        "image_index": 0,
+        "type": "RUN",
+        "all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"python\",\"test.py\"]",
+        "snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"python\",\"test.py\"..."
+      },
+      "other_instructions": [
+        {
+          "index": 19,
+          "image_index": 0,
+          "type": "RUN",
+          "all": "RUN [\"EXPOSE\",\"map[5000/tcp:{}]\"]",
+          "snippet": "RUN [\"EXPOSE\",\"map[5000/tcp:{}]\"]"
+        },
+        {
+          "index": 20,
+          "image_index": 0,
+          "type": "RUN",
+          "all": "RUN [\"ENTRYPOINT\",\"[python]\"]",
+          "snippet": "RUN [\"ENTRYPOINT\",\"[python]\"]"
+        },
+        {
+          "index": 21,
+          "image_index": 0,
+          "type": "RUN",
+          "all": "RUN [\"CMD\",\"[app.py]\"]",
+          "snippet": "RUN [\"CMD\",\"[app.py]\"]"
+        }
+      ]
+    },
+    {
+      "id": "40e8617fc621e573e812565cf64b8f74b4a460e21f7a94cfb113047eea1984ed",
+      "index": 8,
+      "path": "40e8617fc621e573e812565cf64b8f74b4a460e21f7a94cfb113047eea1984ed/layer.tar",
+      "fsdiff_id": "sha256:48d5586a52c4beb2a4bfa6ed34c71a390aee6af85cc6d3725d5394dd73da58eb",
+      "stats": {
+        "all_size": 9634471,
+        "object_count": 993,
+        "dir_count": 235,
+        "file_count": 758,
+        "link_count": 0,
+        "max_file_size": 289073,
+        "max_dir_size": 0,
+        "deleted_count": 0,
+        "deleted_dir_content_count": 13,
+        "deleted_dir_count": 0,
+        "deleted_file_count": 13,
+        "deleted_link_count": 0,
+        "deleted_size": 0,
+        "added_size": 9634471,
+        "modified_size": 0,
+        "sticky_count": 1
+      },
+      "changes": {
+        "deleted": 13,
+        "added": 841,
+        "modified": 139
+      },
+      "top": [
+        {
+          "change": "A",
+          "name": "/root/.cache/pip/http/e/1/1/a/8/e11a8821c385bce9a84bae447b99c0263765f9caba8e30871eab0b0a",
+          "size": 289073,
+          "mode": 384,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:54-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/__pycache__/pyparsing.cpython-310.pyc",
+          "size": 237864,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:53-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/html5lib/__pycache__/constants.cpython-310.pyc",
+          "size": 161234,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:53-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/html/__pycache__/entities.cpython-310.pyc",
+          "size": 144436,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:53-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/root/.cache/pip/http/f/7/9/0/4/f79042c06bf99597e73ebc5a31eb02bccaa27ff74c3492cda6d2df12",
+          "size": 134511,
+          "mode": 384,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:54-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/click/core.py",
+          "size": 111335,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:54-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/werkzeug/__pycache__/datastructures.cpython-310.pyc",
+          "size": 105078,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:54-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/markupsafe/_speedups.cpython-310-aarch64-linux-gnu.so",
+          "size": 99920,
+          "mode": 493,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:54-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/pkg_resources/__pycache__/__init__.cpython-310.pyc",
+          "size": 99903,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:53-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/root/.cache/pip/http/3/3/d/7/a/33d7a68337669a76145e3455540c23e1bb1ff4607a5509dbc0e85693",
+          "size": 98250,
+          "mode": 384,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:53-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/werkzeug/datastructures.py",
+          "size": 97886,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:54-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/root/.cache/pip/http/7/3/a/d/e/73aded951ee733f99ef54d24ceea020c9cfd68892775d725b529e9af",
+          "size": 95645,
+          "mode": 384,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:53-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/click/__pycache__/core.cpython-310.pyc",
+          "size": 88911,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:54-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/pip/_vendor/html5lib/__pycache__/html5parser.cpython-310.pyc",
+          "size": 88494,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:53-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/__pycache__/typing.cpython-310.pyc",
+          "size": 84244,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:52-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/werkzeug/routing.py",
+          "size": 84147,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:54-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/flask/app.py",
+          "size": 82376,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:54-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/werkzeug/__pycache__/routing.cpython-310.pyc",
+          "size": 73081,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:54-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/site-packages/jinja2/compiler.py",
+          "size": 72046,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:54-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        },
+        {
+          "change": "A",
+          "name": "/usr/local/lib/python3.10/urllib/__pycache__/request.cpython-310.pyc",
+          "size": 71261,
+          "mode": 420,
+          "uid": 0,
+          "gid": 0,
+          "mod_time": "2021-10-28T12:50:53-04:00",
+          "change_time": "0001-01-01T00:00:00Z",
+          "history": {
+            "A": {
+              "layer": 8
+            }
+          }
+        }
+      ],
+      "change_instruction": {
+        "index": 18,
+        "image_index": 0,
+        "type": "RUN",
+        "all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"pip\",\"install\",\"-r\",\"requirements.txt\"]",
+        "snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"pip\",\"install\",\"-..."
+      }
+    }
+  ],
+  "image_archive_location": "/Users/psvann/dslim/.docker-slim-state/images/a3cad194c995837e28f8e67249e6e1910ccf241f534ea91f73bb48146ef97424/image/a3cad194c995837e28f8e67249e6e1910ccf241f534ea91f73bb48146ef97424.tar"
+}
