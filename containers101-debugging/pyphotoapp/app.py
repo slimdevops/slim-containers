@@ -38,7 +38,7 @@ def allowed_file(filename):
 def index(): 
     # get images from local file
     images = os.listdir('static/images')
-    images.pop('.DS_Store')
+    images.remove('.DS_Store')
     print(images)
     return render_template('index.html', images=images)
 
