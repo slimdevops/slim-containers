@@ -37,8 +37,7 @@ def allowed_file(filename):
 @app.route('/')
 def index(): 
     # get images from local file
-    images = os.listdir('static/images')
-    images.remove('.DS_Store')
+    images = os.listdir('static/images') 
     print(images)
     return render_template('index.html', images=images)
 

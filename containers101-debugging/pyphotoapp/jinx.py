@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index(): 
-    print("You are still jinxed. Ha ha ha.")
+    print("You are still JINXED. Ha ha ha.")
     return render_template('evil.html')
 
 if __name__ == '__main__':
