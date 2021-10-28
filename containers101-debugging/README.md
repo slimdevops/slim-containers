@@ -1,4 +1,5 @@
-# Containers 101 - Part 4: Debugging
+# Containers 101 - Part 4: Debugging / Cursed Containers
+![Curses](pyphotoapp/static/evil.jpg)
 
 # Introduction
 Happy Halloween, Slimmers! We need your help. Our PyPhotoApp container has been cursed by an evil Ghost Pirate, and we need to :spider: debug it :spider:. 
@@ -50,25 +51,6 @@ Next, let's exec into the running container to see what those permissions issues
 ## The curse is lifted! 
 Thanks noble warriors! 
 
-~[](pyphotoapp/static/images/happy_halloween.png)
+![happy halloween](pyphotoapp/static/images/happy_halloween.png)
 
 Have tricks or treats for debugging your containers? [Join our Discord and please share!](https://discord.gg/uBttmfyYNB)
-
-
-### Container Starts But Application doesn't run (use docker logs to find root issue; update Dockerfile for permissions)
-USER_ID and GROUP_ID are set as environ variables in test.py 
-DOckerfile looks innocent -- setting user id variables as you'd like it to
-However, chmodd'ing app.py leads to some odd behavior
-
-docker exec -it <container_name> /bin/bash 
-ls -la to see files and permissions
-refer to article: fix is to pass USER_ID and GROUP_ID variables to container:
-docker run -dp 5000:5000 slimdevops/
-
-### Something about using paused containers
-
-
-# Fixes
-
-
-
