@@ -65,7 +65,7 @@ So now let's stop the container and remove it.
 
 ```
 docker stop <containerid> 
-docker kill <containerid>
+docker rm <containerid>
 ```
 
 Where did our images go? 
@@ -113,13 +113,15 @@ So this works pretty well for files and connecting them locally. You can see the
 But what about our categories? Well, volumes are great for that as well. 
 
 If you've seen the `image.db` file in our exploration, that's just what it says. In the app, we used `sqlite3` to create a lightweight database to store our category image. 
-
+clea
 But like our images, that database file is also now getting nuked each time we start and stop the container. 
 
 It's easy enough for us to add another volume, this time for the db file. 
 
 ```
-$ docker run -dp 5000:5000 -v $SLIM_JAM_PATH/pyphotoapp/static/images:/app/static/images -v $SLIM_JAM_PATH/pyphotoapp/data/image.db:/app/data/image.db slimpsv/pyphotoapp:start 
+$ docker run -dp 5000:5000 \
+  -v $SLIM_JAM_PATH/pyphotoapp/static/images:/app/static/images \
+  -v $SLIM_JAM_PATH/pyphotoapp/data/image.db:/app/data/image.db slimpsv/pyphotoapp:start 
 ```
 
 # Volumes Created Via Docker
