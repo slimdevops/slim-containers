@@ -19,19 +19,23 @@ Our container has quite a few issues as a result of the curse. Here's a list.
 To test our image, we'll primarily use two commands. Do this from the `pyphotoapp` directory on your local machine. 
 
 Building the image from the `Dockerfile`: 
-``` docker build -t slimdevops/pyphotoapp:cursed . ```
+``` 
+$ docker build -t slimdevops/pyphotoapp:cursed . 
+```
 
 Running the image in `interactive mode` (we add the `--rm` flag so we remove the conatiner): 
-``` docker run -it -p 5000:5000 --rm slimdevops/pyphotoapp:cursed ```
 
-Visiting our app in a browser to test the results: 
-``` http://0.0.0.0:5000 ```
+``` 
+$ docker run -it -p 5000:5000 --rm slimdevops/pyphotoapp:cursed 
+```
+
+Visiting our app in a browser to test the results: [http://0.0.0.0:5000](http://0.0.0.0:5000)
 
 
 ## Test Error: Magic FLASK not found
 It looks like we are trying to run `test.py` to make sure our dependencies are installed as desired. But something is wrong. 
 
-Let's look at our layer construction using `docker-slim xray` or the Slim SaaS. 
+Let's look at our layer construction using `docker-slim xray` or the Slim SaaS to see what's happen with our layer construction. 
 
 ## Cursed CMDs
 The test issue has gone away, but when we check our app in the browser, it's still cursed. What's going on with our `ENTRYPOINT` and `CMD` lines? 
