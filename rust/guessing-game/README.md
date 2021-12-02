@@ -27,10 +27,10 @@
 | Time to Scan | TKmTKs | TKmTKs | TK X | 
 
 ## About the Container :thinking:
-- **Base Image:** Rocker R-Ver
-- **Key Frameworks and Libraries:** [R](https://www.r-project.org/) / [#Rstats])https://twitter.com/hashtag/rstats), [Shiny]/(https://shiny.rstudio.com/)  
-- **Base Image Size:** 885 MB
-- ['Slim.AI Profile'](https://portal.slim.dev/home/xray/dockerhub%3A%2F%2Fdockerhub.public%2Flibrary%2Fpython%3Alatest)
+- **Base Image:** Rust (Official Docker Image)
+- **Key Frameworks and Libraries:** [Rust](https://www.https://www.rust-lang.org/)
+- **Base Image Size:** 1.3 GB (Uncompressed)
+- ['Slim.AI Profile'](https://portal.slim.dev/home/profile/dockerhub%3A%2F%2Fdockerhub.public%2Flibrary%2Frust%3A)
 - **Common Use Cases:** High-performing compiled applications, back-end services, and APIs
 
 ## Our Sample App 
