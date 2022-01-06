@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  photoapp:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - /srv/photo/images:/app/static/images
+      - /srv/photo/data:/app/data
