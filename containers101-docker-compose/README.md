@@ -1,4 +1,4 @@
-# Containers 101 - Part X: Introducing Docker Compose
+# Containers 101 - Introducing Docker Compose
 
 # Introduction
 
