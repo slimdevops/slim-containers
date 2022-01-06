@@ -110,8 +110,9 @@ docker-compose down
 
 ## What we have
 
-Monolithic app
+![Monolithic App](monolithic-app.png "Monolithic App")
 
 ## What we'll make
 
-Multi-service app
+![Multi-service App](multiservice-app.png "Multi-service app")
+
