@@ -34,6 +34,10 @@ Example Work-in-Progress
 -- 
 
 
+### Ideas
+- Use `v-carousel`? 
+- Use `Carousel.vue` from slim.ai site
+
 ## Build Setup
 
 ```bash

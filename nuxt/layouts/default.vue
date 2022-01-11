@@ -106,7 +106,18 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Inspire',
           to: '/inspire'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Carousel (Simple)',
+          to: '/simplecarousel'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Carousel (Full)',
+          to: '/carousel'
         }
+        
       ],
       miniVariant: false,
       right: true,

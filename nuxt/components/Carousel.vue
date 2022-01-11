@@ -1,36 +1,20 @@
 <template>
- 
   <div class="carousal-wrapper">
     <v-container class="blog-container">
-      <VueSlickCarousel :arrows="false" :dots="true" autoplay :speed="4000"  ref="slick" v-if="posts.length">
+      <VueSlickCarousel :arrows="false" :dots="true" autoplay :speed="4000"  ref="slick" > <!-- v-if="posts.length" make this part of image data retrieval --> 
         
-        <div :key="page.path" v-for="page in posts">
+        <div ><!-- :key="page.path" v-for="i in images" --> 
           <v-row align="center" class="carousal-slider-wrapper no-gutters">
             <v-col md="6" sm="6" xs="12" cols="12" p-0 >
               <div class="carousal-img">
-              <router-link :to=" page.path" >
-                <img
-                  :src="
-                    page.frontmatter.bannerimage
-                      ? page.frontmatter.bannerimage
-                      : 'default-banner.jpg'
-                  "
-                  :alt="page.frontmatter.title"
-                />
-                </router-link>
+                <img src="../static/v.png" />
               </div>
-            </v-col>
-            <v-col md="6" sm="6"  cols="12">
-              <div class="carousal-content">
-                <div class="content-head">
-                  <span>Featured / How-to Guides</span>
-                </div>
-
-                <span class="blog-date">{{ changeDateFormat(page.frontmatter.date) }}</span>
-                <router-link :to="page.path" ><h5> {{ page.title }}</h5></router-link>
-                <span class="mission">Developer advocates join our mission</span>
+              <div class="carousal-img">
+                <img src="../static/images/a_codi_socks.png" />
               </div>
+                              
             </v-col>
+            
           </v-row>
         </div>
         
@@ -50,12 +34,12 @@
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
-import arrowImage from "../uploads/arrow-pink.png";
+import arrowImage from "../static/arrow-pink.png";
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 export default {
   components: { VueSlickCarousel },
-  props: ["posts"],
+  props: ["images"],
   data() {
     return {
       image: arrowImage,

@@ -1,4 +1,5 @@
 # errors if you use node latest -- nuxt conflict? 
+# needs node-lts 
 FROM node:14.18.2 
 
 RUN mkdir -p /usr/src/nuxt-app
