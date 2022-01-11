@@ -11,7 +11,7 @@
         </div>
         <div class="col-xs-6 col-md-4">
             <button @click="makeEdit(false)" v-if="editing" class="btn btn-warning">Cancel</button>
-            <button @click="makeEdit(true)" v-else="editing" class="btn btn-primary">Edit</button>
+            <button @click="makeEdit(true)" v-else class="btn btn-primary">Edit</button>
         </div>
     </div>
     
