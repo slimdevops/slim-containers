@@ -1,5 +1,38 @@
 # slim-nuxt
+
 Example Work-in-Progress
+
+## Goals for Project
+![Cross the streams](https://media0.giphy.com/media/3o72EWUgbRNfLegO1W/giphy.gif)
+
+1. Create Vue/Nuxt front-end sample app for SlimDevOps Twitch stream's "photoapp" 
+2. Create viable Nuxt minification example for use in community outreach and content development
+3. Align with DockerSlim Nuxt minification example 
+4. Document findings, gotchas, how-tos to share in future tutorials 
+
+### Photo App Requirements: 
+- VueJS front end would have following features: 
+  -- Photo carousel reading from a static image folder
+  -- Upload Image capability with simple categorization
+  -- GET/POST data from database via backend API 
+
+### Twitch stream for Thurs Jan 11: 
+- Evan 
+- Intro to Vue 
+- Intro to Nuxt 
+- Intro to Vuetify - what is it, why use it, what it gets for you
+- Build:
+-- New Nuxt project
+-- Install Vuetify 
+-- Add carousel component
+-- Add upload capability 
+-- Containerize
+-- Extra credit: Minify 
+
+- Next Session: 
+-- Connect to back-end API
+-- 
+
 
 ## Build Setup
 

@@ -1,0 +1,41 @@
+version: '3.8'
+networks: 
+    photoapp: 
+     name: photoappNW
+
+services:
+    frontend:
+        build: slim_psv/pyphoto_frontend
+        ports: 
+        - "3000:8080"
+        volumes: 
+        - /srv/photo/images:/static/images # should map to S3 bucket or similar
+        - /srv/photo/data:/static/data # will remove when DB service available
+        networks:
+        - photoappNW
+  
+    backend: 
+        build: .
+        ports:
+        - "5000:5000"
+        volumes:
+        - /srv/photo/images:/app/static/images # should map to S3 bucket or similar
+        - /srv/photo/data:/app/data # will remove when DB service available
+        networks:
+        - photoappNW
+    
+    database: 
+        build: library/postgres
+        ports: 
+        - 5432:5432
+        volumes: 
+        - /srv/photo/data:/postgres/datadir # update to where PG wants data volume
+        - /srv/photo/postgres.conf:/postgres/conf #update to where PG wants conf file
+        networks:
+        - photoappNW
+    
+    load_balancer: 
+        build: library/nginx 
+        # configure this 
+
+    
