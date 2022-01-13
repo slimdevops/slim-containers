@@ -109,15 +109,9 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Carousel (Simple)',
-          to: '/simplecarousel'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Carousel (Full)',
+          title: 'Carousel',
           to: '/carousel'
         }
-        
       ],
       miniVariant: false,
       right: true,

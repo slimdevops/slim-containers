@@ -1,6 +1,6 @@
 # errors if you use node latest -- nuxt conflict? 
 # needs node-lts 
-FROM node:14.18.2 
+FROM node:lts-slim
 
 RUN mkdir -p /usr/src/nuxt-app
 WORKDIR /usr/src/nuxt-app/
@@ -11,9 +11,9 @@ RUN npm install
 
 RUN npm run build 
 
-EXPOSE 5000 
+EXPOSE 3000 
 ENV NUXT_HOST=0.0.0.0
-ENV NUXT_PORT=5000 
+ENV NUXT_PORT=3000 
 
 ENTRYPOINT [ "npm", "start" ]
 
