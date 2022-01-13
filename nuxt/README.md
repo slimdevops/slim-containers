@@ -27,6 +27,7 @@ This tutorial will be all front-end, as we build out the first "service" in our 
 
 1. Re-build our front-end in VueJS using the NuxtJS framework  
 2. Containerize the new front-end 
+3. Minify the container
 
 We'll hold off on any form submission, api connections, or CRUD type operations until next time. 
 
