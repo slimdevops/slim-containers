@@ -9,11 +9,10 @@ services:
         #image: slimpsv/nuxt-fe:latest
         ports: 
         - "3000:3000"
-        volumes: 
-        - /srv/photo/images:/static/images # should map to S3 bucket or similar
-        - /srv/photo/data:/static/data # will remove when DB service available
         networks:
         - photoapp
+        links: 
+        - backend
   
     backend: 
         build: backend/.
@@ -21,8 +20,8 @@ services:
         ports:
         - "5000:5000"
         volumes:
-        - /srv/photo/images:/app/static/images # should map to S3 bucket or similar
-        - /srv/photo/data:/app/data # will remove when DB service available
+        - ~/Documents/Projects/slim-cotw/containers101-networking-2/srv/photo/images:/app/static/images # should map to S3 bucket or similar
+        - ~/Documents/Projects/slim-cotw/containers101-networking-2/srv/photo/data:/app/data # will remove when DB service available
         networks:
         - photoapp
     
