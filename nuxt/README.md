@@ -48,12 +48,12 @@ The front-end application will need to:
 We're using a tech stack very similar to the front-end stack we use here at Slim.AI. 
 
 ### Why Vue? 
-VueJS was created in 20TK by Evan You and has been rising to prominenance as a React alternative. Vue is a server-side framework meant to be approachable and maintainable, with a focus on testing and interactivity. Vue Components are meant to be highly modular and extensible.  
+VueJS was created by Evan You and has been rising to prominenance as a React alternative. Vue is a server-side framework meant to be approachable and maintainable, with a focus on testing and interactivity. Vue Components are meant to be highly modular and extensible.  
 
 ### Why Nuxt? 
-NuxtJS is an open source project that brings the core concepts of NextJS to a Vue stack. It's focus is to improve developer productivity by providing common tooling and patterns for everything from SEO to performance. 
+[NuxtJS](https://nuxtjs.org) is an open source project that brings the core concepts of NextJS to a Vue stack. It's focus is to improve developer productivity by providing common tooling and patterns for everything from SEO to performance. 
 
-### Why Vuetify 
+### Why [Vuetify](https://vuetifyjs.com/en/)?
 Front-end developers are designers familiar with Bootstrap will see a lot of similarity with Vuetify. This project is a Material Design library that works with Vue and Nuxt to provide common components, including a grid system, layouts, forms, and even carousels that developers in a beautiful, natively responsive package. 
 
 
@@ -73,7 +73,7 @@ Need to install the following packages:
 Ok to proceed? (y) 
 
 create-nuxt-app v4.0.0
-✨  Generating Nuxt.js project in app
+✨  Generating Nuxt.js project in frontend
 ```
 Follow through the prompts to create the app with the following package selections. Be sure to select `Vuetify` for the UI framework. 
 
@@ -180,7 +180,7 @@ items: [
           icon: 'mdi-chart-bubble',
           title: 'Carousel',
           to: '/carousel'
-        },
+        }
 ```
 
 Checking `localhost:3000` should show us the new entry in the left nav of the Default Vuetify page. 
