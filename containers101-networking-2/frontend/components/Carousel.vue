@@ -1,6 +1,6 @@
 <template>
     <v-row>
-        <v-col class="text-center">
+        <v-col v-if="doneGettingItems" class="text-center">
             <v-carousel>
                 <v-carousel-item
                     v-for="(item,i) in items"
@@ -20,41 +20,35 @@ import axios from 'axios';
 export default {
   data () {
     return {
-      items: [
-        {
-          src: '/images/a_codi_socks.png',
-        },
-        {
-          src: '/images/codi_stickers.png',
-        },
-        {
-          src: '/images/codi-tshirts.png',
-        }
-      ],
-    };
+      items: [{ 
+        src: "http://0.0.0.0:5000/image/Tea3.png"
+      }],
+      doneGettingItems: false,
+    }
   },
   methods: { 
     getImages() { 
-      const apipath = 'http://backend:5000/images/';
+      const apipath = 'http://0.0.0.0:5000/images/';
       console.log(this.items); 
       axios.get(apipath)
         .then((res) => { 
             console.log(res);
-            const imgpath = 'http://backend:5000/image/';
+            const imgpath = 'http://0.0.0.0:5000/';
 
-            for (let i = 0; i < res.data.data.length; i++) {
-              this.items.push( {src: imgpath + res.data.data[i] }); 
-              console.log(this.items); 
+            for (let i = 0; i < res.data.images.length; i++) {
+              this.items.push( {src: imgpath + res.data.images[i] }); 
             }
-        
+            this.doneGettingItems = true;
         })
         .catch((error) => { 
-            console.log(error); 
+            this.doneGettingItems = true;
       }) 
     }
   },
-  created() { 
-    this.getImages(); 
+  created () {
+    this.getImages();  
+    console.log("Got new images from backend.");
+    console.log(this.items);
   }
 }
 </script>

@@ -6,9 +6,11 @@ from markupsafe import escape
 from werkzeug.utils import secure_filename
 import os
 import sqlite3
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app)
 
 
 UPLOAD_FOLDER = 'static/images'

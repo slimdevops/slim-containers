@@ -1,19 +1,10 @@
 version: '3.8'
-networks: 
-    photoapp: 
-     name: photoappNW
+
+# networks: 
+#     frontend:
+#     backend: 
 
 services:
-    frontend:
-        build: frontend/.
-        #image: slimpsv/nuxt-fe:latest
-        ports: 
-        - "3000:3000"
-        networks:
-        - photoapp
-        links: 
-        - backend
-  
     backend: 
         build: backend/.
         #image: slimpsv/pyphotoapp:latest
@@ -22,8 +13,20 @@ services:
         volumes:
         - ~/Documents/Projects/slim-cotw/containers101-networking-2/srv/photo/images:/app/static/images # should map to S3 bucket or similar
         - ~/Documents/Projects/slim-cotw/containers101-networking-2/srv/photo/data:/app/data # will remove when DB service available
-        networks:
-        - photoapp
+        # networks:
+        # - photoapp
+
+    frontend:
+        build: frontend/.
+        #image: slimpsv/nuxt-fe:latest
+        ports: 
+        - "3000:3000"
+        # networks:
+        # - photoapp
+        links: 
+        - backend
+  
+
     
     # database: 
     #     build: postgres
