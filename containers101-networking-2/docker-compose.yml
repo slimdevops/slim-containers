@@ -5,7 +5,8 @@ networks:
 
 services:
     frontend:
-        image: slimpsv/nuxt-fe:latest
+        build: frontend/.
+        #image: slimpsv/nuxt-fe:latest
         ports: 
         - "3000:3000"
         volumes: 
@@ -15,7 +16,8 @@ services:
         - photoapp
   
     backend: 
-        image: slimpsv/pyphotoapp:latest
+        build: backend/.
+        #image: slimpsv/pyphotoapp:latest
         ports:
         - "5000:5000"
         volumes:

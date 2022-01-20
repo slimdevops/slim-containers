@@ -1,14 +1,16 @@
 # Containers 101 - Networking Part 3: Connecting Frontend and Backend
 
 # Introduction
-
+![Screenshot of App](../images/final-vue-app.png)
 ### The Plan: 
 1. Update the frontend to handle ajax-y calls to backend to send and receive data
 2. Update the backend to act as an API, not a full-service app
 3. Expand the Docker Compose file to create a [**network**](link) out of the frontend and backend containers. 
 
 # Frontend updates
-- Use Axios to get images from folder
+- Use Axios to get images from folder: 
+- Install either during your `npm init nuxt-app frontend` command (see previous example) or by another method
+- 
 
 # Backend updates
 - create routes: 
