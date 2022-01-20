@@ -1,27 +1,28 @@
-#TODO: Volumes w/ Mongo in it 
-#TODO: Readme
+#!/usr/bin/env python3
 
-from flask import Flask, flash, redirect, url_for, render_template, request
+
+from flask import Flask, jsonify, make_response, request, send_file
+from markupsafe import escape
 from werkzeug.utils import secure_filename
-import os 
-import sqlite3 
+import os
+import sqlite3
 
 
 app = Flask(__name__)
-app.secret_key = 'slimdevops-seeeeekret-kee'
+
 
 UPLOAD_FOLDER = 'static/images'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
-try: 
+
+try:
     con = sqlite3.connect('data/image.db')
     cur= con.cursor()
     cur.execute('''CREATE TABLE images
                (date text, image_name text, category text)''' )
     cur.close()
     con.close()
-except: 
+except:
     print("DB already created")
 
 
@@ -29,26 +30,50 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/')
-def index(): 
-    # get images from local file
-    images = os.listdir('static/images')
-    print(images)
-    return render_template('index.html', images=images)
 
-@app.route('/upload',methods=['POST'])
-def upload(): 
+@app.route('/')
+def index():
+    """Endpoint to root on the server."""
+    message = jsonify(success='Backend is ready')
+    return make_response(message, 200)
+
+
+@app.route('/images/', methods=['GET'])
+def images():
+    """Endpoint to list images on the server."""
+    files = []
+    for file in os.listdir(UPLOAD_FOLDER):
+        filepath = os.path.join(UPLOAD_FOLDER, file)
+        if os.path.isfile(filepath) and allowed_file(filepath):
+            files.append(f"image/{escape(file)}")
+    message = jsonify(images=files)
+    return make_response(message, 200)
+
+
+@app.route('/image/<image>', methods=['GET'])
+def get_image(image):
+    """Endpoint to return an image from the server."""
+    filename = os.path.join(UPLOAD_FOLDER, f"{escape(image)}")
+    return send_file(filename)
+
+
+@app.route('/upload/', methods=['POST'])
+def upload():
+    """
+    Endpoint to upload an image to the server.
+    curl -i -X POST -H "Content-Type: multipart/form-data" -F "pic=@test.jpg" http://0.0.0.0:5000/upload/
+    """
     if request.method == 'POST':
-        if 'pic' not in request.files: 
-            flash('No file part')
-            return redirect('/')
+        if 'pic' not in request.files:
+            message = jsonify(fail='No image provided')
+            return make_response(message, 400)
         file = request.files['pic']
 
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            
-            # database methods here
+            file.save(os.path.join(UPLOAD_FOLDER, filename))
+
+            """ database methods here
             category = request.form.get('cat')
             # oid = coll.insert_one({'img_name': filename, 'category': category})
             con = sqlite3.connect('data/image.db')
@@ -56,15 +81,16 @@ def upload():
             cur.execute('''INSERT INTO images VALUES (?,?,?)''',('2021-09-16', filename, category))
             cur.close()
             con.close()
-            flash('File uploaded successfully')
-
-            return redirect('/')
-
+            """
+            message = jsonify(success=f"{file.filename}")
+            return make_response(message, 200)
         else:
-            flash('Invalid file')
-            return redirect('/')
+            message = jsonify(fail=f"Invalid file type: {file.filename}")
+            return make_response(message, 400)
     else:
-        flash('Invalid method')
+        message = jsonify(fail=f"Invalid request method: {request.method}")
+        return make_response(message, 400)
+
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=5000)
+    app.run(host='0.0.0.0', port=5000)
