@@ -1,0 +1,47 @@
+version: '3.8'
+
+# networks: 
+#     frontend:
+#     backend: 
+
+services:
+    backend: 
+        build: backend/.
+        #image: slimpsv/pyphotoapp:latest
+        ports:
+        - "5000:5000"
+        volumes:
+        - ~/Documents/Projects/slim-cotw/containers101-networking-2/srv/photo/images:/app/static/images # should map to S3 bucket or similar
+        - ~/Documents/Projects/slim-cotw/containers101-networking-2/srv/photo/data:/app/data # will remove when DB service available
+        # networks:
+        # - photoapp
+
+    frontend:
+        build: frontend/.
+        #image: slimpsv/nuxt-fe:latest
+        ports: 
+        - "3000:3000"
+        # networks:
+        # - photoapp
+        links: 
+        - backend
+  
+
+    
+    # database: 
+    #     build: postgres
+    #     ports: 
+    #     - 5432:5432
+    #     volumes: 
+    #     - /srv/photo/data:/postgres/datadir # update to where PG wants data volume
+    #     - /srv/photo/postgres.conf:/postgres/conf #update to where PG wants conf file
+    #     networks:
+    #     - photoapp
+    
+    # load_balancer: 
+    #     build: nginx 
+    #     networks:
+    #     - photoapp
+
+
+    
