@@ -63,34 +63,29 @@ def upload():
     Endpoint to upload an image to the server.
     curl -i -X POST -H "Content-Type: multipart/form-data" -F "pic=@test.jpg" http://0.0.0.0:5000/upload/
     """
-    if request.method == 'POST':
-        if 'pic' not in request.files:
-            message = jsonify(fail='No image provided')
-            return make_response(message, 400)
-        file = request.files['pic']
-
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(UPLOAD_FOLDER, filename))
-
-            """ database methods here
-            category = request.form.get('cat')
-            # oid = coll.insert_one({'img_name': filename, 'category': category})
-            con = sqlite3.connect('data/image.db')
-            cur = con.cursor()
-            cur.execute('''INSERT INTO images VALUES (?,?,?)''',('2021-09-16', filename, category))
-            cur.close()
-            con.close()
-            """
-            message = jsonify(success=f"{file.filename}")
-            return make_response(message, 200)
-        else:
-            message = jsonify(fail=f"Invalid file type: {file.filename}")
-            return make_response(message, 400)
-    else:
-        message = jsonify(fail=f"Invalid request method: {request.method}")
+    if 'pic' not in request.files:
+        message = jsonify(fail='No image provided')
         return make_response(message, 400)
+    file = request.files['pic']
 
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(UPLOAD_FOLDER, filename))
+
+        """ database methods here
+        category = request.form.get('cat')
+        # oid = coll.insert_one({'img_name': filename, 'category': category})
+        con = sqlite3.connect('data/image.db')
+        cur = con.cursor()
+        cur.execute('''INSERT INTO images VALUES (?,?,?)''',('2021-09-16', filename, category))
+        cur.close()
+        con.close()
+        """
+        message = jsonify(success=f"{file.filename}")
+        return make_response(message, 200)
+    else:
+        message = jsonify(fail=f"Invalid file type: {file.filename}")
+        return make_response(message, 400)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
