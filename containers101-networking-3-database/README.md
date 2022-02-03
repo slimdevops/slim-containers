@@ -1,13 +1,18 @@
 # Containers 101 - Networking Part 3: Connecting Frontend and Backend
 
 # Introduction
+https://github.com/docker-slim/examples
+
 https://ivhani.medium.com/docker-compose-and-postgresql-db-in-a-flash-bde7f612ebff
 
+https://github.com/docker/awesome-compose
+
+https://pypi.org/project/psycopg2/
+
 ### The Plan:
-1. Update Docker Compose to have DB Service
-   1. Postgres.conf file and volumes for data storage
+1. Update Docker Compose to have DB Service w/ volumes
 2. Add Psycopg2 and SQLAlchemy to the backend for DB calls
-3. 
+3. Update frontend to post to backend for uploads
 
 # Backend updates
 We need to make the following updates to our Python Flask app so it works more like a backend.
