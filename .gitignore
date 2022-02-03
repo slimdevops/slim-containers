@@ -4586,3 +4586,4 @@ containers101-debugging/pyphotoapp/.photoenv/lib/python3.8/site-packages/werkzeu
 containers101-debugging/pyphotoapp/.photoenv/lib/python3.8/site-packages/werkzeug/wrappers/user_agent.py
 .DS_Store
 .gitignore
+.DS_Store
