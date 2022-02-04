@@ -1,0 +1,33 @@
+img {
+    max-width: 400px;
+    max-height: 400px;
+    width: auto;
+}
+.glide{ 
+    max-width: 800px;
+    margin: auto;
+}
+.title { 
+    margin: auto;
+    padding: 24px; 
+
+}
+.center {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+
+.uploadSection { 
+    background-color: #999;
+    border: 1px #999 .5em;
+    width: 60%;
+    margin:  auto;
+    padding: 24px;
+}
+
+.uploadbutton { 
+    margin: 12px auto;
+    padding: 12px;
+    font-size: 3em;
+}
