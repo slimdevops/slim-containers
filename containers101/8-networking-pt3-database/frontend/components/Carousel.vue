@@ -16,7 +16,9 @@
 
 <script>
 import axios from 'axios';
-axios.defaults.headers.get['Access-Control-Allow-Origin'] = 'http://0.0.0.0:5000/*';
+axios.defaults.baseURL = "http://0.0.0.0"
+axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
+axios.defaults.headers['Access-Control-Allow-Methods'] = 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
 
 export default {
   data () {
@@ -31,10 +33,13 @@ export default {
     getImages() { 
       const apipath = 'http://0.0.0.0:5000/images/';
       console.log(this.items); 
-      axios.get(apipath)
+      var config = {
+        headers: {'Access-Control-Allow-Origin': '*'}
+      };
+      axios.get(apipath,{},config)
         .then((res) => { 
             console.log(res);
-            const imgpath = 'http://0.0.0.0:5000/';
+            const imgpath = 'http://0.0.0.0:5000/image/';
 
             for (let i = 0; i < res.data.images.length; i++) {
               this.items.push( {src: imgpath + res.data.images[i] }); 

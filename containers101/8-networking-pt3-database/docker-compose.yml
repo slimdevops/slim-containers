@@ -28,8 +28,7 @@ services:
         volumes:
         - ./srv/images:/app/static/images # should map to S3 bucket or similar
         - ./srv/data:/app/data # will remove when DB service available
-        networks:
-        - photonet
+
 
     frontend:
         container_name: photo_frontend
@@ -38,12 +37,7 @@ services:
         build: frontend/.
         ports: 
         - "3000:3000"
-        networks:
-        - photonet
-  
 
-networks: 
-    photonet: 
 
 volumes:
     database: 
