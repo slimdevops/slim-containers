@@ -41,6 +41,18 @@ services:
         networks:
         - photonet
   
+    # reverse_proxy:
+    #     image: nginx:latest
+    #     container_name: reverse_proxy
+    #     depends_on:
+    #         - frontend
+    #         - backend
+    #     volumes: 
+    #         - ./srv/conf/nginx.conf:/etc/nginx/nginx.conf 
+    #         - ./srv/conf/proxy.conf:/etc/nginx/includes/proxy.conf
+    #     ports:
+    #         - 80:80
+    #         - 443:443
 
 networks: 
     photonet: 
@@ -48,5 +60,6 @@ networks:
 volumes:
     database: 
     backend: 
+    reverse-proxy: 
     
     
