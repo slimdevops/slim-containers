@@ -1,0 +1,23 @@
+[
+  {
+    "name": "carousel",
+    "path": "/carousel",
+    "component": "/Users/psvann/Documents/Projects/slim-cotw/containers101/8-networking-pt3-database/frontend/pages/carousel.vue",
+    "chunkName": "pages/carousel",
+    "_name": "_c3beffdc"
+  },
+  {
+    "name": "inspire",
+    "path": "/inspire",
+    "component": "/Users/psvann/Documents/Projects/slim-cotw/containers101/8-networking-pt3-database/frontend/pages/inspire.vue",
+    "chunkName": "pages/inspire",
+    "_name": "_a867bdd0"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/psvann/Documents/Projects/slim-cotw/containers101/8-networking-pt3-database/frontend/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_53b10c90"
+  }
+]
