@@ -1,0 +1,52 @@
+version: '3'
+services:
+    database: 
+        container_name: photo_db 
+        image: postgres:latest
+        restart: always
+        ports: 
+        - "5432:5432"
+        volumes: 
+        - ./srv/photo/data/db:/data/db # update to where PG wants data volume
+        - ./srv/photo/data/postgres:/var/lib/postgresql/data #update to where PG wants conf file
+        - ./init.sh:/docker-entrypoint-initdb.d/init.sh
+        environment: 
+            POSTGRES_DB: photos
+            POSTGRES_USER: docker
+            POSTGRES_PASSWORD: test
+            PGDATA: /var/lib/postgresql/data
+
+    backend: 
+        container_name: photo_backend
+        image: slimpsv/photo_backend
+        restart: always
+        depends_on:
+        - database
+        build: backend/.
+        ports:
+        - "5000:5000"
+        volumes:
+        - ./srv/photo/images:/app/static/images # should map to S3 bucket or similar
+        - ./srv/photo/data:/app/data # will remove when DB service available
+        networks:
+        - photonet
+
+    frontend:
+        container_name: photo_frontend
+        image: slimpsv/photo_frontend
+        restart: always
+        build: frontend/.
+        ports: 
+        - "3000:3000"
+        networks:
+        - photonet
+  
+
+networks: 
+    photonet: 
+
+volumes:
+    database: 
+    backend: 
+    
+    
