@@ -1,22 +1,22 @@
 version: '3'
 services:
-    database: 
-        container_name: photo_db 
+    database:
+        container_name: photo_db
         image: postgres:latest
         restart: always
-        ports: 
+        ports:
         - "5432:5432"
-        volumes: 
+        volumes:
         - ./srv/data/db:/data/db # update to where PG wants data volume
         - ./srv/data/postgres:/var/lib/postgresql/data #update to where PG wants conf file
-        - ./init.sh:/docker-entrypoint-initdb.d/init.sh
-        environment: 
+        #- ./init.sh:/docker-entrypoint-initdb.d/init.sh
+        environment:
             POSTGRES_DB: photos
             POSTGRES_USER: docker
             POSTGRES_PASSWORD: test
             PGDATA: /var/lib/postgresql/data
 
-    backend: 
+    backend:
         container_name: photo_backend
         image: slimpsv/photo_backend
         restart: always
@@ -36,30 +36,33 @@ services:
         image: slimpsv/photo_frontend
         restart: always
         build: frontend/.
-        ports: 
+        ports:
         - "3000:3000"
+        depends_on:
+        - nginx-proxy
+        environment:
+        - VIRTUAL_HOST=example.local
+        - VIRTUAL_PORT=3000
         networks:
         - photonet
-  
-    # reverse_proxy:
-    #     image: nginx:latest
-    #     container_name: reverse_proxy
-    #     depends_on:
-    #         - frontend
-    #         - backend
-    #     volumes: 
-    #         - ./srv/conf/nginx.conf:/etc/nginx/nginx.conf 
-    #         - ./srv/conf/proxy.conf:/etc/nginx/includes/proxy.conf
-    #     ports:
-    #         - 80:80
-    #         - 443:443
+        - proxynet
 
-networks: 
-    photonet: 
+    nginx-proxy:
+        image: jwilder/nginx-proxy
+        container_name: proxy
+        ports:
+        - 80:80
+        volumes:
+        - /var/run/docker.sock:/tmp/docker.sock:ro
+        - /etc/nginx/vhost.d
+        networks:
+        - proxynet
+
+networks:
+    photonet:
+    proxynet:
+        driver: bridge
 
 volumes:
-    database: 
-    backend: 
-    reverse-proxy: 
-    
-    
+    database:
+    backend:

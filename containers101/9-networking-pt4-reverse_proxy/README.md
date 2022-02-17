@@ -1,121 +1,181 @@
-# Containers 101 - Networking Part 3: Databases
+# Containers 101 - Networking Part 9: Reverse Proxy
 
 # Introduction
-![Screenshot of App](../images/final-vue-app.png)
 
-In our past two seesions, we've built a Docker Compose file for our monolithic photo app, and then created a containerized version of the front-end using VueJS, Nuxt, and Vuetify.
+In this workshop we're adding a simple nginx reverse proxy to server our
+frontend web app on port 80:
 
-Now, it's time to hook the two services together!
+Prerequisites:
+  * `docker`
+  * `docker-compose`
+  * domain(s) with the DNS entries pointing to the location where you will host your reverse proxy
 
-### The Plan:
-1. Update the frontend to handle ajax-y calls to backend to send and receive data
-2. Update the backend to act as an API, not a full-service app
-3. Expand the Docker Compose file to create a network out of the frontend and backend containers.
+## Adding nginx-proxy
 
-# Backend updates
-We need to make the following updates to our Python Flask app so it works more like a backend.
+We're am making use of the extremely useful [nginx-proxy](https://hub.docker.com/r/jwilder/nginx-proxy/) project.
 
-First, we add an endpoint to get all of our images:
-
-```python
-@app.route('/images/', methods=['GET'])
-def images():
-    """Endpoint to list images on the server."""
-    files = []
-    for file in os.listdir(UPLOAD_FOLDER):
-        filepath = os.path.join(UPLOAD_FOLDER, file)
-        if os.path.isfile(filepath) and allowed_file(filepath):
-            files.append(f"image/{escape(file)}")
-    message = jsonify(images=files)
-    return make_response(message, 200)
-```
-
-Next, we add an endpoint to serve a single image:
-
-```python
-@app.route('/image/<image>', methods=['GET'])
-def get_image(image):
-    """Endpoint to return an image from the server."""
-    filename = os.path.join(UPLOAD_FOLDER, f"{escape(image)}")
-    return send_file(filename)
-```
-
-For browser-y reasons that we'll discuss later, we use Flask-CORS to get us through any cross-origin issues, but we should remove it for production.
-
-
-# Frontend updates
-We need to add some javascript-y bits to our `<script>` section in the `Carousel.vue` app.
-
-```javascript
-<script>
-import axios from 'axios';
-
-export default {
-  data () {
-    return {
-      items: [{
-        src: "http://0.0.0.0:5000/image/Tea3.png"
-      }],
-      doneGettingItems: false,
-    }
-  },
-  methods: {
-    getImages() {
-      const apipath = 'http://0.0.0.0:5000/images/';
-      console.log(this.items);
-      axios.get(apipath)
-        .then((res) => {
-            console.log(res);
-            const imgpath = 'http://0.0.0.0:5000/';
-
-            for (let i = 0; i < res.data.images.length; i++) {
-              this.items.push( {src: imgpath + res.data.images[i] });
-            }
-            this.doneGettingItems = true;
-        })
-        .catch((error) => {
-            this.doneGettingItems = true;
-      })
-    }
-  },
-  created () {
-    this.getImages();
-    console.log("Got new images from backend.");
-    console.log(this.items);
-  }
-}
-</script>
-```
-
-# Docker Compose Changes
+Adding `nginx-proxy` to our docker-compose file is simple enough:
 
 ```yaml
+    nginx-proxy:
+        image: jwilder/nginx-proxy
+        container_name: proxy
+        ports:
+        - 80:80
+        volumes:
+        - /var/run/docker.sock:/tmp/docker.sock:ro
+        - /etc/nginx/vhost.d
+        networks:
+        - proxynet
+```
+
+This should be fairly self explanatory, the `nginx-proxy` exposes ports 80 and
+mount docker socket and a volume for the dynamically generated nginx configuration.
+
+We also need to add the `proxynet` using the `bridge` driver to the `networks:`
+like so:
+
+```yaml
+networks:
+    photonet:
+    proxynet:
+        driver: bridge
+```
+
+## Connecting the frontend app to the reverse proxy
+
+Adding the following to `frontend:` is all that is required to
+
+```yaml
+        depends_on:
+        - nginx-proxy
+        environment:
+        - VIRTUAL_HOST=example.local
+        - VIRTUAL_PORT=3000
+        networks:
+        - proxynet
+```
+
+The main requirement here is that the environment variable `VIRTUAL_HOST` must
+be specified. This tells the reverse proxy which address will be routed to the
+appropriate container.
+
+If your application exposes more than one port then you need to tell the proxy
+which port you want to use by setting the environment variable `VIRTUAL_PORT`.
+Our PhotoApp only exposes one port which is defined in its Dockerfile, 3000, but
+I have included the `VIRTUAL_PORT` in the docker-compose file for completeness.
+
+## Complete docker-compose file
+
+Here is the complete `docker-compose.yml` file:
+
+```yaml
+version: '3'
 services:
+    database:
+        container_name: photo_db
+        image: postgres:latest
+        restart: always
+        ports:
+        - "5432:5432"
+        volumes:
+        - ./srv/data/db:/data/db # update to where PG wants data volume
+        - ./srv/data/postgres:/var/lib/postgresql/data #update to where PG wants conf file
+        #- ./init.sh:/docker-entrypoint-initdb.d/init.sh
+        environment:
+            POSTGRES_DB: photos
+            POSTGRES_USER: docker
+            POSTGRES_PASSWORD: test
+            PGDATA: /var/lib/postgresql/data
+
     backend:
+        container_name: photo_backend
+        image: slimpsv/photo_backend
+        restart: always
+        depends_on:
+        - database
         build: backend/.
-        #image: slimpsv/pyphotoapp:latest
         ports:
         - "5000:5000"
         volumes:
-        - ~/Documents/Projects/slim-cotw/containers101-networking-2/srv/photo/images:/app/static/images # should map to S3 bucket or similar
-        - ~/Documents/Projects/slim-cotw/containers101-networking-2/srv/photo/data:/app/data # will remove when DB service available
+        - ./srv/images:/app/static/images # should map to S3 bucket or similar
+        - ./srv/data:/app/data # will remove when DB service available
+        networks:
+        - photonet
 
     frontend:
+        container_name: photo_frontend
+        image: slimpsv/photo_frontend
+        restart: always
         build: frontend/.
-        #image: slimpsv/nuxt-fe:latest
         ports:
         - "3000:3000"
-        links:
-        - backend
+        depends_on:
+        - nginx-proxy
+        environment:
+        - VIRTUAL_HOST=example.local
+        - VIRTUAL_PORT=3000
+        networks:
+        - photonet
+        - proxynet
+
+    nginx-proxy:
+        image: jwilder/nginx-proxy
+        container_name: proxy
+        ports:
+        - 80:80
+        volumes:
+        - /var/run/docker.sock:/tmp/docker.sock:ro
+        - /etc/nginx/vhost.d
+        networks:
+        - proxynet
+
+networks:
+    photonet:
+    proxynet:
+        driver: bridge
+
+volumes:
+    database:
+    backend:
 ```
 
-And we run with:
+## Starting services
+
+**NOTE!** Before bringing up the containers you need to ensure that your DNS
+entries point to the location where you will be running these services.
+
+For the purposes of this example I added `example.local` to my local `/etc/hosts`
+file:
+
+```
+127.0.2.1       example.local   www.example.local
+```
+
+Save the `docker-compose.yml` and execute the following to build and run the
+containers:
 
 ```bash
-$ docker compose up -d --build
+docker compose up -d --build
+```
+
+Check the containers are running with:
+
+```bash
+docker ps
 ```
 
 Stop with:
+
+```bash
+docker-compose down
+```
+
+If you find that some of the containers are not running then try starting the
+services again without passing `-d` to `docker-compose up` this will let you see
+the logs of each service and should give you a hint as to what went wrong.
+
+To stop the containers, execute:
 
 ```bash
 docker-compose down
