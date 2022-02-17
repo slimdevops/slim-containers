@@ -180,3 +180,20 @@ To stop the containers, execute:
 ```bash
 docker-compose down
 ```
+
+## TLS with Lets Encrypt
+
+For production deployments you will want to enable encryption and the
+[nginxproxy/acme-companion](https://hub.docker.com/r/nginxproxy/acme-companion) project
+is perfect for the job.
+
+The [README for acme-companion on DockerHub](https://hub.docker.com/r/nginxproxy/acme-companion)
+explains what needs to be done to integrate Lets Encrypt in your web app container(s).
+
+### Requirements:
+  * Your host *must* be publicly reachable on *both* port `80` and `443`.
+  * Check your firewall rules and *do not attempt to block port `80`* as that will prevent `http-01` challenges from completing.
+  * For the same reason, you can't use nginx-proxy's `HTTPS_METHOD=nohttp`.
+  * The (sub)domains you want to issue certificates for *must* correctly resolve to the host.
+  * Your DNS provider must [answer correctly to CAA record requests](https://letsencrypt.org/docs/caa/).
+  * If your (sub)domains have AAAA records set, the host must be publicly reachable over IPv6 on port `80` and `443`.
