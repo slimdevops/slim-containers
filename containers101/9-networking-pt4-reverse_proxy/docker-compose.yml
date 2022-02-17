@@ -7,8 +7,8 @@ services:
         ports: 
         - "5432:5432"
         volumes: 
-        - ./srv/photo/data/db:/data/db # update to where PG wants data volume
-        - ./srv/photo/data/postgres:/var/lib/postgresql/data #update to where PG wants conf file
+        - ./srv/data/db:/data/db # update to where PG wants data volume
+        - ./srv/data/postgres:/var/lib/postgresql/data #update to where PG wants conf file
         - ./init.sh:/docker-entrypoint-initdb.d/init.sh
         environment: 
             POSTGRES_DB: photos
@@ -26,8 +26,8 @@ services:
         ports:
         - "5000:5000"
         volumes:
-        - ./srv/photo/images:/app/static/images # should map to S3 bucket or similar
-        - ./srv/photo/data:/app/data # will remove when DB service available
+        - ./srv/images:/app/static/images # should map to S3 bucket or similar
+        - ./srv/data:/app/data # will remove when DB service available
         networks:
         - photonet
 
