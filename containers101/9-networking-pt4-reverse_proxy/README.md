@@ -8,7 +8,8 @@ frontend web app on port 80:
 Prerequisites:
   * `docker`
   * `docker-compose`
-  * domain(s) with the DNS entries pointing to the location where you will host your reverse proxy
+  * domain(s) with the DNS entries pointing to the location where you will host
+    your reverse proxy
 
 ## Adding nginx-proxy
 
@@ -29,8 +30,9 @@ Adding `nginx-proxy` to our docker-compose file is simple enough:
         - proxynet
 ```
 
-This should be fairly self explanatory, the `nginx-proxy` exposes ports 80 and
-mount docker socket and a volume for the dynamically generated nginx configuration.
+This should be fairly self explanatory, `nginx-proxy` exposes port `80` and
+mounts the docker socket and a volume for the dynamically generated nginx
+configuration.
 
 We also need to add the `proxynet` using the `bridge` driver to the `networks:`
 like so:
