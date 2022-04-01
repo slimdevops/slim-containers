@@ -1,6 +1,7 @@
-![Slim.AI Badge for python:slim](https://badge-bucket2.s3.ap-south-1.amazonaws.com/sha256:3c736db4c8146beb8d04bcb682fd5aec5011d9ff6468f093d4b7e8d2ba8726c7.png) 
+[![Slim.AI Badge for python:slim](https://badge-bucket2.s3.ap-south-1.amazonaws.com/sha256:fd87f6757122e3edd0f46e85187c7afe8d0d0044d0be600844bfc214a5bd47eb.png)](https://www.slim.ai)
 
 Container profile provided by [Slim.AI](https://www.slim.ai)
+
 
 # Container of the Week: Python-Flask
 
