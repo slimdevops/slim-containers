@@ -307,5 +307,7 @@ The slimmed container has **zero vulnerabilties**. Zero.
 
 And that is slimming a very, _very_ basic Flask app. We'll extend this example to more complex use cases soon. Check out the Twitch readout of this article on [Twitch.tv/SlimDevops](https://twitch.tv/slimdevops). 
 
+[![Slim.AI Badge for python:slim]!(https://badge-bucket2.s3.ap-south-1.amazonaws.com/sha256:3c736db4c8146beb8d04bcb682fd5aec5011d9ff6468f093d4b7e8d2ba8726c7.png) Container profile provided by [Slim.AI](https://www.slim.ai)
+
 --- 
 Join our [Slim.AI Community](https://community.slim.ai).
