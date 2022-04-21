@@ -1,3 +1,7 @@
+[![Slim.AI Badge for python:slim](https://badge-bucket2.s3.ap-south-1.amazonaws.com/sha256:fd87f6757122e3edd0f46e85187c7afe8d0d0044d0be600844bfc214a5bd47eb.png)](https://www.slim.ai)
+
+Container profile provided by [Slim.AI](https://www.slim.ai)
+
 
 # Container of the Week: Python-Flask
 
@@ -306,6 +310,8 @@ The slimmed container has **zero vulnerabilties**. Zero.
 ![Eyebrows Raised](/images/micdrop.gif)
 
 And that is slimming a very, _very_ basic Flask app. We'll extend this example to more complex use cases soon. Check out the Twitch readout of this article on [Twitch.tv/SlimDevops](https://twitch.tv/slimdevops). 
+
+
 
 --- 
 Join our [Slim.AI Community](https://community.slim.ai).
