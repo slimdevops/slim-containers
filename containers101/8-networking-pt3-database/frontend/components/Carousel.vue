@@ -42,7 +42,7 @@ export default {
             const imgpath = 'http://0.0.0.0:5000/image/';
 
             for (let i = 0; i < res.data.images.length; i++) {
-              this.items.push( {src: imgpath + res.data.images[i] }); 
+              this.items.push( {src: imgpath + res.data.images[i][1] }); 
             }
             this.doneGettingItems = true;
         })

@@ -3,7 +3,7 @@ services:
     database: 
         container_name: photo_db 
         image: postgres:latest
-        restart: always
+        restart: unless-stopped
         ports: 
         - "5432:5432"
         volumes: 
@@ -15,11 +15,13 @@ services:
             POSTGRES_USER: docker
             POSTGRES_PASSWORD: test
             PGDATA: /var/lib/postgresql/data
+        networks: 
+        - backendnet
 
     backend: 
         container_name: photo_backend
         image: slimpsv/photo_backend
-        restart: always
+        restart: unless-stopped
         depends_on:
         - database
         build: backend/.
@@ -28,17 +30,25 @@ services:
         volumes:
         - ./srv/images:/app/static/images # should map to S3 bucket or similar
         - ./srv/data:/app/data # will remove when DB service available
+        networks: 
+        - frontendnet
+        - backendnet
 
 
     frontend:
         container_name: photo_frontend
         image: slimpsv/photo_frontend
-        restart: always
+        restart: unless-stopped
         build: frontend/.
         ports: 
         - "3000:3000"
+        networks: 
+        - frontendnet
 
-
+networks: 
+    frontendnet:
+    backendnet:
+    
 volumes:
     database: 
     backend: 

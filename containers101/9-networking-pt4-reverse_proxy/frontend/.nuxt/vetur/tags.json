@@ -1,0 +1,17 @@
+{
+  "Carousel": {
+    "description": "Auto imported from components/Carousel.vue"
+  },
+  "NuxtLogo": {
+    "description": "Auto imported from components/NuxtLogo.vue"
+  },
+  "Tutorial": {
+    "description": "Auto imported from components/Tutorial.vue"
+  },
+  "Uploader": {
+    "description": "Auto imported from components/Uploader.vue"
+  },
+  "VuetifyLogo": {
+    "description": "Auto imported from components/VuetifyLogo.vue"
+  }
+}

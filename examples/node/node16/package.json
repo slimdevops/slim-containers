@@ -1,0 +1,16 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "- [Container of the Week: <Framework/Container Name>](#container-of-the-week-frameworkcontainer-name)   - [Introduction :wave:](#introduction-wave)     - [TL;DR:](#tldr)     - [Results Summary :chart_with_upwards_trend:](#results-summary-chart_with_upwards_trend)   - [About the Container :thinking:](#about-the-container-thinking)   - [Our Sample App](#our-sample-app)     - [Dockerfile](#dockerfile)   - [Slimming The Image :mechanical_arm:](#slimming-the-image-mechanical_arm)   - [Results :raised_hands:](#results-raised_hands)     - [Success Criteria](#success-criteria)     - [Image Size](#image-size)     - [Security Scan](#security-scan)",
+  "main": "app.js",
+  "scripts": {
+    "app": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

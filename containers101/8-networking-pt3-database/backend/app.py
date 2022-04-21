@@ -6,6 +6,10 @@ import os
 # import sqlite3
 from flask_cors import CORS
 import psycopg2
+import logging
+import datetime as dt
+
+logging.basicConfig(encoding='utf-8', level=logging.DEBUG)
 
 app = Flask(__name__)
 CORS(app)
@@ -45,7 +49,6 @@ def images():
     cur.execute('''select * from public.images limit 100''')
     results = cur.fetchall()
     files = [r for r in results] 
-    print(files)
     cur.close()
     conn.close()
 
@@ -61,8 +64,9 @@ def images():
 @app.route('/image/<image>', methods=['GET'])
 def get_image(image):
     """Endpoint to return an image from the server."""
-    # filename = os.path.join(UPLOAD_FOLDER, f"{escape(image)}")
+    # FileNotFoundError: [Errno 2] No such file or directory: '/app/static/images/2022-02-18,Cookies2.png,Cookies'
     filename = os.path.join(UPLOAD_FOLDER, image)
+    
     return send_file(filename)
 
 
@@ -72,24 +76,31 @@ def upload():
     Endpoint to upload an image to the server.
     curl -i -X POST -H "Content-Type: multipart/form-data" -F "pic=@test.jpg" http://0.0.0.0:5000/upload/
     """
-    print(vars(request))
+    logging.debug("%s" % vars(request))
     if 'pic' not in request.files:
         message = jsonify(fail='No image provided')
         return make_response(message, 400)
+        
     file = request.files['pic']
+    
 
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
+        logging.debug("Filename: %s" % filename)
         file.save(os.path.join(UPLOAD_FOLDER, filename))
 
         # database methods here
         category = request.form.get('cat')
+        logging.debug("Category: %s" % category)
+        date = dt.datetime.now().strftime('%Y-%m-%d')
         conn = psycopg2.connect('dbname=photos user=docker password=test host=database')
         cur = conn.cursor()
-        cur.execute('''INSERT INTO public.images VALUES (%s,%s,%s)''',('2021-09-16', filename, category))
-        cur.close()
+        cur.execute("""INSERT INTO public.images VALUES (%s,%s,%s);""",(date, str(filename), str(category)))
+        conn.commit()
         conn.close()
+
         message = jsonify(success=f"{file.filename}")
+
         return make_response(message, 200)
     else:
         message = jsonify(fail=f"Invalid file type: {file.filename}")
