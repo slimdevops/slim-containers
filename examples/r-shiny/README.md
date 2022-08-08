@@ -31,12 +31,12 @@ Special thanks to Eric Nantz of the R Podcast for championing this example.
 ### Results Summary :chart_with_upwards_trend:
 | Test | Original Image | Slim Image | Improvement | 
 |----- | ----- | ---- | ---- | 
-| Size | 1.29 GB | 225 MB | 5.8X |
-| Total vulernabilities| TK | TK | TK | 
-| Critical vulernabilities| TK | TK | TK | 
-| Time to Push | TKmTKs | TKmTKs | TK X | 
-| Time to Scan | TKmTKs | TKmTKs | TK X | 
-| Time to Build | 8m13s | TKmTKs | TK X |
+| Size | 1.38 GB | 248 MB | 5.7X |
+| Total vulernabilities|137 | 0 | inf | 
+| Critical vulernabilities| 5 | 0 | inf | 
+| Time to Push | 123s | 14s | 8.8X | 
+| Time to Scan | 58s | 24s | 2.4X | 
+| Time to Build | 610s | 52s | 11.7X |
 
 ## About the Container :thinking:
 - **Base Image:** Rocker R-Ver
@@ -112,7 +112,7 @@ REPOSITORY                       TAG       IMAGE ID       CREATED         SIZE
 cotw-rshiny-hello                latest    1b65cee157d3   2 minutes ago   1.3GB
 ```
 
-On the plus side, we can test the image by running it and trying it in a browser window by visitin `localhost:7123`
+On the plus side, we can test the image by running it and trying it in a browser window by visiting `localhost:7123`
 
 ```
 $ docker run -dp 7123:7123 --name cotw-rshiny-hello-fat cotw-rshiny-hello 
