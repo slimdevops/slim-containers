@@ -20,11 +20,12 @@
 ### Results Summary :chart_with_upwards_trend:
 | Test | Original Image | Slim Image | Improvement | 
 |----- | ----- | ---- | ---- | 
-| Size | TK MB | TK MB | TK X |
-| Total vulernabilities| TK | TK | TK | 
-| Critical vulernabilities| TK | TK | TK | 
-| Time to Push | TKmTKs | TKmTKs | TK X | 
-| Time to Scan | TKmTKs | TKmTKs | TK X | 
+| Size | 1485 MB | 10 MB | 148.5 X |
+| Total vulernabilities| 1077 | 0 | inf | 
+| Critical vulernabilities| 32 | 0 | inf | 
+| Time to Push | 133s | 4s | 33.3 X | 
+| Time to Scan | 12s | 1s | 12.0 X | 
+| Time to Build | 174s | 12s | 14.5 X | 
 
 ## About the Container :thinking:
 - **Base Image:** Rust (Official Docker Image)
