@@ -129,10 +129,10 @@ We then copy our current working directory into the conatiner's `/app` directory
 
 We `EXPOSE` the `1300` port for the purpose of this example. And finally, we use the ENTRYPOINT command run the equivalent of `python /app/app.py`. A lot of people new to Docker struggle with using [ENTRYPOINT vs. CMD](https://stackoverflow.com/questions/21553353/what-is-the-difference-between-cmd-and-entrypoint-in-a-dockerfile). We use `ENTRYPOINT` here since we won't need to run commands from the container or shell into it. 
 
-We can build the image from our root project directory, using the `-t` flag to "tag" the image as our project name and the `.` arugment to let Docker know that the Dockerfile is in the current working directory. 
+We can build the image from our root project directory, using the `-t` flag to "tag" the image as our project name and the `.` argument to let Docker know that the Dockerfile is in the current working directory. 
 
 ```bash
-docker run -t cotw-python-flask .
+docker build -t cotw-python-flask .
 ```
 
 The output lists a bunch of package building steps and ends with a success message. 
@@ -222,7 +222,7 @@ cotw-python-flask         latest    75a3a2837473   23 hours ago    895MB
 
 Now let's walk through our "success criteria" set out of above. 
 
-#### Does the container run? 
+#### Does the container ? 
 We need to be a little careful here. Note that we've created a new _image_ not a new _container_ (yet). We need to `docker run` the new slim image to make a new container. And, unless you are meticulous about cleaning up running containers, the original container may still be running. So simply testing `0.0.0.0:1300` in your browser gives a false negative. You see the success message, **but that's from the old container!** And if we try running a similar command to what we did last time, we'll get an error:
 
 ```bash
