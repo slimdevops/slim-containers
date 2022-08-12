@@ -122,6 +122,4 @@ rust-guessing-game                                   latest    c82a4bd3f34f   47
 ```
 
 ### Success Criteria
-Fortunately, with an app like this we can get a lot of confidence in our image without a robust test-suite by running the container and playing a couple games in it. Running this slim container reveals an app that works with the exact same as the fat image, at less than 1% of the size! 
-### Image Size
-### Security Scan 
+Fortunately, with an app like this we can get a lot of confidence in our image without a robust test-suite by running the container and playing a couple games in it. Running this slim container reveals an app that works with the exact same as the fat image, at less than 1% of the size! Better yet, reducing the attack surface so greatly has removed all of our critical vulnerabilities!
