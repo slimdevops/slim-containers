@@ -222,7 +222,7 @@ cotw-python-flask         latest    75a3a2837473   23 hours ago    895MB
 
 Now let's walk through our "success criteria" set out of above. 
 
-#### Does the container ? 
+#### Does the new container function as expected? 
 We need to be a little careful here. Note that we've created a new _image_ not a new _container_ (yet). We need to `docker run` the new slim image to make a new container. And, unless you are meticulous about cleaning up running containers, the original container may still be running. So simply testing `0.0.0.0:1300` in your browser gives a false negative. You see the success message, **but that's from the old container!** And if we try running a similar command to what we did last time, we'll get an error:
 
 ```bash
