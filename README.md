@@ -1,4 +1,5 @@
 ![slim.ai logo](/images/cover_2.jpg)
+[![Twitch Shield](https://img.shields.io/static/v1?style=for-the-badge&color=blueviolet&label=Watch%20Live&message=Twitch)](https://www.twitch.tv/slimdevops)
 # Container of the Week from Slim.AI
 This repository collects code samples, articles, and more information about the Slim.AI weekly series. 
 
