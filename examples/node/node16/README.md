@@ -1,6 +1,6 @@
-# Container of the Week: Node JS Hello World
+# Container of the Week: Node.js Hello World
 
-- [Container of the Week: Node JS Hello World](#container-of-the-week-node-js-hello-world)
+- [Container of the Week: Node.js Hello World](#container-of-the-week-node-js-hello-world)
   - [Introduction :wave:](#introduction-wave)
     - [TL;DR:](#tldr)
     - [Results Summary :chart_with_upwards_trend:](#results-summary-chart_with_upwards_trend)
@@ -15,9 +15,13 @@
 
 ---
 ## Introduction :wave:
-Today, we are slimming a straightforward Node.js hello-world app using the latest official image provided on Dockerhub. 
+Today, we are slimming a straightforward Node.js hello-world app using the latest official image provided on Dockerhub. We'll use the Express framework and host the app locally for our tests.
+
+Despite being over a decade old, Node.js is only growing more popular by the day as a technology for backend developers, being used by some of the biggest names in the industry - Amazon, Paypal, Netflix- while also being a common choice in the open-source community. Node.js largely owes its popularity to its efficient handling of concurrent connections and rapid response times. 
 
 ### TL;DR:
+In this example, our basic Node Express "Hello World" application using the Node:14 official image weighs in at 911 MB and contains 2224 vulnerabilities (according to our security scan by [Grype](https://github.com/anchore/grype)), including 57 high-severity issues. Our slimmed container provides the same app, but is just 86 MB and has only 2 vulnerabilities .
+
 ### Results Summary :chart_with_upwards_trend:
 | Test | Original Image | Slim Image | Improvement | 
 |----- | ----- | ---- | ---- | 
