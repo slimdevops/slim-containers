@@ -16,7 +16,7 @@ No more chasing down hard to patch vulns that your application isn't even using.
 ## Overall results
 ![Result of minify <FRAMEWORK>](results.png)
 
-Slimming this <Framework container> re
+Slimming this <Framework> container results in a **TK**% reduction in overall vulnerabilities. 
 
 ## Vulnerability difference by severity 
 
