@@ -163,7 +163,7 @@ For this example, we used the error logs produced by R and the Explorer tab in t
 ## Results :raised_hands:
 
 ### Test Run 
-  To test the new container, be sure to first remove the original container so you don't get a false positive.
+  To test the new container, we'll first remove the original container so we don't get a false positive when checking our results in our browser.
   ```bash
     docker rm cotw-rshiny-hello-fat
   ```
@@ -173,4 +173,4 @@ For this example, we used the error logs produced by R and the Explorer tab in t
   ```
   Refreshing localhost:7123 reveals an identical web page to our previous, looks like everything is intact!
 ### Is the container smaller and more secure?
-  Not only have we reduced build times by slimming the container size by 5.7x, we have also significantly reduced attack surface! Our vulnerability scan using [Grype](https://github.com/anchore/grype) reveals we no longer have any critical issues!
+  Not only have we reduced build times by slimming the container size by 5.7x, we have also significantly reduced attack surface; our vulnerability scan using [Grype](https://github.com/anchore/grype) reveals we no longer have any critical issues!
