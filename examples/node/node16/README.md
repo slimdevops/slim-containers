@@ -20,11 +20,11 @@
 ### Results Summary :chart_with_upwards_trend:
 | Test | Original Image | Slim Image | Improvement | 
 |----- | ----- | ---- | ---- | 
-| Size | TK MB | TK MB | TK X |
-| Total vulernabilities| TK | TK | TK | 
-| Critical vulernabilities| TK | TK | TK | 
-| Time to Push | TKmTKs | TKmTKs | TK X | 
-| Time to Scan | TKmTKs | TKmTKs | TK X | 
+| Size | 911 MB | 86 MB | 10.6 X |
+| Total vulernabilities| 2224 | 2 | 1112x | 
+| Critical vulernabilities| 57 | 0 | inf | 
+| Time to Push | 61s | 9s | 6.8 X | 
+| Time to Scan | 33s | 4s | 8.3x X | 
 
 ## About the Container :thinking:
 - **Base Image:** Node (Docker Official)
