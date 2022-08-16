@@ -14,7 +14,7 @@ No more chasing down hard to patch vulns that your application isn't even using.
 
 # Optimization Results
 ## Overall results
-[Result of minify <FRAMEWORK>](./results.png)
+[Result of minify <FRAMEWORK>](results.png)
 
 Slimming this <Framework container> re
 
