@@ -21,11 +21,11 @@ Today, we are slimming a straightforward Node.js hello-world app using the lates
 ### Results Summary :chart_with_upwards_trend:
 | Test | Original Image | Slim Image | Improvement | 
 |----- | ----- | ---- | ---- | 
-| Size | 911 MB | 86 MB | 10.6 X |
-| Total vulernabilities| 2224 | 2 | 1112 x | 
+| Size | 911 MB | 86 MB | 10.6X |
+| Total vulernabilities| 2224 | 2 | 1112X | 
 | Critical vulernabilities| 57 | 0 | inf | 
-| Time to Push | 61s | 9s | 6.8 X | 
-| Time to Scan | 33s | 4s | 8.3 X | 
+| Time to Push | 61s | 9s | 6.8X | 
+| Time to Scan | 33s | 4s | 8.3X | 
 
 ## About the Container :thinking:
 - **Base Image:** Node (Docker Official)
@@ -84,19 +84,43 @@ EXPOSE 3000
 CMD ["node","app.js"]
 ```
 
+From here, we can create the image using docker build and use . to indicate the Dockerfile is in our current directory.
 
 ```bash
-$ docker build -t cotw-node .
+$ docker build -t node-hello-world .
 ```
 
-```
+```bash
 REPOSITORY                                    TAG             IMAGE ID       CREATED              SIZE
-cotw-node                                     latest          ded63a303213   About a minute ago   893MB
+node-hello-world                              latest          e06647f4926e   2 hours ago          911MB
 ```
+
+Now, we can run our app in a container by using the docker run command. Because this app is using our 3000 port, we should match the container port to our host machine port by using the -p tag.
+
+
+```bash
+$ docker run -p 3000:3000 node-hello-world nhwc
+```
+
+We can visit 'localhost:3000' to see your hello world message and verify everything worked correctly. After we verify, docker kill nhwc will stop the container.
+
 ## Slimming The Image :mechanical_arm:
+If you think 911MB seems a bit large for an app as simple as this, you would be absolutely correct. We can do much better than this by utilizing Dockerslim to remove unnecessary files from our container. If you don't have Dockerslim installed, you can go to our github for [installation instructions](https://github.com/docker-slim/docker-slim). The Dockerslim build command will automatically run and analyze our container before creating a new image that is (hopefully) smaller and more secure!
+
+```bash
+docker-slim build --target node-hello-world
+```
 
 ## Results :raised_hands:
-
+```bash
+REPOSITORY                                    TAG             IMAGE ID       CREATED              SIZE
+node-hello-world.slim                         latest          e55768ea673a   5 minutes ago        86.8MB
+node-hello-world                              latest          e06647f4926e   2 hours ago          911MB
+```
 ### Success Criteria
-### Image Size
-### Security Scan 
+### Does it work?
+Before we celebrate a slim image, we should be sure to run the app and verify it functions as it did before. Often times a second run at Dockerslim is needed with some tweaks to the configuration after consulting the docs. After running the new container with the same command we used for the original, we find that the image does in fact work.
+### Is it slimmer?
+Yes! The image is less than 10% the size of the original, a significant improvement that allows for faster scans, builds, and pushes!
+### Is it more secure?
+Yes again! Reducing the attack surface of the image was able to eliminate all but 2 of the total vulnerabilities, and took out all of the critical issues! 
