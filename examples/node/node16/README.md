@@ -21,10 +21,10 @@
 | Test | Original Image | Slim Image | Improvement | 
 |----- | ----- | ---- | ---- | 
 | Size | 911 MB | 86 MB | 10.6 X |
-| Total vulernabilities| 2224 | 2 | 1112x | 
+| Total vulernabilities| 2224 | 2 | 1112 x | 
 | Critical vulernabilities| 57 | 0 | inf | 
 | Time to Push | 61s | 9s | 6.8 X | 
-| Time to Scan | 33s | 4s | 8.3x X | 
+| Time to Scan | 33s | 4s | 8.3 X | 
 
 ## About the Container :thinking:
 - **Base Image:** Node (Docker Official)
