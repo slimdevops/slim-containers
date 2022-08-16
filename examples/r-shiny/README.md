@@ -161,11 +161,16 @@ For this example, we used the error logs produced by R and the Explorer tab in t
 ```
 
 ## Results :raised_hands:
-### Success Criteria
-- Application should still run
-- Container should be smaller than the original
-- Container should be safer than the original 
-  
+
 ### Test Run 
-### Image Size
-### Security Scan 
+  To test the new container, we'll first remove the original container so we don't get a false positive when checking our results in our browser.
+  ```bash
+    docker rm cotw-rshiny-hello-fat
+  ```
+  We can then run the new container using the same command as before,
+  ```bash
+   docker run -dp 7123:7123 --name cotw-rshiny-hello cotw-rshiny-hello.slim
+  ```
+  Refreshing localhost:7123 reveals an identical web page to our previous, looks like everything is intact!
+### Is the container smaller and more secure?
+  Not only have we reduced build times by slimming the container size by 5.7x, we have also significantly reduced attack surface; our vulnerability scan using [Grype](https://github.com/anchore/grype) reveals we no longer have any critical issues!
