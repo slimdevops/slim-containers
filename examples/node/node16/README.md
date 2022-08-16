@@ -102,10 +102,10 @@ Now, we can run our app in a container by using the docker run command. Because 
 $ docker run -p 3000:3000 node-hello-world nhwc
 ```
 
-We can visit 'localhost:3000' to see your hello world message and verify everything worked correctly. After we verify, docker kill nhwc will stop the container.
+We can visit 'localhost:3000' to see your hello world message and verify everything worked correctly. After we verify, docker kill nhwc will stop the container and free up the port.
 
 ## Slimming The Image :mechanical_arm:
-If you think 911MB seems a bit large for an app as simple as this, you would be absolutely correct. We can do much better than this by utilizing Dockerslim to remove unnecessary files from our container. If you don't have Dockerslim installed, you can go to our github for [installation instructions](https://github.com/docker-slim/docker-slim). The Dockerslim build command will automatically run and analyze our container before creating a new image that is (hopefully) smaller and more secure!
+If you think 911MB seems a bit large for an app as simple as this, you would be absolutely correct. We can do much better than this by utilizing Dockerslim CLI to remove unnecessary files from our container. If you don't have Dockerslim installed, you can go to our github for [installation instructions](https://github.com/docker-slim/docker-slim). The Dockerslim build command will automatically run and analyze our container before creating a new image that is (hopefully) smaller and more secure!
 
 ```bash
 docker-slim build --target node-hello-world
@@ -121,6 +121,6 @@ node-hello-world                              latest          e06647f4926e   2 h
 ### Does it work?
 Before we celebrate a slim image, we should be sure to run the app and verify it functions as it did before. Often times a second run at Dockerslim is needed with some tweaks to the configuration after consulting the docs. After running the new container with the same command we used for the original, we find that the image does in fact work.
 ### Is it slimmer?
-Yes! The image is less than 10% the size of the original, a significant improvement that allows for faster scans, builds, and pushes!
+Yes! The image is less than 10% the size of the original, a significant improvement that allows for faster scans, builds, and pushes.
 ### Is it more secure?
-Yes again! Reducing the attack surface of the image was able to eliminate all but 2 of the total vulnerabilities, and took out all of the critical issues! 
+Yes again! reducing the attack surface of the image was able to eliminate all but 2 of the total vulnerabilities, and took out all of the critical issues.
