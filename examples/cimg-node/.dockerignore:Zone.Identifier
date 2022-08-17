@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://github.com/contentful/the-example-app.nodejs
+HostUrl=https://codeload.github.com/contentful/the-example-app.nodejs/zip/refs/heads/master

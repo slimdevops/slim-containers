@@ -1,0 +1,7 @@
+mixin entryState(entry)
+  if entry.draft
+    .editorial-features__item
+      .pill.pill--draft #{translate('draftLabel', currentLocale.code)}
+  if entry.pendingChanges
+    .editorial-features__item
+      .pill.pill--pending-changes #{translate('pendingChangesLabel', currentLocale.code)}

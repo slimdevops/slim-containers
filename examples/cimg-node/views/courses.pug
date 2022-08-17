@@ -1,0 +1,44 @@
+extends layout
+
+include mixins/_breadcrumb
+include mixins/_courseCard
+include mixins/_emptyModule
+
+block content
+  .layout-no-sidebar
+    +breadcrumb
+  .layout-sidebar
+    section.layout-sidebar__sidebar
+      .layout-sidebar__sidebar-header
+        h2.layout-sidebar__sidebar-title #{translate('categoriesLabel', currentLocale.code)}
+      .layout-sidebar__sidebar-content
+        .sidebar-menu
+          ul.sidebar-menu__list
+            li.sidebar-menu__item
+              a.sidebar-menu__link(href=`/courses${queryString}` class=(currentPath.endsWith('/courses') ? 'active' : '')) #{translate('allCoursesLabel', currentLocale.code)}
+            each category in categories
+              li.sidebar-menu__item
+                a.sidebar-menu__link(href=`/courses/categories/${category.fields.slug}${queryString}` class=(currentPath.endsWith(category.fields.slug) ? 'active' : '')) #{category.fields.title}
+    section.layout-sidebar__content
+      .courses
+        h1= title
+        if settings.editorialFeatures
+          .editorial-features
+            .editorial-features__item
+              a.editorial-features__text(
+                href=`https://app.contentful.com/spaces/${settings.spaceId}/entries/?contentTypeId=course`
+                target='_blank'
+                rel='noopener'
+              ) #{translate('editInTheWebAppLabel', currentLocale.code)}
+              .editorial-features__hint-wrapper
+                svg.editorial-features__hint-icon
+                  use(xlink:href='/icons/icons.svg#info')
+                .editorial-features__hint-message #{translate('editorialFeaturesHint', currentLocale.code)}
+
+        .grid-list
+          if courses.length
+            each course in courses
+              .grid-list__item
+                +courseCard(course)
+          else
+            +emptyModule()
