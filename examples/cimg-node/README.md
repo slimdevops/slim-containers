@@ -18,10 +18,11 @@
 
 ---
 ## Introduction :wave:
-
+Today we're going to be slimming a robust real-world web-app built off of the cimg/node image managed by CircleCI. The code for the app is provided by [Contentful](https://github.com/contentful/the-example-app.nodejs) - check out the linked repository if you're interested in uses for the app and tons more educational information.
 
 
 ### TL;DR:
+In this example, our basic webb application using the cimg official image weighs in at 1.61 GB and contains 271 vulnerabilities (according to vulnerability scans by the Slim.ai platform), including 14 high-severity issues. Our slimmed container provides the same app, but is just 102 MB and has ZERO vulnerabilities .
 ### Results Summary :chart_with_upwards_trend:
 | Test | Original Image | Slim Image | Improvement | 
 |----- | ----- | ---- | ---- | 
@@ -37,9 +38,6 @@
 - **Key Frameworks and Libraries:** [Node](https://nodejs.org/en/) / [Javascript](https://www.javascript.com/) 
 - **Base Image Size:** 1.28 GB
 - **Common Use Cases:** Event-driven servers, Complex SPAs, Real-time websites
-
-## Our Sample App 
-Today we're going to be slimming a robust real-world web-app built off of the cimg/node image managed by CircleCI. The code for the app is provided by [Contentful](https://github.com/contentful/the-example-app.nodejs) - check out the linked repository if you're interested in uses for the app and tons more educational informatoin.
 
 ### Node Dockerfile
 ```Dockerfile
