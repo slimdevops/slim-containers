@@ -96,7 +96,7 @@ docker build -t contentful .
 Thanks to the recent public launch of some of our newest features at Slim.ai, anyone can optimize their images with a free account on our [slim platform](https://portal.slim.dev/home). Simply upload your image to your preferred container registry, connect the registry to the slim platform using a personal access token, locate your image and click optimize. For this app, all we need to select in the configuration menu is "server application" and exposed ports 3000:tcp and the process will complete auotmatically.
 
 ## Results :raised_hands:
-![Results](/images/contentful-report.png)
+![Results](/images/contentful-report.PNG)
 
 Our optimization was successful, and our image has been made nearly 16x smaller! All thats left to do is pull the image down from whatever registry you outputted to, and run!
 
