@@ -13,6 +13,8 @@ Simply replace the application code here with your own application, run it throu
 No more chasing down hard to patch vulns that your application isn't even using. 
 
 # Optimization Results
+
+
 ## Overall results
 ![Result of minify <FRAMEWORK>](results.png)
 
