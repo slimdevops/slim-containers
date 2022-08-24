@@ -1,0 +1,16 @@
+include _entryState
+
+mixin courseCard(course = {fields: {title: '', description: '', categories: [], slug: ''}})
+  .course-card
+    .course-card__categories
+      if(course.fields.categories)
+        each category in course.fields.categories
+          .course-card__category
+            a.course-card__category-link(href=`/courses/categories/${category.fields.slug}${queryString}`) #{category.fields.title}
+    h2.course-card__title
+      a(href=`/courses/${course.fields.slug}${queryString}`)= course.fields.title
+      if currentApi.id === 'cpa' && (course.draft || course.pendingChanges)
+        +entryState(course)
+    p.course-card__description= course.fields.shortDescription
+    .course-card__link-wrapper
+      a.course-card__link(href=`/courses/${course.fields.slug}${queryString}`) #{translate("viewCourseLabel", currentLocale.code)}

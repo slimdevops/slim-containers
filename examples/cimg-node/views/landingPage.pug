@@ -1,0 +1,29 @@
+extends layout
+
+include mixins/_breadcrumb
+include mixins/_editorialFeatures
+include mixins/_moduleCopy
+include mixins/_moduleHeroImage
+include mixins/_moduleHighlightedCourse
+include mixins/_emptyModule
+
+block content
+  if currentPath !== '/'
+    .layout-centered
+      +breadcrumb
+  .layout-centered
+    +editorialFeatures(landingPage)
+  .modules-container
+    if landingPage.fields.contentModules && landingPage.fields.contentModules.length
+      each module in landingPage.fields.contentModules
+        case module.sys.contentType.sys.id
+          when 'layoutCopy'
+            +moduleCopy(module)
+
+          when 'layoutHeroImage'
+            +moduleHeroImage(module)
+
+          when 'layoutHighlightedCourse'
+            +moduleHighlightedCourse(module, module.fields.course)
+    else
+      +emptyModule()
