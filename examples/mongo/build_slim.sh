@@ -1,0 +1,1 @@
+docker-slim build --target mongo:latest --http-probe-off --publish-exposed-ports --exec-file probe_commands.sh
