@@ -52,7 +52,7 @@ To use the container's shell, we'll use docker exec to enter bash inside the con
 docker exec -it mongo-slim bash
 ```
 
-Inside the container, we can use the command 'mongo' to connect to advance into the mongo shell. You can then use the 'help' to see what commands you can use inside or visit the official [reference}(https://www.mongodb.com/docs/manual/reference/mongo-shell/).
+Inside the container, we can use the command 'mongo' to connect to advance into the mongo shell. You can then use the 'help' to see what commands you can use inside or visit the official [reference](https://www.mongodb.com/docs/manual/reference/mongo-shell/).
 
 Be sure to use docker kill and then docker rm to get rid of the old container once you're done using it.
 
@@ -63,8 +63,8 @@ Our typical first-run approach for slimming containers with Dockerslim is to all
 ```bash
 docker-slim build --target mongo:latest
 ```
-At first this seem's like a success: the build completes, a mongo.slim image appears, and it's only 243 MB. 
-however, when we test the new container using the same commands at before we're met with an error.
+At first this seems like a success: the build completes, a mongo.slim image appears, and it's only 243 MB. 
+However, when we test the new container, we'll find that we are met with an error.
 
 ```bash
 bash-5.0# mongo
@@ -98,7 +98,7 @@ docker-slim build --target mongo:latest --http-probe-off --publish-exposed-ports
 Running the container and entering mongo as we did before reveals that we still have full access to the Mongo shell!
   
 ### Is the container smaller and more secure?
-Our new image is less than half the size of the original. Along with saving times on uploads, scans, and builds, we know that our attack surface is now signficantly reduced. For some extra analysis, the [Slim SaaS portal] (https://portal.slim.dev/home) allows us to compare images, which is always good to do after slimming (this feature is free and now available to ALL users!) A quick push to dockerhub and we're able to get reports on the differences in the filesystem, metadata, dockerfile, and vulnerabilities of our original and hardened images. Here's a peak at the vulnerability diff report - feel free to check out the others on the portal. 
+Our new image is less than half the size of the original. Along with saving times on uploads, scans, and builds, we know that our attack surface is now signficantly reduced. For some extra analysis, the [Slim SaaS portal] (https://portal.slim.dev/home) allows us to compare images, which is always good to do after slimming (this feature is free and now available to ALL users!). A quick push to dockerhub and we're able to get reports on the differences in the filesystem, metadata, dockerfile, and vulnerabilities of our original and hardened images. Here's a peak at the vulnerability diff report - feel free to check out the others on the portal. 
   ![Mongo Vuln Diff](/images/mongo-vulns.PNG)
 
 Stay tuned- we have a tutorial coming on slimming on Go apps that use MongoDB!
