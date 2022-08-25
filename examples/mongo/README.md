@@ -3,7 +3,6 @@
 - [Container of the Week: Mongo](#container-of-the-week-mongo)
   - [Introduction :wave:](#introduction-wave)
     - [TL;DR:](#tldr)
-    - [Results Summary :chart_with_upwards_trend:](#results-summary-chart_with_upwards_trend)
   - [About the Container :thinking:](#about-the-container-thinking)
   - [Our Sample Image](#our-sample-image)
     - [Testing Original Container](#testing-original-container)
@@ -23,15 +22,6 @@ Today, rather than slimming an example application, we're going to be see what w
 ### TL;DR:
 
 In this example, the latest Mongo image weighs in at 697 GB and contains a 45 vulnerabilities according to security scan by Grype vulnerability scanner. Our slimmed container still provides the Mongo shell, but is less than half of the size.
-
-### Results Summary :chart_with_upwards_trend:
-| Test | Original Image | Slim Image | Improvement | 
-|----- | ----- | ---- | ---- | 
-| Size | 697 GB | 301 MB | 0 X |
-| vulernabilities|45 | 0 | 0 X | 
-| Time to Push | 0s | 0s | 0 X | 
-| Time to Scan | 9s | 0s | 0 X | 
-| Time to Build | 0s | 0s | 0 X |
 
 ## About the Container :thinking:
 - **Base Image:** Mongo
@@ -71,7 +61,7 @@ Be sure to use docker kill and then docker rm to get rid of the old container on
 Our typical first-run approach for slimming containers with Dockerslim is to allow the http-probe, which is enabled by default, to do our work.
 
 ```bash
-docker-slim build --target mongo:latest --publi
+docker-slim build --target mongo:latest
 ```
 At first this seem's like a success: the build completes, a mongo.slim image appears, and it's only 243 MB. 
 however, when we test the new container using the same commands at before we're met with an error.
@@ -96,7 +86,8 @@ Interacting with the container manually leaves room for human error which could 
 bash
 mongo
 ```
-
+Our final build command should look like this.
+  
 ```bash
 docker-slim build --target mongo:latest --http-probe-off --publish-exposed-ports --exec_file probe_commands.sh
 ```
@@ -104,5 +95,7 @@ docker-slim build --target mongo:latest --http-probe-off --publish-exposed-ports
 ## Results :raised_hands:
 
 ### Test Run 
- 
+Running the container and entering mongo as we did before reveals that we still have full access to the Mongo shell!
+  
 ### Is the container smaller and more secure?
+Our new image is less than half the size of the original. Along with saving times on uploads, scans, and builds, we know that our attack surface is now signficantly reduced.
