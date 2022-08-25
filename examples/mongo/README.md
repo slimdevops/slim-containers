@@ -26,7 +26,7 @@ In this example, the latest Mongo image weighs in at 697 GB and contains a 45 vu
 ## About the Container :thinking:
 - **Base Image:** Mongo
 - **Key Frameworks and Libraries:** [MongoDB](https://www.mongodb.com//)
-- **Base Image Size:** 825 MB
+- **Base Image Size:** 697 MB
 - **Slim.AI Profile:** ['Mongo'](https://portal.slim.dev/home/profile/dockerhub%3A%2F%2Fdockerhub.public%2Flibrary%2Fmongo%3Alatest)
 - **Common Use Cases:** Real-time data integration, product catalogues, analytics
 
@@ -98,7 +98,7 @@ docker-slim build --target mongo:latest --http-probe-off --publish-exposed-ports
 Running the container and entering mongo as we did before reveals that we still have full access to the Mongo shell!
   
 ### Is the container smaller and more secure?
-Our new image is less than half the size of the original. Along with saving times on uploads, scans, and builds, we know that our attack surface is now signficantly reduced. For some extra analysis, the [Slim SaaS portal] (https://portal.slim.dev/home) allows us to compare images, which is always good to do after slimming (this feature is free and now available to ALL users!) A quick push to dockerhub and we're able to get reports on the image differences in the filesystem, metadata, dockerfile, and vulnerabilities. Here's a peak at the vulnerability diff report - feel free to check out the others on the portal. 
-  ![R Hello World app](/images/mongo-vulns.PNG)
+Our new image is less than half the size of the original. Along with saving times on uploads, scans, and builds, we know that our attack surface is now signficantly reduced. For some extra analysis, the [Slim SaaS portal] (https://portal.slim.dev/home) allows us to compare images, which is always good to do after slimming (this feature is free and now available to ALL users!) A quick push to dockerhub and we're able to get reports on the differences in the filesystem, metadata, dockerfile, and vulnerabilities of our original and hardened images. Here's a peak at the vulnerability diff report - feel free to check out the others on the portal. 
+  ![Mongo Vuln Diff](/images/mongo-vulns.PNG)
 
 Stay tuned- we have a tutorial coming on slimming on Go apps that use MongoDB!
