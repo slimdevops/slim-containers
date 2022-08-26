@@ -85,7 +85,7 @@ end
 Replace this placholder code with your own application code, and install any necessary dependencies, to create your own slimmable container. 
 
 ## Sample Dockerfile
-Our Dockerfile builds off of the `rails:latest` image and starts at **892MB**. The slimming process reduces the size by **27X** to just **97MB**. 
+Our Dockerfile builds off of the `rails:latest` image and starts at **980MB**. The slimming process reduces the size by **10X** to just **98MB**. 
 
 ![Graph of size reduction](results-size.png)
 
