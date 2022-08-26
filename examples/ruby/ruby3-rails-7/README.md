@@ -8,7 +8,7 @@ Optimize and harden your containerized applications the easy way — with Slim.A
 
 This Starter Kit will help you proactively remove vulnerabilities from your applications. 
 
-Simply replace the application code here with your own application, run it through Slim.AI's [automated container optimization](https://www.slim.ai/docs/optimization) process, and you'll remove up to 90-percent of the image's vulnerabilities while also making it up to 30X smaller. 
+Simply replace the application code here with your own application, run it through Slim.AI's [automated container optimization](https://www.slim.ai/docs/optimization) process, and you'll remove up to 90-percent of the image's vulnerabilities while also making it up to 10X smaller. 
 
 No more chasing down hard to patch vulns that your application isn't even using, and you can use any base image you want — even `ruby:latest`. 
 
@@ -37,7 +37,7 @@ RAILS_ENV=development bundle exec rails s -p 3000 -b '0.0.0.0'
 ```
 While using docker:
 
-set ```RAILS_ENV``` as required.
+set ```RAILS_ENV``` as required in Dockerfile.
 
 update ```bin/start``` to switch between puma and rails server.
 ## Sample Application
