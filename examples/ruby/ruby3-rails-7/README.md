@@ -19,7 +19,7 @@ Slimming this Rails container results in 100-percent reduction in overall vulner
 
 ## Vulnerability difference by severity 
 
-[See the full report.](https://www.slim.ai/starter-kits/python)
+[See the full report.](https://www.slim.ai/starter-kits/ruby)
 
 # Get Started
 To start a Rails application application, you'll need the following libraries installed locally, or running in a dev environment link GitPod, Docker Environments, or Code Spaces. 
