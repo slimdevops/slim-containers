@@ -1,0 +1,1 @@
+docker-slim build --include-path /usr/local/go/pkg/include/textflag.h  --expose 8080 --publish-port 8080:8080 --target simple-go
