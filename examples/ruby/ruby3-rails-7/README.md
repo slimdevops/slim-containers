@@ -45,29 +45,81 @@ Our sample application is a simple REST API that merely returns "Hello World!".
 
 While this app is simple, it's a great starting point for more complex development. 
 
-Important Project structure
+Project structure
 ```
-Dockerfile
-|- app
-|-- channels
-|-- controllers
-|---- concerns
-|---- application_controller.rb
-|---- hello_controller.rb
-|-- jobs
-|-- mailers
-|-- models
-|-- views
-|- config
-|-- routes.rb
-|- test
-|-- channels
-|-- controllers
-|-- fixtures
-|-- integration
-|-- mailers
-|-- models
-|-- test_helper.rb
+├── app
+│   ├── channels
+│   │   └── application_cable
+│   │       ├── channel.rb
+│   │       └── connection.rb
+│   ├── controllers
+│   │   ├── application_controller.rb
+│   │   ├── concerns
+│   │   └── hello_controller.rb
+│   ├── jobs
+│   │   └── application_job.rb
+│   ├── mailers
+│   │   └── application_mailer.rb
+│   ├── models
+│   │   ├── application_record.rb
+│   │   └── concerns
+│   └── views
+│       └── layouts
+│           ├── mailer.html.erb
+│           └── mailer.text.erb
+├── bin
+│   ├── bundle
+│   ├── rails
+│   ├── rake
+│   ├── setup
+│   └── start
+├── config
+│   ├── application.rb
+│   ├── boot.rb
+│   ├── cable.yml
+│   ├── credentials.yml.enc
+│   ├── database.yml
+│   ├── environment.rb
+│   ├── environments
+│   │   ├── development.rb
+│   │   ├── production.rb
+│   │   └── test.rb
+│   ├── initializers
+│   │   ├── cors.rb
+│   │   ├── filter_parameter_logging.rb
+│   │   └── inflections.rb
+│   ├── locales
+│   │   └── en.yml
+│   ├── puma.rb
+│   ├── routes.rb
+│   └── storage.yml
+├── config.ru
+├── db
+│   └── seeds.rb
+├── Dockerfile
+├── Gemfile
+├── Gemfile.lock
+├── lib
+│   └── tasks
+├── log
+├── public
+│   └── robots.txt
+├── Rakefile
+├── README.md
+├── storage
+├── test
+│   ├── channels
+│   │   └── application_cable
+│   │       └── connection_test.rb
+│   ├── controllers
+│   │   └── hello_controller_test.rb
+│   ├── fixtures
+│   │   └── files
+│   ├── integration
+│   ├── mailers
+│   ├── models
+│   └── test_helper.rb
+└── vendor
 ```
 
 Code sample
