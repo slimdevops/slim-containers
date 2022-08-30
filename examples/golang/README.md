@@ -16,27 +16,63 @@
 
 ---
 ## Introduction :wave:
-
+Today we are going to be slimming an example app on a container built using the Golang. The [app](https://github.com/gscho/simple-go-app) is a basic introductory setup which simply sends the hostname to a host port. Go, released in 2012, has been steadily increasing in popularity, most recently landing in [13th place](https://www.itproportal.com/features/golang-why-should-you-choose-this-language/#:~:text=In%20Popularity%20of%20Programming%20Language,13th%20place%20out%20of%2028.) for popular programming languages. It is known for its highly effective handling of concurrency, largely owed towards its efficient approach to thread-management using "goroutines". In fact, the CLI that we will be using to slim this container is itself written using Golang.
 
 ### TL;DR:
-
+We were able to slim the original 893 MB app container to 138 MB, a more than 6X size improvement. According to our scans on the [Slim SaaS Platform](https://portal.slim.dev/home), we managed to remove 777 vulnerabilities from the container!
 
 ## About the Container :thinking:
 - **Base Image:** golang:1.14.2
 - **Key Frameworks and Libraries:** [Go](https://go.dev/)
 - **Base Image Size:** 809 MB
 - **Slim.AI Profile:** ['Go'](https://portal.slim.dev/home/profile/dockerhub%3A%2F%2Fdockerhub.public%2Flibrary%2Fgolang%3Alatest)
-- **Common Use Cases:** 
+- **Common Use Cases:** Microservice architectures, cloud platform development, Command Line Interfaces
 
-## Our Sample Image 
+## Our Sample Image
+
+We'll build our container image from an offical golang base image, setup our working directory, and then run the main file.
+
+```Dockerfile
+FROM golang:1.14.2
+
+WORKDIR /go/app
+
+ADD . .
+
+RUN go get .
+
+CMD ["go", "run", "main.go"]
+```
+
+We can build our image from this Dockerfile using this command.
+
+```bash
+docker build -t go-simple .
+```
+
+Our container is now ready to run.
 
 ### Testing Original Container
 
+When running the container, we should be sure to expose our container ports to the ports of our host machine so we can properly test our container.
+
+```bash
+docker run -dp 8080:8080 --name gsc go-simple
+```
+
+Visiting localhost:8080 shows us that our service is working as expected; you can also test this quicker using curl.
+
+```bash
+$ curl localhost:8080
+{"hostname":"897cae0bd79d"}
+```
+
+Be sure to use docker kill gsc and docker rm gsc to clean up after testing.
 
 
 ## Slimming The Image :mechanical_arm:
 
-Now that we have our worknig image, we can move on to slimming. This docker-slim build command should do the trick.
+Now that we have our working image, we can move on to slimming. This docker-slim build command should do the trick.
 
 ```bash
 docker-slim build --expose 8080 --publish-port 8080:8080 --target simple-go
@@ -72,12 +108,19 @@ docker-slim build --include-path /usr/local/go/pkg/include/textflag.h  --expose 
 ### Test Run 
 
 Firing up new slim container, fingers crossed.
+
 ```bash
 $ curl localhost:8080
 {"hostname":"897cae0bd79d"}
 ```
 
+Everything working as expected!
+
 ### Is the container smaller and more secure?
+
+After pushing these images up to Dockerhub and running some comparison scans using the Slim SaaS portal, we are met with some promising results!
+
+  ![Go Vuln Diff](/images/go-vuln.PNG)
 
 
 Stay tuned- we have a tutorial coming on slimming Go apps that use MongoDB!
