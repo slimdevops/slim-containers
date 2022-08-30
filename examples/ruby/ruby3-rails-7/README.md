@@ -15,7 +15,7 @@ No more chasing down hard to patch vulns that your application isn't even using,
 # Optimization Results
 ![Result of optimized Rails image](results.png)
 
-Slimming this Rails container results in 100-percent reduction in overall vulnerabilities. 
+Slimming this Rails container results in 93-percent reduction in overall vulnerabilities. 
 
 ## Vulnerability difference by severity 
 
@@ -85,7 +85,7 @@ end
 Replace this placholder code with your own application code, and install any necessary dependencies, to create your own slimmable container. 
 
 ## Sample Dockerfile
-Our Dockerfile builds off of the `rails:latest` image and starts at **980MB**. The slimming process reduces the size by **10X** to just **98MB**. 
+Our Dockerfile builds off of the `rails:latest` image and starts at **979MB**. The slimming process reduces the size by **10X** to just **97MB**. 
 
 ![Graph of size reduction](results-size.png)
 
