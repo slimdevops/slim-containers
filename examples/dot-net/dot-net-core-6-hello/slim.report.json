@@ -1,0 +1,410 @@
+{
+  "version": "1.0",
+  "engine": "linux|Transformer|1.37.6|26a36c88a94c677efd734e874ba081dabb84a224|2022-04-23_06:03:56AM",
+  "containerized": false,
+  "host_distro": {
+    "name": "Pop!_OS",
+    "version": "22.04",
+    "display_name": "Pop!_OS 22.04 LTS"
+  },
+  "type": "build",
+  "state": "done",
+  "target_reference": "slimkits/dot-net-core-6.0:hello",
+  "system": {
+    "type": "Linux",
+    "release": "5.19.0-76051900-generic",
+    "distro": {
+      "name": "Debian GNU/Linux",
+      "version": "11",
+      "display_name": "Debian GNU/Linux 11 (bullseye)"
+    }
+  },
+  "source_image": {
+    "identity": {
+      "id": "sha256:b78b28aa10af8f0f6aeec8436e3e5d1e19760e6468976a1deb575608a9bd6acf",
+      "tags": [
+        "hello"
+      ],
+      "names": [
+        "slimkits/dot-net-core-6.0:hello"
+      ]
+    },
+    "size": 781340024,
+    "size_human": "781 MB",
+    "create_time": "2022-08-30T13:07:14Z",
+    "docker_version": "20.10.17",
+    "architecture": "amd64",
+    "exposed_ports": [
+      "5001/tcp"
+    ],
+    "os": "linux",
+    "env_vars": [
+      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "ASPNETCORE_URLS=",
+      "DOTNET_RUNNING_IN_CONTAINER=true",
+      "DOTNET_VERSION=6.0.8",
+      "ASPNET_VERSION=6.0.8",
+      "DOTNET_GENERATE_ASPNET_CERTIFICATE=false",
+      "DOTNET_NOLOGO=true",
+      "DOTNET_SDK_VERSION=6.0.400",
+      "DOTNET_USE_POLLING_FILE_WATCHER=true",
+      "NUGET_XMLDOC_MODE=skip",
+      "POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-DotnetSDK-Debian-11"
+    ],
+    "container_entry": {
+      "exe_path": ""
+    }
+  },
+  "minified_image_size": 88538346,
+  "minified_image_size_human": "88 MB",
+  "minified_image": "slimkits/dot-net-core-6.0.slim",
+  "minified_image_has_data": true,
+  "minified_by": 8.824877121603333,
+  "artifact_location": "/tmp/docker-slim-state/.docker-slim-state/images/b78b28aa10af8f0f6aeec8436e3e5d1e19760e6468976a1deb575608a9bd6acf/artifacts",
+  "container_report_name": "creport.json",
+  "seccomp_profile_name": "slimkits-dot-net-core-6.0-seccomp.json",
+  "apparmor_profile_name": "slimkits-dot-net-core-6.0-apparmor-profile",
+  "image_stack": [
+    {
+      "is_top_image": false,
+      "id": "sha256:87851657143a9192b7653e7b145f32c30e34b921ca8d006d15b4514217d0f8ab",
+      "full_name": "mcr.microsoft.com/dotnet/sdk:6.0",
+      "repo_name": "mcr.microsoft.com/dotnet/sdk",
+      "version_tag": "6.0",
+      "raw_tags": [
+        "mcr.microsoft.com/dotnet/sdk:6.0"
+      ],
+      "create_time": "2022-08-26T19:09:19Z",
+      "new_size": 736770208,
+      "new_size_human": "737 MB",
+      "instructions": [
+        {
+          "type": "ADD",
+          "time": "2022-08-23T00:20:50Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 80409895,
+          "size_human": "80 MB",
+          "params": "file:7726efb0e0eb5003dbcf2967ec29364479eec8b41f2569ff189372153115b54b in /",
+          "command_snippet": "ADD file:7726efb0e0eb5003dbcf2967ec29364479e...",
+          "command_all": "ADD file:7726efb0e0eb5003dbcf2967ec29364479eec8b41f2569ff189372153115b54b /",
+          "target": "/",
+          "source_type": "file"
+        },
+        {
+          "type": "CMD",
+          "time": "2022-08-23T00:20:51Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"bash\"]\n",
+          "command_snippet": "CMD [\"bash\"]\n",
+          "command_all": "CMD [\"bash\"]\n"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-26T19:07:53Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 36354669,
+          "size_human": "36 MB",
+          "command_snippet": "RUN apt-get update && \\\n\tapt-get install -y ...",
+          "command_all": "RUN apt-get update && \\\n\tapt-get install -y --no-install-recommends         ca-certificates                 libc6         libgcc1         libgssapi-krb5-2         libicu67         libssl1.1         libstdc++6         zlib1g && \\\n\trm -rf /var/lib/apt/lists/*",
+          "system_commands": [
+            "apt-get update",
+            "apt-get install -y --no-install-recommends         ca-certificates                 libc6         libgcc1         libgssapi-krb5-2         libicu67         libssl1.1         libstdc++6         zlib1g",
+            "rm -rf /var/lib/apt/lists/*"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2022-08-26T19:07:53Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "ASPNETCORE_URLS=http://+:80 DOTNET_RUNNING_IN_CONTAINER=true",
+          "command_snippet": "ENV ASPNETCORE_URLS=http://+:80 DOTNET_RUNNI...",
+          "command_all": "ENV ASPNETCORE_URLS=http://+:80 DOTNET_RUNNING_IN_CONTAINER=true"
+        },
+        {
+          "type": "ENV",
+          "time": "2022-08-26T19:08:04Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "DOTNET_VERSION=6.0.8",
+          "command_snippet": "ENV DOTNET_VERSION=6.0.8",
+          "command_all": "ENV DOTNET_VERSION=6.0.8"
+        },
+        {
+          "type": "COPY",
+          "time": "2022-08-26T19:08:06Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 70637471,
+          "size_human": "71 MB",
+          "params": "dir:a07d28c7e9124f9c904ac3d059c965d42b1cabe6eb300b91c3fd8e2b21fd897a in /usr/share/dotnet",
+          "command_snippet": "COPY dir:a07d28c7e9124f9c904ac3d059c965d42b1...",
+          "command_all": "COPY dir:a07d28c7e9124f9c904ac3d059c965d42b1cabe6eb300b91c3fd8e2b21fd897a /usr/share/dotnet",
+          "target": "/usr/share/dotnet",
+          "source_type": "dir"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-26T19:08:07Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 24,
+          "size_human": "24 B",
+          "command_snippet": "RUN ln -s /usr/share/dotnet/dotnet /usr/bin/...",
+          "command_all": "RUN ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet",
+          "system_commands": [
+            "ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2022-08-26T19:08:21Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "ASPNET_VERSION=6.0.8",
+          "command_snippet": "ENV ASPNET_VERSION=6.0.8",
+          "command_all": "ENV ASPNET_VERSION=6.0.8"
+        },
+        {
+          "type": "COPY",
+          "time": "2022-08-26T19:08:23Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 20283907,
+          "size_human": "20 MB",
+          "params": "dir:540bddbe02c37f41907683ac14c3a854d0230d9ae57a368bfc6bc58feb5c0ce6 in /usr/share/dotnet/shared/Microsoft.AspNetCore.App",
+          "command_snippet": "COPY dir:540bddbe02c37f41907683ac14c3a854d02...",
+          "command_all": "COPY dir:540bddbe02c37f41907683ac14c3a854d0230d9ae57a368bfc6bc58feb5c0ce6 /usr/share/dotnet/shared/Microsoft.AspNetCore.App",
+          "target": "/usr/share/dotnet/shared/Microsoft.AspNetCore.App",
+          "source_type": "dir"
+        },
+        {
+          "type": "ENV",
+          "time": "2022-08-26T19:08:52Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "ASPNETCORE_URLS= DOTNET_GENERATE_ASPNET_CERTIFICATE=false DOTNET_NOLOGO=true DOTNET_SDK_VERSION=6.0.400 DOTNET_USE_POLLING_FILE_WATCHER=true NUGET_XMLDOC_MODE=skip POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-DotnetSDK-Debian-11",
+          "command_snippet": "ENV ASPNETCORE_URLS= DOTNET_GENERATE_ASPNET_...",
+          "command_all": "ENV ASPNETCORE_URLS= DOTNET_GENERATE_ASPNET_CERTIFICATE=false DOTNET_NOLOGO=true DOTNET_SDK_VERSION=6.0.400 DOTNET_USE_POLLING_FILE_WATCHER=true NUGET_XMLDOC_MODE=skip POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-DotnetSDK-Debian-11"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-26T19:09:00Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 74807831,
+          "size_human": "75 MB",
+          "command_snippet": "RUN apt-get update && \\\n\tapt-get install -y ...",
+          "command_all": "RUN apt-get update && \\\n\tapt-get install -y --no-install-recommends         curl         git         wget && \\\n\trm -rf /var/lib/apt/lists/*",
+          "system_commands": [
+            "apt-get update",
+            "apt-get install -y --no-install-recommends         curl         git         wget",
+            "rm -rf /var/lib/apt/lists/*"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-26T19:09:15Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 415199614,
+          "size_human": "415 MB",
+          "command_snippet": "RUN curl -fSL --output dotnet.tar.gz https:/...",
+          "command_all": "RUN curl -fSL --output dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-sdk-$DOTNET_SDK_VERSION-linux-x64.tar.gz && \\\n\tdotnet_sha512='8decbba0a6b09501daede52cbb5a9ae9e5f31ade201918c03efcd1b4cc345ec934f88321704ec3beb1f90f2204934be7259c76f66d9204cbdd15933582602763' && \\\n\techo \"$dotnet_sha512  dotnet.tar.gz\" | sha512sum -c - && \\\n\tmkdir -p /usr/share/dotnet && \\\n\ttar -oxzf dotnet.tar.gz -C /usr/share/dotnet ./packs ./sdk ./sdk-manifests ./templates ./LICENSE.txt ./ThirdPartyNotices.txt && \\\n\trm dotnet.tar.gz && \\\n\tdotnet help",
+          "system_commands": [
+            "curl -fSL --output dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-sdk-$DOTNET_SDK_VERSION-linux-x64.tar.gz",
+            "dotnet_sha512='8decbba0a6b09501daede52cbb5a9ae9e5f31ade201918c03efcd1b4cc345ec934f88321704ec3beb1f90f2204934be7259c76f66d9204cbdd15933582602763'",
+            "echo \"$dotnet_sha512  dotnet.tar.gz\" | sha512sum -c -",
+            "mkdir -p /usr/share/dotnet",
+            "tar -oxzf dotnet.tar.gz -C /usr/share/dotnet ./packs ./sdk ./sdk-manifests ./templates ./LICENSE.txt ./ThirdPartyNotices.txt",
+            "rm dotnet.tar.gz",
+            "dotnet help"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-26T19:09:19Z",
+          "is_last_instruction": true,
+          "is_nop": false,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 39076797,
+          "size_human": "39 MB",
+          "command_snippet": "RUN powershell_version=7.2.5 && \\\n\tcurl -fSL...",
+          "command_all": "RUN powershell_version=7.2.5 && \\\n\tcurl -fSL --output PowerShell.Linux.x64.$powershell_version.nupkg https://pwshtool.blob.core.windows.net/tool/$powershell_version/PowerShell.Linux.x64.$powershell_version.nupkg && \\\n\tpowershell_sha512='459fdc6efff0a5b38d1485b28ae97b39352011a237cbd0addd48390aa4caef87db25e8caab7c55b8e050b95f772df0712a3b29973504fcbae10df17aa6773af3' && \\\n\techo \"$powershell_sha512  PowerShell.Linux.x64.$powershell_version.nupkg\" | sha512sum -c - && \\\n\tmkdir -p /usr/share/powershell && \\\n\tdotnet tool install --add-source / --tool-path /usr/share/powershell --version $powershell_version PowerShell.Linux.x64 && \\\n\tdotnet nuget locals all --clear && \\\n\trm PowerShell.Linux.x64.$powershell_version.nupkg && \\\n\tln -s /usr/share/powershell/pwsh /usr/bin/pwsh && \\\n\tchmod 755 /usr/share/powershell/pwsh && \\\n\tfind /usr/share/powershell -print | grep -i '.*[.]nupkg$' | xargs rm",
+          "system_commands": [
+            "powershell_version=7.2.5",
+            "curl -fSL --output PowerShell.Linux.x64.$powershell_version.nupkg https://pwshtool.blob.core.windows.net/tool/$powershell_version/PowerShell.Linux.x64.$powershell_version.nupkg",
+            "powershell_sha512='459fdc6efff0a5b38d1485b28ae97b39352011a237cbd0addd48390aa4caef87db25e8caab7c55b8e050b95f772df0712a3b29973504fcbae10df17aa6773af3'",
+            "echo \"$powershell_sha512  PowerShell.Linux.x64.$powershell_version.nupkg\" | sha512sum -c -",
+            "mkdir -p /usr/share/powershell",
+            "dotnet tool install --add-source / --tool-path /usr/share/powershell --version $powershell_version PowerShell.Linux.x64",
+            "dotnet nuget locals all --clear",
+            "rm PowerShell.Linux.x64.$powershell_version.nupkg",
+            "ln -s /usr/share/powershell/pwsh /usr/bin/pwsh",
+            "chmod 755 /usr/share/powershell/pwsh",
+            "find /usr/share/powershell -print | grep -i '.*[.]nupkg$' | xargs rm"
+          ],
+          "raw_tags": [
+            "mcr.microsoft.com/dotnet/sdk:6.0"
+          ]
+        }
+      ]
+    },
+    {
+      "is_top_image": true,
+      "id": "sha256:b78b28aa10af8f0f6aeec8436e3e5d1e19760e6468976a1deb575608a9bd6acf",
+      "full_name": "slimkits/dot-net-core-6.0:hello",
+      "repo_name": "slimkits/dot-net-core-6.0",
+      "version_tag": "hello",
+      "raw_tags": [
+        "slimkits/dot-net-core-6.0:hello"
+      ],
+      "create_time": "2022-08-30T13:07:14Z",
+      "new_size": 44569816,
+      "new_size_human": "45 MB",
+      "base_image_id": "sha256:87851657143a9192b7653e7b145f32c30e34b921ca8d006d15b4514217d0f8ab",
+      "instructions": [
+        {
+          "type": "WORKDIR",
+          "time": "2022-08-30T12:59:07Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:6125663024bea14f5e48752fb19a656de2e429c9a9a31cbb9dfe557f009f089a",
+          "layer_index": 0,
+          "size": 0,
+          "params": "/app",
+          "command_snippet": "WORKDIR /app",
+          "command_all": "WORKDIR /app",
+          "system_commands": [
+            "mkdir -p /app"
+          ]
+        },
+        {
+          "type": "COPY",
+          "time": "2022-08-30T12:59:07Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:49c04cbe9579f8864dc9116296664139f3ead87ec808e3d1fb6e4b62c58d8540",
+          "layer_index": 0,
+          "size": 314,
+          "size_human": "314 B",
+          "params": "file:ea29807e8e317df3ef8a74fe3b041a5b272ace8d1cde857d756fdd15317497b8 in ./",
+          "command_snippet": "COPY file:ea29807e8e317df3ef8a74fe3b041a5b27...",
+          "command_all": "COPY file:ea29807e8e317df3ef8a74fe3b041a5b272ace8d1cde857d756fdd15317497b8 ./",
+          "target": "./",
+          "source_type": "file"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-30T12:59:12Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:6a1be12fb88f20776286cfaa9e6365a70820da039a649ffec0d636b2c09f1b8c",
+          "layer_index": 0,
+          "size": 28237500,
+          "size_human": "28 MB",
+          "command_snippet": "RUN dotnet restore",
+          "command_all": "RUN dotnet restore",
+          "system_commands": [
+            "dotnet restore"
+          ]
+        },
+        {
+          "type": "COPY",
+          "time": "2022-08-30T13:07:08Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:6f76da58a4cec006d4bfd16966e1737d1954e8a276d248a1b33e6ea9d751f290",
+          "layer_index": 0,
+          "size": 31501,
+          "size_human": "32 kB",
+          "params": "dir:281d2ee35ce597e43750ce88c307c7bafcd4a75a174f88d08ea2f829bd768a1d in .",
+          "command_snippet": "COPY dir:281d2ee35ce597e43750ce88c307c7bafcd...",
+          "command_all": "COPY dir:281d2ee35ce597e43750ce88c307c7bafcd4a75a174f88d08ea2f829bd768a1d .",
+          "target": ".",
+          "source_type": "dir"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-30T13:07:13Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:65b35f4f5f719b548f8889e1f7fca498b5325c9a7d880e10d94eb1dfc4811dfd",
+          "layer_index": 0,
+          "size": 16300501,
+          "size_human": "16 MB",
+          "command_snippet": "RUN dotnet publish -c Release -o out",
+          "command_all": "RUN dotnet publish -c Release -o out",
+          "system_commands": [
+            "dotnet publish -c Release -o out"
+          ]
+        },
+        {
+          "type": "WORKDIR",
+          "time": "2022-08-30T13:07:13Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:d5d269aa48786d3efc45cf2a82d0e49e2370bf8621f464e9473d5cb81411c308",
+          "layer_index": 0,
+          "size": 0,
+          "params": "/app/out",
+          "command_snippet": "WORKDIR /app/out",
+          "command_all": "WORKDIR /app/out",
+          "system_commands": [
+            "mkdir -p /app/out"
+          ]
+        },
+        {
+          "type": "EXPOSE",
+          "time": "2022-08-30T13:07:13Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:15e9585277c1c5f5920d360fc560488fb5b165ff757c76780a9962aa3d5eebd7",
+          "layer_index": 0,
+          "size": 0,
+          "params": "5001",
+          "command_snippet": "EXPOSE 5001",
+          "command_all": "EXPOSE 5001"
+        },
+        {
+          "type": "ENTRYPOINT",
+          "time": "2022-08-30T13:07:14Z",
+          "is_last_instruction": true,
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"dotnet\",\"HelloApi.dll\",\"--urls=http://0.0.0.0:5001/\"]\n",
+          "command_snippet": "ENTRYPOINT [\"dotnet\",\"HelloApi.dll\",\"--urls=...",
+          "command_all": "ENTRYPOINT [\"dotnet\",\"HelloApi.dll\",\"--urls=http://0.0.0.0:5001/\"]\n",
+          "raw_tags": [
+            "slimkits/dot-net-core-6.0:hello"
+          ]
+        }
+      ]
+    }
+  ]
+}
