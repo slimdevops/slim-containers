@@ -1,0 +1,521 @@
+{
+  "version": "1.0",
+  "engine": "linux|Transformer|1.37.6|26a36c88a94c677efd734e874ba081dabb84a224|2022-04-23_06:03:56AM",
+  "containerized": false,
+  "host_distro": {
+    "name": "Pop!_OS",
+    "version": "22.04",
+    "display_name": "Pop!_OS 22.04 LTS"
+  },
+  "type": "build",
+  "state": "done",
+  "target_reference": "ruby3-rails7-hello-world-api",
+  "system": {
+    "type": "Linux",
+    "release": "5.19.0-76051900-generic",
+    "distro": {
+      "name": "Debian GNU/Linux",
+      "version": "11",
+      "display_name": "Debian GNU/Linux 11 (bullseye)"
+    }
+  },
+  "source_image": {
+    "identity": {
+      "id": "sha256:cbab9962ddb075743f455b845f3166125e3618eadbc7ee498c39db9ff296dd84",
+      "tags": [
+        "latest"
+      ],
+      "names": [
+        "ruby3-rails7-hello-world-api:latest"
+      ]
+    },
+    "size": 979590764,
+    "size_human": "980 MB",
+    "create_time": "2022-08-26T13:19:05Z",
+    "docker_version": "20.10.17",
+    "architecture": "amd64",
+    "exposed_ports": [
+      "3000/tcp"
+    ],
+    "os": "linux",
+    "env_vars": [
+      "PATH=/usr/local/bundle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "LANG=C.UTF-8",
+      "RUBY_MAJOR=3.1",
+      "RUBY_VERSION=3.1.2",
+      "RUBY_DOWNLOAD_SHA256=ca10d017f8a1b6d247556622c841fc56b90c03b1803f87198da1e4fd3ec3bf2a",
+      "GEM_HOME=/usr/local/bundle",
+      "BUNDLE_SILENCE_ROOT_WARNING=1",
+      "BUNDLE_APP_CONFIG=/usr/src/app/.bundle",
+      "RAILS_ENV=development"
+    ],
+    "container_entry": {
+      "exe_path": ""
+    }
+  },
+  "minified_image_size": 97459603,
+  "minified_image_size_human": "98 MB",
+  "minified_image": "ruby3-rails7-hello-world-api.slim",
+  "minified_image_has_data": true,
+  "minified_by": 10.051249275045786,
+  "artifact_location": "/tmp/docker-slim-state/.docker-slim-state/images/cbab9962ddb075743f455b845f3166125e3618eadbc7ee498c39db9ff296dd84/artifacts",
+  "container_report_name": "creport.json",
+  "seccomp_profile_name": "ruby3-rails7-hello-world-api-seccomp.json",
+  "apparmor_profile_name": "ruby3-rails7-hello-world-api-apparmor-profile",
+  "image_stack": [
+    {
+      "is_top_image": false,
+      "id": "sha256:e739755aa18e65b81c22d97f2f9b368b341745be7d26c7298f5d0ce1761ed94e",
+      "full_name": "ruby:latest",
+      "repo_name": "ruby",
+      "version_tag": "latest",
+      "raw_tags": [
+        "ruby:latest"
+      ],
+      "create_time": "2022-08-23T11:32:13Z",
+      "new_size": 892388653,
+      "new_size_human": "892 MB",
+      "instructions": [
+        {
+          "type": "ADD",
+          "time": "2022-08-23T00:20:40Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 124005660,
+          "size_human": "124 MB",
+          "params": "file:6944d322f4c04bd2192061822af5cbec8ac0a6b424c461d66174d32aed604972 in /",
+          "command_snippet": "ADD file:6944d322f4c04bd2192061822af5cbec8ac...",
+          "command_all": "ADD file:6944d322f4c04bd2192061822af5cbec8ac0a6b424c461d66174d32aed604972 /",
+          "target": "/",
+          "source_type": "file"
+        },
+        {
+          "type": "CMD",
+          "time": "2022-08-23T00:20:40Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"bash\"]\n",
+          "command_snippet": "CMD [\"bash\"]\n",
+          "command_all": "CMD [\"bash\"]\n"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-23T00:48:07Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 10696633,
+          "size_human": "11 MB",
+          "command_snippet": "RUN set -eux; \tapt-get update; \tapt-get inst...",
+          "command_all": "RUN set -eux; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tca-certificates \t\tcurl \t\tnetbase \t\twget \t; \trm -rf /var/lib/apt/lists/*",
+          "system_commands": [
+            "set -eux",
+            "apt-get update",
+            "apt-get install -y --no-install-recommends ca-certificates curl netbase wget",
+            "rm -rf /var/lib/apt/lists/*"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-23T00:48:13Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 18951759,
+          "size_human": "19 MB",
+          "command_snippet": "RUN set -ex; \tif ! command -v gpg > /dev/nul...",
+          "command_all": "RUN set -ex; \tif ! command -v gpg > /dev/null; then \t\tapt-get update; \t\tapt-get install -y --no-install-recommends \t\t\tgnupg \t\t\tdirmngr \t\t; \t\trm -rf /var/lib/apt/lists/*; \tfi",
+          "system_commands": [
+            "set -ex",
+            "if ! command -v gpg > /dev/null",
+            "then apt-get update",
+            "apt-get install -y --no-install-recommends gnupg dirmngr",
+            "rm -rf /var/lib/apt/lists/*",
+            "fi"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-23T00:48:29Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 151951946,
+          "size_human": "152 MB",
+          "command_snippet": "RUN apt-get update && \\\n\tapt-get install -y ...",
+          "command_all": "RUN apt-get update && \\\n\tapt-get install -y --no-install-recommends \t\tgit \t\tmercurial \t\topenssh-client \t\tsubversion \t\t\t\tprocps && \\\n\trm -rf /var/lib/apt/lists/*",
+          "system_commands": [
+            "apt-get update",
+            "apt-get install -y --no-install-recommends git mercurial openssh-client subversion procps",
+            "rm -rf /var/lib/apt/lists/*"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-23T00:49:15Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 528744539,
+          "size_human": "529 MB",
+          "command_snippet": "RUN set -ex; \tapt-get update; \tapt-get insta...",
+          "command_all": "RUN set -ex; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tautoconf \t\tautomake \t\tbzip2 \t\tdpkg-dev \t\tfile \t\tg++ \t\tgcc \t\timagemagick \t\tlibbz2-dev \t\tlibc6-dev \t\tlibcurl4-openssl-dev \t\tlibdb-dev \t\tlibevent-dev \t\tlibffi-dev \t\tlibgdbm-dev \t\tlibglib2.0-dev \t\tlibgmp-dev \t\tlibjpeg-dev \t\tlibkrb5-dev \t\tliblzma-dev \t\tlibmagickcore-dev \t\tlibmagickwand-dev \t\tlibmaxminddb-dev \t\tlibncurses5-dev \t\tlibncursesw5-dev \t\tlibpng-dev \t\tlibpq-dev \t\tlibreadline-dev \t\tlibsqlite3-dev \t\tlibssl-dev \t\tlibtool \t\tlibwebp-dev \t\tlibxml2-dev \t\tlibxslt-dev \t\tlibyaml-dev \t\tmake \t\tpatch \t\tunzip \t\txz-utils \t\tzlib1g-dev \t\t\t\t$( \t\t\tif apt-cache show 'default-libmysqlclient-dev' 2>/dev/null | grep -q '^Version:'; then \t\t\t\techo 'default-libmysqlclient-dev'; \t\t\telse \t\t\t\techo 'libmysqlclient-dev'; \t\t\tfi \t\t) \t; \trm -rf /var/lib/apt/lists/*",
+          "system_commands": [
+            "set -ex",
+            "apt-get update",
+            "apt-get install -y --no-install-recommends autoconf automake bzip2 dpkg-dev file g++ gcc imagemagick libbz2-dev libc6-dev libcurl4-openssl-dev libdb-dev libevent-dev libffi-dev libgdbm-dev libglib2.0-dev libgmp-dev libjpeg-dev libkrb5-dev liblzma-dev libmagickcore-dev libmagickwand-dev libmaxminddb-dev libncurses5-dev libncursesw5-dev libpng-dev libpq-dev libreadline-dev libsqlite3-dev libssl-dev libtool libwebp-dev libxml2-dev libxslt-dev libyaml-dev make patch unzip xz-utils zlib1g-dev $( if apt-cache show 'default-libmysqlclient-dev' 2>/dev/null | grep -q '^Version:'",
+            "then echo 'default-libmysqlclient-dev'",
+            "else echo 'libmysqlclient-dev'",
+            "fi )",
+            "rm -rf /var/lib/apt/lists/*"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-23T11:20:03Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 45,
+          "size_human": "45 B",
+          "command_snippet": "RUN set -eux; \tmkdir -p /usr/local/etc; \t{ \t...",
+          "command_all": "RUN set -eux; \tmkdir -p /usr/local/etc; \t{ \t\techo 'install: --no-document'; \t\techo 'update: --no-document'; \t} >> /usr/local/etc/gemrc",
+          "system_commands": [
+            "set -eux",
+            "mkdir -p /usr/local/etc",
+            "{ echo 'install: --no-document'",
+            "echo 'update: --no-document'",
+            "} >> /usr/local/etc/gemrc"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2022-08-23T11:20:03Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "LANG=C.UTF-8",
+          "command_snippet": "ENV LANG=C.UTF-8",
+          "command_all": "ENV LANG=C.UTF-8"
+        },
+        {
+          "type": "ENV",
+          "time": "2022-08-23T11:30:09Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "RUBY_MAJOR=3.1",
+          "command_snippet": "ENV RUBY_MAJOR=3.1",
+          "command_all": "ENV RUBY_MAJOR=3.1"
+        },
+        {
+          "type": "ENV",
+          "time": "2022-08-23T11:30:09Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "RUBY_VERSION=3.1.2",
+          "command_snippet": "ENV RUBY_VERSION=3.1.2",
+          "command_all": "ENV RUBY_VERSION=3.1.2"
+        },
+        {
+          "type": "ENV",
+          "time": "2022-08-23T11:30:09Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "RUBY_DOWNLOAD_SHA256=ca10d017f8a1b6d247556622c841fc56b90c03b1803f87198da1e4fd3ec3bf2a",
+          "command_snippet": "ENV RUBY_DOWNLOAD_SHA256=ca10d017f8a1b6d2475...",
+          "command_all": "ENV RUBY_DOWNLOAD_SHA256=ca10d017f8a1b6d247556622c841fc56b90c03b1803f87198da1e4fd3ec3bf2a"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-23T11:32:12Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 58038071,
+          "size_human": "58 MB",
+          "command_snippet": "RUN set -eux; \t\tsavedAptMark=\"$(apt-mark sho...",
+          "command_all": "RUN set -eux; \t\tsavedAptMark=\"$(apt-mark showmanual)\"; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tbison \t\tdpkg-dev \t\tlibgdbm-dev \t\truby \t; \trm -rf /var/lib/apt/lists/*; \t\twget -O ruby.tar.xz \"https://cache.ruby-lang.org/pub/ruby/${RUBY_MAJOR%-rc}/ruby-$RUBY_VERSION.tar.xz\"; \techo \"$RUBY_DOWNLOAD_SHA256 *ruby.tar.xz\" | sha256sum --check --strict; \t\tmkdir -p /usr/src/ruby; \ttar -xJf ruby.tar.xz -C /usr/src/ruby --strip-components=1; \trm ruby.tar.xz; \t\tcd /usr/src/ruby; \t\t{ \t\techo '#define ENABLE_PATH_CHECK 0'; \t\techo; \t\tcat file.c; \t} > file.c.new; \tmv file.c.new file.c; \t\tautoconf; \tgnuArch=\"$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)\"; \t./configure \t\t--build=\"$gnuArch\" \t\t--disable-install-doc \t\t--enable-shared \t; \tmake -j \"$(nproc)\"; \tmake install; \t\tapt-mark auto '.*' > /dev/null; \tapt-mark manual $savedAptMark > /dev/null; \tfind /usr/local -type f -executable -not \\( -name '*tkinter*' \\) -exec ldd '{}' ';' \t\t| awk '/=>/ { print $(NF-1) }' \t\t| sort -u \t\t| grep -vE '^/usr/local/lib/' \t\t| xargs -r dpkg-query --search \t\t| cut -d: -f1 \t\t| sort -u \t\t| xargs -r apt-mark manual \t; \tapt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \t\tcd /; \trm -r /usr/src/ruby; \tif dpkg -l | grep -i ruby; then exit 1; fi; \t[ \"$(command -v ruby)\" = '/usr/local/bin/ruby' ]; \truby --version; \tgem --version; \tbundle --version",
+          "system_commands": [
+            "set -eux",
+            "savedAptMark=\"$(apt-mark showmanual)\"",
+            "apt-get update",
+            "apt-get install -y --no-install-recommends bison dpkg-dev libgdbm-dev ruby",
+            "rm -rf /var/lib/apt/lists/*",
+            "wget -O ruby.tar.xz \"https://cache.ruby-lang.org/pub/ruby/${RUBY_MAJOR%-rc}/ruby-$RUBY_VERSION.tar.xz\"",
+            "echo \"$RUBY_DOWNLOAD_SHA256 *ruby.tar.xz\" | sha256sum --check --strict",
+            "mkdir -p /usr/src/ruby",
+            "tar -xJf ruby.tar.xz -C /usr/src/ruby --strip-components=1",
+            "rm ruby.tar.xz",
+            "cd /usr/src/ruby",
+            "{ echo '#define ENABLE_PATH_CHECK 0'",
+            "echo",
+            "cat file.c",
+            "} > file.c.new",
+            "mv file.c.new file.c",
+            "autoconf",
+            "gnuArch=\"$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)\"",
+            "./configure --build=\"$gnuArch\" --disable-install-doc --enable-shared",
+            "make -j \"$(nproc)\"",
+            "make install",
+            "apt-mark auto '.*' > /dev/null",
+            "apt-mark manual $savedAptMark > /dev/null",
+            "find /usr/local -type f -executable -not ( -name '*tkinter*' ) -exec ldd '{}' '",
+            "' | awk '/=>/ { print $(NF-1) }' | sort -u | grep -vE '^/usr/local/lib/' | xargs -r dpkg-query --search | cut -d: -f1 | sort -u | xargs -r apt-mark manual",
+            "apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false",
+            "cd /",
+            "rm -r /usr/src/ruby",
+            "if dpkg -l | grep -i ruby",
+            "then exit 1",
+            "fi",
+            "[ \"$(command -v ruby)\" = '/usr/local/bin/ruby' ]",
+            "ruby --version",
+            "gem --version",
+            "bundle --version"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2022-08-23T11:32:12Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "GEM_HOME=/usr/local/bundle",
+          "command_snippet": "ENV GEM_HOME=/usr/local/bundle",
+          "command_all": "ENV GEM_HOME=/usr/local/bundle"
+        },
+        {
+          "type": "ENV",
+          "time": "2022-08-23T11:32:12Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "BUNDLE_SILENCE_ROOT_WARNING=1 BUNDLE_APP_CONFIG=/usr/local/bundle",
+          "command_snippet": "ENV BUNDLE_SILENCE_ROOT_WARNING=1 BUNDLE_APP...",
+          "command_all": "ENV BUNDLE_SILENCE_ROOT_WARNING=1 BUNDLE_APP_CONFIG=/usr/local/bundle"
+        },
+        {
+          "type": "ENV",
+          "time": "2022-08-23T11:32:12Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "PATH=/usr/local/bundle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "command_snippet": "ENV PATH=/usr/local/bundle/bin:/usr/local/sb...",
+          "command_all": "ENV PATH=/usr/local/bundle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-23T11:32:13Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN mkdir -p \"$GEM_HOME\" && \\\n\tchmod 777 \"$G...",
+          "command_all": "RUN mkdir -p \"$GEM_HOME\" && \\\n\tchmod 777 \"$GEM_HOME\"",
+          "system_commands": [
+            "mkdir -p \"$GEM_HOME\"",
+            "chmod 777 \"$GEM_HOME\""
+          ]
+        },
+        {
+          "type": "CMD",
+          "time": "2022-08-23T11:32:13Z",
+          "is_last_instruction": true,
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"irb\"]\n",
+          "command_snippet": "CMD [\"irb\"]\n",
+          "command_all": "CMD [\"irb\"]\n",
+          "raw_tags": [
+            "ruby:latest"
+          ]
+        }
+      ]
+    },
+    {
+      "is_top_image": true,
+      "id": "sha256:cbab9962ddb075743f455b845f3166125e3618eadbc7ee498c39db9ff296dd84",
+      "full_name": "ruby3-rails7-hello-world-api:latest",
+      "repo_name": "ruby3-rails7-hello-world-api",
+      "version_tag": "latest",
+      "raw_tags": [
+        "ruby3-rails7-hello-world-api:latest"
+      ],
+      "create_time": "2022-08-26T13:19:05Z",
+      "new_size": 87202111,
+      "new_size_human": "87 MB",
+      "base_image_id": "sha256:e739755aa18e65b81c22d97f2f9b368b341745be7d26c7298f5d0ce1761ed94e",
+      "instructions": [
+        {
+          "type": "ENV",
+          "time": "2022-08-26T13:18:37Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:ae330f8d8056df52396fcac58ca6ca4fe33b8da85eee9f466146cea9f3236cde",
+          "layer_index": 0,
+          "size": 0,
+          "params": "RAILS_ENV=development",
+          "command_snippet": "ENV RAILS_ENV=development",
+          "command_all": "ENV RAILS_ENV=development"
+        },
+        {
+          "type": "ARG",
+          "time": "2022-08-26T13:18:37Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:f05ff78b6217c40918fdbb218ff8185216d6ad6db87250e4eb8d33959e0e912c",
+          "layer_index": 0,
+          "size": 0,
+          "params": "RAILS_ROOT=/usr/src/app",
+          "command_snippet": "ARG RAILS_ROOT=/usr/src/app",
+          "command_all": "ARG RAILS_ROOT=/usr/src/app"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-26T13:18:38Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:5dd98445c8213826cc18cf43fde09568d4afa9a9fb270e74e98d5d0ab490715c",
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN mkdir -p $RAILS_ROOT",
+          "command_all": "RUN mkdir -p $RAILS_ROOT",
+          "system_commands": [
+            "mkdir -p $RAILS_ROOT"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2022-08-26T13:18:38Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:39b903c613a22e485d2696e1554f804daa8cf937562a6d7e41b0bc838c381058",
+          "layer_index": 0,
+          "size": 0,
+          "params": "BUNDLE_APP_CONFIG=/usr/src/app/.bundle",
+          "command_snippet": "ENV BUNDLE_APP_CONFIG=/usr/src/app/.bundle",
+          "command_all": "ENV BUNDLE_APP_CONFIG=/usr/src/app/.bundle"
+        },
+        {
+          "type": "WORKDIR",
+          "time": "2022-08-26T13:18:38Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:cebd3cbe1eaa5256f606eff623972a1e4920dd5c2651c3de5114a81b606cc861",
+          "layer_index": 0,
+          "size": 0,
+          "params": "/usr/src/app",
+          "command_snippet": "WORKDIR /usr/src/app",
+          "command_all": "WORKDIR /usr/src/app",
+          "system_commands": [
+            "mkdir -p /usr/src/app"
+          ]
+        },
+        {
+          "type": "COPY",
+          "time": "2022-08-26T13:18:39Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:92b261820c8587da0a330e2a2cd288cc986007aca9877a4e840d260249af452c",
+          "layer_index": 0,
+          "size": 8555617,
+          "size_human": "8.6 MB",
+          "params": "dir:c104554a4f8cddc020aadc81bbec1b1b9b9c7e4ed44d8c929871376b1622607e in .",
+          "command_snippet": "COPY dir:c104554a4f8cddc020aadc81bbec1b1b9b9...",
+          "command_all": "COPY dir:c104554a4f8cddc020aadc81bbec1b1b9b9c7e4ed44d8c929871376b1622607e .",
+          "target": ".",
+          "source_type": "dir"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-26T13:18:40Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:3366a7dbcdde9fa8293ddd07ce976f97b750c60b97b8e2f5dc66b15b28297dce",
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN rm -f Gemfile.lock",
+          "command_all": "RUN rm -f Gemfile.lock",
+          "system_commands": [
+            "rm -f Gemfile.lock"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-26T13:19:03Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:aa9884b22def0b812e56340c87da4288045bf3fa879499a1149655cf33e4a69e",
+          "layer_index": 0,
+          "size": 78646357,
+          "size_human": "79 MB",
+          "command_snippet": "RUN bundle install",
+          "command_all": "RUN bundle install",
+          "system_commands": [
+            "bundle install"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-26T13:19:05Z",
+          "is_nop": false,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:1c79149aa6a96535daa9f415a0632040c4574297b6e2139bd1c02362f7a3adf3",
+          "layer_index": 0,
+          "size": 137,
+          "size_human": "137 B",
+          "command_snippet": "RUN chmod +x bin/start",
+          "command_all": "RUN chmod +x bin/start",
+          "system_commands": [
+            "chmod +x bin/start"
+          ]
+        },
+        {
+          "type": "EXPOSE",
+          "time": "2022-08-26T13:19:05Z",
+          "is_nop": true,
+          "local_image_exists": true,
+          "intermediate_image_id": "sha256:a478e4653ddc04173d4a54063f4f3e65208a0f03d58361c23000c8d0ca3dad23",
+          "layer_index": 0,
+          "size": 0,
+          "params": "3000",
+          "command_snippet": "EXPOSE 3000",
+          "command_all": "EXPOSE 3000"
+        },
+        {
+          "type": "CMD",
+          "time": "2022-08-26T13:19:05Z",
+          "is_last_instruction": true,
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"bin/start\"]\n",
+          "command_snippet": "CMD [\"bin/start\"]\n",
+          "command_all": "CMD [\"bin/start\"]\n",
+          "raw_tags": [
+            "ruby3-rails7-hello-world-api:latest"
+          ]
+        }
+      ]
+    }
+  ]
+}
