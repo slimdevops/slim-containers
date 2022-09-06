@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  nginx_server:
+    # build: .
+    image: slimkits/nginx-node-hello-nginx-server:latest
+    restart: unless-stopped
+    ports:
+      - 80:80
+    networks:
+      -  hello-network
+
+  node_server:
+    # build: ./node-app/.
+    image: slimkits/nginx-node-hello-node-server:latest
+    restart: unless-stopped
+    networks:
+      -  hello-network
+
+networks:
+  hello-network:
