@@ -1,8 +1,8 @@
-# Slim Starter Pack: Node Js
+# Slim Starter Pack: Node.js
 [LINK TO SLIMAI](https://portal.slim.dev/home/profile/dockerhub%3A%2F%2Fdockerhub.public%2Flibrary%2Fnode%3Alatest)
 [LINK TO IMAGE ON DOCKERHUB](https://hub.docker.com/_/node)
 
-Attention Node JS develeopers! 
+Attention Node.js develeopers! 
 
 Optimize and harden your containerized applications the easy way — with Slim.AI. 
 
@@ -22,7 +22,7 @@ Slimming this Node JS container results in a 85% reduction in attack surface wit
 
 
 # Get Started
-To start this dockerized Node Js application, all you will need is a running Docker daemon. From there, running your this app requires just two simple commands from the app directory .
+To start this dockerized Node Js application, all you will need is a running Docker daemon. From there, running your this app requires just two simple commands executed in the app directory.
   
 ```bash
   docker build -t node-website .
@@ -38,7 +38,7 @@ Our sample application is a self-hosted version of the official Node Js website.
 Replace this placholder code with your own application code and install any necessary dependencies to create your own slimmable container. 
 
 ## Sample Dockerfile
-Our Dockerfile builds off of the `node:16` image build the site.
+Our Dockerfile builds off of the `node:16` base image.
   
   ```Dockerfile
   FROM node:16
