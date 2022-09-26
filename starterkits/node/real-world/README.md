@@ -2,7 +2,7 @@
 [LINK TO SLIMAI](https://portal.slim.dev/home/profile/dockerhub%3A%2F%2Fdockerhub.public%2Flibrary%2Fnode%3Alatest)
 [LINK TO IMAGE ON DOCKERHUB](https://hub.docker.com/_/node)
 
-Attention Node js develeopers! 
+Attention Node JS develeopers! 
 
 Optimize and harden your containerized applications the easy way — with Slim.AI. 
 
@@ -18,11 +18,8 @@ No more chasing down hard to patch vulns that your application isn't even using.
 ## Overall results
 ![Result of minify Node Js](results.png)
 
-Slimming this <Framework> container results in a **TK**% reduction in overall vulnerabilities. 
+Slimming this Node JS container results in a 85% reduction in attack surface with 0 new code!
 
-## Vulnerability difference by severity 
-
-[See the full report.](https://www.slim.ai/starter-kits/<framework>)
 
 # Get Started
 To start this dockerized Node Js application, all you will need is a running Docker daemon. From there, running your this app requires just two simple commands from the app directory .
