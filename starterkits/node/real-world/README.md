@@ -16,13 +16,13 @@ No more chasing down hard to patch vulns that your application isn't even using.
 
 
 ## Overall results
-![Result of minify Node Js](results.png)
+![Result of minify Node.js](results.png)
 
-Slimming this Node JS container results in a 85% reduction in attack surface with 0 new code!
+Slimming this Node.js container results in a 85% reduction in attack surface with 0 new code!
 
 
 # Get Started
-To start this dockerized Node Js application, all you will need is a running Docker daemon. From there, running your this app requires just two simple commands executed in the app directory.
+To start this dockerized Node.js application, all you will need is a running Docker daemon. From there, running your this app requires just two simple commands executed in the app directory.
   
 ```bash
   docker build -t node-website .
