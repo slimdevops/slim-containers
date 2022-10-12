@@ -1,0 +1,2 @@
+#this is the call to Dockerslim that is executed in the Slim Cloud to harden this container!
+docker-slim build --include-path /usr/local/go/src/unsafe --expose 8080 --target scicchino/go-hello-world:original --tag scicchino/go-hello-world:slim

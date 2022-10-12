@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export PORT="{{cfg.port}}"
+exec simple-go-app
