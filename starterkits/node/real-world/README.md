@@ -4,7 +4,9 @@
 
 Attention Node.js develeopers! 
 
-Optimize and harden your containerized applications the easy way — with Slim.AI. 
+Optimize and harden 
+
+containerized applications the easy way — with Slim.AI. 
 
 This Starter Kit will help you proactively remove vulnerabilities from your applications. 
 
@@ -22,14 +24,14 @@ Slimming this Node.js container results in a 85% reduction in attack surface wit
 
 
 # Get Started
-To start this dockerized Node.js application, all you will need is a running Docker daemon. From there, running your this app requires just two simple commands executed in the app directory.
+To start this dockerized Node.js application, all you will need is a running Docker daemon. From there, running this app requires just two simple commands executed in the app directory.
   
 ```bash
   docker build -t node-website .
   docker run -dp 8080:8080 node-website
 ```
 
-From there, all you need to do is navigate to localhost:8080 on your host machine. 
+From there, navigate to localhost:8080 on your host machine to view the website. 
 
 ## Sample Application
 Our sample application is a self-hosted version of the official Node Js website. You can find the code [here](https://github.com/nodejs/nodejs.org).
