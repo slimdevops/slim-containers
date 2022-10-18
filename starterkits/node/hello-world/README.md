@@ -23,7 +23,7 @@ Slimming this Node.js container results in a 90% reduction in container size, me
 
 ## Vulnerability difference by severity 
 
-![Vulnerability diff.](node-hw-vuln-diff.png)
+![Vulnerability diff.](node-hw-vuln-diff.PNG)
 
 
 # Get Started
