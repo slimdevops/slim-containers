@@ -23,7 +23,7 @@ Slimming this Node.js container results in a 90% reduction in container size, me
 
 ## Meta Data difference by severity 
 
-![Meta diff.](node-hw-meta-diff.PNG)
+![Meta diff.](node-hw-meta-diff.png)
 
 
 # Get Started
