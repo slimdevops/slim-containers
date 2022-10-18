@@ -21,9 +21,9 @@ No more chasing down hard to patch vulns that your application isn't even using.
 
 Slimming this Node.js container results in a 90% reduction in container size, meaning a significantly reduced attack surface while requiring 0 new code!
 
-## Vulnerability difference by severity 
+## Meta Data difference by severity 
 
-![Vulnerability diff.](node-hw-vuln-diff.PNG)
+![Meta diff.](node-hw-meta-diff.PNG)
 
 
 # Get Started
