@@ -20,7 +20,7 @@ Slimming this Rust container results in a **100**% reduction in overall vulnerab
 
 ## Vulnerability difference by severity 
 
-[Report](rust-vuln-diff.PNG)
+![Report](rust-vuln-diff.PNG)
 
 # Get Started
 To start this Rust application, all you need is to clone this repository in an environment with a running Docker daemon, navigate to the app folder and use these two commands to run the server.
