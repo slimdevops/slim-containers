@@ -1,0 +1,1 @@
+/home/sc/slim-containers/slim-containers/starterkits/rust/hello-world/app/target/debug/Slim-Cloud-Native-Webserver: /home/sc/slim-containers/slim-containers/starterkits/rust/hello-world/app/src/main.rs

@@ -1,0 +1,4 @@
+[package]
+name = "slim-cloud-native-webserver"
+version = "0.1.0"
+authors = ["Steven <steven.cicchino@slim.ai>"]
