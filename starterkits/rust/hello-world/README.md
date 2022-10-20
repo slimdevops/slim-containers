@@ -14,13 +14,13 @@ No more chasing down hard to patch vulns that your application isn't even using.
 
 
 ## Overall results
-![Result of minify Rust](rust-hw-optimized.png)
+![Result of minify Rust](rust-hw-optimized.PNG)
 
 Slimming this Rust container results in a **100**% reduction in overall vulnerabilities. 
 
 ## Vulnerability difference by severity 
 
-[Report](rust-vuln-diff.png)
+[Report](rust-vuln-diff.PNG)
 
 # Get Started
 To start this Rust application, all you need is to clone this repository in an environment with a running Docker daemon, navigate to the app folder and use these two commands to run the server.
