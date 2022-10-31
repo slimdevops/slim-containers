@@ -18,9 +18,9 @@ Can you help them find all the secrets?
 
 # The Clues 
 ## Clue 1: Beware Secrets in Production: They May Come Posed In Unusual Places
-Arise, minions, you must get UP  \n
-And when you do, your secrets could be shared \n
-If the hosts can manage a solution, \n
+Arise, minions, you must get UP
+And when you do, your secrets could be shared
+If the hosts can manage a solution, 
 Their secrets are ours fair and square. 
 
 ## Clue 2: To Pass This Test, You Must Check Your Sources
