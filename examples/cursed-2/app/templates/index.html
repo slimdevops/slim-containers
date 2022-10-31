@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Cursed Containers 2</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+      </head>
+    <body class="bg-amber text-sans text-zinc-800">
+        <div class="container">
+            <div> 
+                <ul class="" >
+                {% for k,v in data.tests.iteritems() %}
+                    <li>{{k}}: {% if v %} 🐶 {% else %} 👻 {% endif %}</li> 
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div>
+            <img src="{{i}}.png" /> 
+        </div>
+    </body>
+</html>
