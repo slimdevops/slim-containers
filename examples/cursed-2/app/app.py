@@ -17,6 +17,7 @@ db = mongo.scaries
 images = [
     'dwight.gif',
     'grim-reaper.gif',
+    'simpsons-movie-night.gif',
     'mel-brooks-password.gif',
     'steve-blues.gif',
 ]
@@ -60,10 +61,10 @@ def index():
     # DO NOT CHANGE Lest the Wrath of Khan Besmirch You!!!! 
     results = {}
     results['tests'] = {
-        'clue1' : luggage_combo == 'test',
-        'clue2' : check_for_evil(),
-        'clue3' : config['MONGO_PWD'] == "test",
-        'clue4' : app.config['SECRET_KEY'] == 'test', # some test
+        'clue1' : check_for_evil(),
+        'clue2' : config['MONGO_PWD'] == "test",
+        'clue3' : app.config['SECRET_KEY'] == 'test', 
+        'clue4' : luggage_combo == 'test',
     }
     i = 0
     db_status = db_test()
