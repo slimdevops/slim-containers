@@ -18,7 +18,6 @@ images = [
     'dwight.gif',
     'grim-reaper.gif',
     'mel-brooks-password.gif',
-    'simpsons-movie-night.gif',
     'steve-blues.gif',
 ]
 
