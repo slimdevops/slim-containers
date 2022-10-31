@@ -17,30 +17,31 @@ Thus, our two hosts "Not Jeff" (Martin) and "Not Blue" (Steven) must make sure t
 Can you help them find all the secrets? 
 
 # The Clues 
-## Clue 1: Beware Secrets in Production: They May Come Posed In Unusual Places
-Arise, minions, you must get UP  
-And when you do, your secrets could be shared   
-If the hosts can manage a solution,  
-Their secrets are ours fair and square.  
 
-## Clue 2: To Pass This Test, You Must Check Your Sources
+
+## Clue 1: To Pass This Test, You Must Check Your Sources
 File, file, toil and bile,   
 Potions brew, programs compile.   
 When this brew gets pushed to Git,  
 You secrets are mine; you must submit!  
 
-## Clue 3: Finding This Secret Will Make You the ENVy Of the Neighborhood
+## Clue 2: Finding This Secret Will Make You the ENVy Of the Neighborhood
 Like Clue 2 but more dark and dreary,   
 Hidden from view and full of worry.   
 A careless COPY is all we need  
 To get the secrets in this deed.  
 
-## Clue 4: 
+## Clue 3: The Secrets Are IN the House!   
 This key secures the your treats from dirty little tricks,  
 But hiding it from view takes some random little flicks.  
 My powers wane and they are hard to code;   
 If this secret is found, I'll hit the road.  
 
+## Clue 4: Beware Secrets in Production: They May Come Posed In Unusual Places
+Arise, minions, you must get UP  
+And when you do, your secrets could be shared   
+If the hosts can manage a solution,  
+Their secrets are ours fair and square.  
 
 ## Bonus Clue 5: Beware New Builds, They Can Be A Fright
 So you have a safe container  
