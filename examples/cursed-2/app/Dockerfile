@@ -1,10 +1,9 @@
 FROM python:3.9.7
 
 WORKDIR /app
-COPY --chown=dracula . .
+COPY . .
 RUN pip install -r requirements.txt
-ENV EVIL=True 
+ENV EVIL="True" 
 
-USER dracula
-EXPOSE 5000
+EXPOSE 5001
 ENTRYPOINT ["python", "app.py"]

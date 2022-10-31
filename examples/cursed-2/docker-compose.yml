@@ -2,35 +2,25 @@ version: '3'
 services:
   mongo:
     image: mongo:latest
-    env-file: ./app/.env
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PWD}
     ports:
     - 27017:27017
     volumes:
-    - mongo_vol:/data/db
-    networks: 
-    - secret
+    - ./data/db:/data/db
 
   app: 
     container_name: app
-    restart: unless-stopped
     depends_on:
     - mongo
     build: ./app/.
     ports:
-    - "5000:5000"
+    - "5001:5001"
     environment: 
-        LUGGAGE_COMBO: "12345"
-    volumes:
-    networks: 
-    - secret
-
-networks: 
-    secret:
+        TRUNK_COMBO: "12345"
     
 volumes:
-    mongo_vol: 
+    mongo_vol:
     
     

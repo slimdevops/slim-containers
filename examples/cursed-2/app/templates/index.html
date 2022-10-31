@@ -5,18 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.tailwindcss.com"></script>
       </head>
-    <body class="bg-amber text-sans text-zinc-800">
-        <div class="container">
+    <body class="bg-amber-500 text-sans text-zinc-800">
+        <div class="container w-full my-12">
+            <div class="w-full">
+                <h3>Database is working: {{ db_status }}</h3>
+            </div>
             <div> 
-                <ul class="" >
-                {% for k,v in data.tests.iteritems() %}
-                    <li>{{k}}: {% if v %} 🐶 {% else %} 👻 {% endif %}</li> 
+                <ul class="w-1/2 mx-auto" >
+                {% for k,v in results.tests.items() %}
+                    <li class="text-xl my-4">{{k}}: {% if v %} 🐶 {% else %} 👻 {% endif %}</li> 
                 {% endfor %}
                 </ul>
             </div>
-        </div>
-        <div>
-            <img src="{{i}}.png" /> 
+        
+            <div class="w-1/4 float-right flex">
+                <img src="/static/{{images[i]}}" /> 
+            </div>
         </div>
     </body>
 </html>

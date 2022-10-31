@@ -5,42 +5,51 @@ import datetime as dt
 from pymongo import MongoClient
 from dotenv import dotenv_values
 import os 
+from flask_cors import CORS
 
 config = dotenv_values(".env")
 
-MONGO_URI = "%s:%s@mongo:27017" % (config['MONGO_USER'],config['MONGO_PWD'])
+MONGO_URI = "mongodb://%s:%s@0.0.0.0:27017/scaries" % (config['MONGO_USER'],config['MONGO_PWD'])
 
 mongo = MongoClient(MONGO_URI)
 db = mongo.scaries
 
 images = [
-    'image1.png',
-    'image2.png',
-    'image3.png',
-    'image4.png'
+    'dwight.gif',
+    'grim-reaper.gif',
+    'mel-brooks-password.gif',
+    'simpsons-movie-night.gif',
+    'steve-blues.gif',
 ]
-
-db.images.insert(first_record)
 
 secret_key = "sk3let0n"
 
 logging.basicConfig(encoding='utf-8', level=logging.DEBUG)
 
-luggage_combo = os.environ('COMBINATION_ON_MY_LUGGAGE')
+try: 
+    luggage_combo = os.environ['TRUNK_COMBO']
+except: 
+    luggage_combo = '12345'
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secret_key
+CORS(app)
 
 def db_test(): 
     try: 
         record = {"images": images}
-        insert_id = db.images.insert(record)
+        insert_id = db.images.insert_one(record)
         return True
     except:
         return False
 
-def check_for_evil(): 
-    if os.environ('EVIL') == True or os.environ('EVIL') == 'test': 
+def check_for_evil():
+    # try: 
+    #     evil_kw = os.environ['EVIL']
+    # except: 
+    #     evil_kw = False
+    evil_kw = os.environ['EVIL']
+    if evil_kw == "True" or evil_kw == 'test': 
         print("I solemnly swear I'm up to no good.")
         return False
     else: 
@@ -54,15 +63,16 @@ def index():
     results['tests'] = {
         'clue1' : luggage_combo == 'test',
         'clue2' : check_for_evil(),
-        'clue3' : config['MONGO_PW'] == "test",
-        'clue4' : app.config['SECRET+KEY'] != 'test', # some test
-        'db-test': db_test()
+        'clue3' : config['MONGO_PWD'] == "test",
+        'clue4' : app.config['SECRET_KEY'] == 'test', # some test
     }
     i = 0
-    for k,v in results['tests'].iteritems(): 
+    db_status = db_test()
+    for k,v in results['tests'].items(): 
         if v: i=i+1
-    return render_template("index.html",results=results)
+    return render_template("index.html",results=results, db_status=db_status, i=i, images=images)
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5001, debug=True)
+    # app.run(port=5000, debug=True)
