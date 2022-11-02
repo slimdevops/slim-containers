@@ -73,12 +73,13 @@ db:
 
 Let’s take a dive into what is inside these containers. Using the Slim SaaS platform, we can generate multi-scanner vulnerability reports for each of these containers, view container meta-data, and gather other important insights. Here is a quick table summarizing our findings
 
-|container|size|packages|vulnerabilities
-|frontend|37.6|6|50|
-|sidecar|5.6|14|71|
-|go|34.9|18|30|
-|mongo|497|120|290|
-|total|575.1|158|441|
+|container|size|packages|vulnerabilities|
+|----- | ----- | ---- | ---- | 
+|frontend|37.6 MB|6|50|
+|sidecar|5.6 MB|14|71|
+|go|34.9 MB|18|30|
+|mongo|497 MB|120|290|
+|total|575.1 MB|158|441|
 
 As we can see, the first 3 containers in our stack are relatively slim already, sitting at under 40 MB each. Despite this, scans have detected 38 vulnerabilities, so another round of hardening could be beneficial.
 
