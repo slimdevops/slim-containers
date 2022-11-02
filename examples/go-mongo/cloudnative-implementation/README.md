@@ -105,5 +105,7 @@ After running our containers through the slimming process, let’s see what our 
 Using grype vulnerability scans, we can see huge improvements in the total stack.
 
 Vulnerabilities: 441 -> 2, nearly a 100% improvement!
+
 Packages: 158 -> 26, an 83% reduction!
+
 Size: 575 MB -> 296 MB, bringing our final size to nearly one half the original!
