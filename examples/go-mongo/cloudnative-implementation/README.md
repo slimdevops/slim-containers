@@ -95,8 +95,11 @@ Some extra settings are needed to harden our more complex Go and Mongo container
 After running our containers through the slimming process, let’s see what our new stack looks like.
 
 [API]( https://hub.docker.com/repository/docker/scicchino/go-to-do-api-slim)
+
 [Frontend](https://hub.docker.com/repository/docker/scicchino/go-to-do-frontend-slim)
+
 [Frontend Sidecar](https://hub.docker.com/repository/docker/scicchino/env-to-js-sidecar-slim)
+
 [Database](https://hub.docker.com/repository/docker/scicchino/go-mongo-slim)
 
 Using grype vulnerability scans, we can see huge improvements in the total stack.
