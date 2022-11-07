@@ -13,7 +13,7 @@ Simply replace the application code here with your own application, run it throu
 No more chasing down hard to patch vulns that your application isn't even using, and you can use any base image you want — even `python:latest`. 
 
 # Optimization Results
-![Result of optimized Python image](results.png)
+![Result of optimized Python image](python-vuln-results.PNG)
 
 Slimming this Python container results in 100-percent reduction in overall vulnerabilities. 
 
@@ -58,6 +58,6 @@ Replace this placholder code with your own application code, and install any nec
 ## Sample Dockerfile
 Our Dockerfile builds off of the `python:latest` image and starts at **951 MB**. The slimming process reduces the size by **15X** to just **61 MB**. 
 
-![Graph of size reduction](results-size.png)
+![Graph of size reduction](python-results.PNG)
 
 [See the full report on Slim.AI](https://portal.slim.dev/... )
