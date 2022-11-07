@@ -19,7 +19,7 @@ Once the build finishes, simply navigate to localhost:8080 to see the app.
 
 ## App Overview
 
-![working app](go-to-do.PNG)
+![working app](go-to-do-app.PNG)
 
 First, let’s walk through our unhardened app.
 
