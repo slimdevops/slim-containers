@@ -8,7 +8,7 @@ Optimize and harden your containerized applications the easy way — with Slim.A
 
 This Starter Kit will help you proactively remove vulnerabilities from your applications. 
 
-Simply replace the application code here with your own application, run it through Slim.AI's [automated container optimization](https://www.slim.ai/docs/optimization) process, and you'll remove up to 90-percent of the image's vulnerabilities while also making it up to 30X smaller. 
+Simply replace the application code here with your own application, run it through Slim.AI's [automated container optimization](https://www.slim.ai/docs/optimization) process, and you'll remove up to 90-percent of the image's vulnerabilities while also making it up to 15X smaller. 
 
 No more chasing down hard to patch vulns that your application isn't even using, and you can use any base image you want — even `python:latest`. 
 
@@ -56,7 +56,7 @@ def hello():
 Replace this placholder code with your own application code, and install any necessary dependencies, to create your own slimmable container. 
 
 ## Sample Dockerfile
-Our Dockerfile builds off of the `python:latest` image and starts at **943 MB**. The slimming process reduces the size by **33X** to just **28 MB**. 
+Our Dockerfile builds off of the `python:latest` image and starts at **951 MB**. The slimming process reduces the size by **15X** to just **61 MB**. 
 
 ![Graph of size reduction](results-size.png)
 
