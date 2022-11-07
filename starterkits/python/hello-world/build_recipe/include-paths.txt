@@ -1,1 +1,0 @@
-# file paths telling DockerSlim what to keep in a container
