@@ -56,7 +56,21 @@ def hello():
 Replace this placholder code with your own application code, and install any necessary dependencies, to create your own slimmable container. 
 
 ## Sample Dockerfile
-Our Dockerfile builds off of the `python:latest` image and starts at **951 MB**. The slimming process reduces the size by **15X** to just **61 MB**. 
+Our Dockerfile builds off of the `python:latest` image and starts at **951 MB**.
+
+```Dockerfile
+FROM python:latest
+
+COPY ./app /app
+
+RUN pip install -r /app/requirements.txt
+
+EXPOSE 5000
+
+ENTRYPOINT ["python","/app/app.py"]
+```
+
+The slimming process reduces the size by **15X** to just **61 MB**. 
 
 ![Graph of size reduction](python-results.PNG)
 
