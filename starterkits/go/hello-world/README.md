@@ -27,7 +27,7 @@ Slimming this Go container results in a **99**% reduction in overall vulnerabili
 ![report](go-vuln-diff.png)
 
 # Get Started
-To start a this Go application, all you will need is a running Docker daemon and a cloned version of this repository. Our samle application is a simple Hello-World go web server.
+To start a this Go application, all you will need is a running Docker daemon and a cloned version of this repository. Our sample application is a simple Hello-World go web server.
 ```
 Dockerfile
 |- app
