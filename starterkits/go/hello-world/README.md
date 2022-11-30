@@ -2,7 +2,7 @@
 [LINK TO SLIMAI](https://portal.slim.dev/home/profile/dockerhub%3A%2F%2Fdockerhub.public%2Flibrary%2Fgolang%3Alatest)
 [LINK TO IMAGE ON DOCKERHUB](https://hub.docker.com/_/golang)
 
-Attention Go develeopers! 
+Attention Go developers! 
 
 Optimize and harden your containerized applications the easy way — with Slim.AI. 
 
@@ -27,7 +27,7 @@ Slimming this Go container results in a **99**% reduction in overall vulnerabili
 ![report](go-vuln-diff.png)
 
 # Get Started
-To start a this Go application, all you will need is a running Docker daemon and a cloned version of this repository. Our sample application is a simple Hello-World go web server.
+To start this Go application, all you will need is a running Docker daemon and a cloned version of this repository. Our sample application is a simple Hello-World go web server.
 ```
 Dockerfile
 |- app
@@ -61,6 +61,8 @@ RUN go get .
 
 CMD ["go", "run", "main.go"]
 ```
+
+
 
 
 
