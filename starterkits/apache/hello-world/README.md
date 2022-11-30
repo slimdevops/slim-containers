@@ -18,16 +18,17 @@ No more chasing down hard to patch vulns that your application isn't even using.
 
 
 ## Overall results
-![Result of minify Go](apache-hw-meta-diff.PNG)
+![Result of minify Apache](apache-hw-meta-diff.PNG)
 
-Slimming this Go container results in a **99**% reduction in overall vulnerabilities. 
+Slimming this httpd container resulted in a more than 16X minification factor!
 
 ## Vulnerability difference by severity 
 
-![report](apache-vuln-diff.png)
+![report](apache-vuln-diff.PNG)
 
+In the process, we have eliminated all of our detected vulnerabilities!
 # Get Started
-To start a this Go application, all you will need is a running Docker daemon and a cloned version of this repository. Our samle application is a simple Hello-World go web server.
+To start a this Apache application, all you will need is a running Docker daemon and a cloned version of this repository. Our sample application is a simple Hello-World Apache web server.
 ```Dockerfile
 |- app
 |-- Dockerfile
@@ -35,7 +36,7 @@ To start a this Go application, all you will need is a running Docker daemon and
 |--- index.html
 ```
 
-Replace this placholder code with your own application code, and install any necessary dependencies, to create your own slimmable container. 
+Replace this placeholder code with your own application code, and install any necessary dependencies, to create your own slimmable container. 
 
 ## Sample Dockerfile
 Our original Dockerfile builds off of the `httpd:2.4` image to create a the pre-hardened app.
@@ -45,6 +46,10 @@ FROM httpd:2.4
 COPY ./website/ /usr/local/apache2/htdocs/
 ```
 
+Frome there, its a simple command to run the app and check out the webpage!
 
+```bash
+docker run -dp 80:80 <container image name>
+```
 
-
+Just visit localhost:80 to see for yourself.
