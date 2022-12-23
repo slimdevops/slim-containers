@@ -47,6 +47,9 @@ Get started by checking out our [Cursed Containers Halloween Special](/examples/
 
 Need help getting started? Want to recommendation our next Starter Kit? Other burning container questions? Get in touch with the employees at Slim.ai and our other community members through our [community discord](https://discord.com/invite/uBttmfyYNB).
 
+![slim team](/images/slim-team.png)
+
+
 
 
 
