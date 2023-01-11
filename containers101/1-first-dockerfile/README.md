@@ -224,6 +224,13 @@ Let use a ready-made Python enable container, which is based on Debian
   * https://hub.docker.com/_/python
 
 ## 1. Creating a Dockerfile
+You'll need to create a `Dockerfile` text file using your favorite text editor -- in my case, `nano`. 
+
+```
+nano Dockerfile
+```
+
+The text of the Dockerfile should be this. 
 
 ```
 FROM python:3-slim
