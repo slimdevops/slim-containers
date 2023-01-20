@@ -143,7 +143,7 @@ Let's install the best editor and `git`.
 
 ## 2. Adding our application
 
-Here a simple pure Python app.
+Here a simple pure Python app that I built.
 
 `git clone https://github.com/wimpysworld/redirect-livechat.git`
 
