@@ -61,7 +61,9 @@ Replace this placholder code with your own application code and install any nece
 Our Dockerfile builds off of the `node:16` base image.
   
   ```Dockerfile
-FROM node:latest WORKDIR /usr/src/app 
+FROM node:latest 
+
+WORKDIR /usr/src/app 
 
 COPY package*.json ./ 
 
